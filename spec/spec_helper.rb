@@ -28,7 +28,8 @@ module Merb
       
       # Whether the specs are being run from a host application or standalone
       def standalone?
-        Merb.root == ::MerbAuthSliceRestful.root
+        #raise StandardError, "Merb.root #{Merb.root.inspect} ::MerbAuthSliceRestful.root #{::MerbAuthSliceRestful.root.inspect}"
+        File.join(Merb.root, "") == File.join(::MerbAuthSliceRestful.root, "")
       end
       
     end

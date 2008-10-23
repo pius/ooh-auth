@@ -1,8 +1,5 @@
 TODO:
 
-- Fix MerbAuthSliceRestful.description and MerbAuthSliceRestful.version
-- Fix LICENSE with your name
-- Fix Rakefile with your name and contact info
 - Add your code to lib/merb-auth-slice-restful.rb
 - Add your Merb rake tasks to lib/merb-auth-slice-restful/merbtasks.rb
 

@@ -1,4 +1,4 @@
-class Sessions < Application
+class MerbAuthSliceRestful::Sessions < MerbAuthSliceRestful::Application
 
   # ...and remember, everything returned from an action
   # goes to the client...

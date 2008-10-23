@@ -6,7 +6,7 @@ require 'merb-core/tasks/merb'
 
 GEM_NAME = "merb-auth-slice-restful"
 AUTHOR = "Dan Glegg"
-EMAIL = "dan@angryameoba.co.uk"
+EMAIL = "dan@angryamoeba.co.uk"
 HOMEPAGE = "http://github.com/danski/merb-auth-slice-restful"
 SUMMARY = "Merb Slice that provides RESTful authentication functionality for your application."
 GEM_VERSION = "0.9.10"
