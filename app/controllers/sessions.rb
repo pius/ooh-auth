@@ -6,4 +6,8 @@ class MerbAuthSliceRestful::Sessions < MerbAuthSliceRestful::Application
     render
   end
   
+  def new
+    ""
+  end
+  
 end

@@ -46,9 +46,14 @@ if defined?(Merb::Plugins)
     end
     
     def self.setup_router(scope)
-      scope.match("/login", :method => :get ).to(:controller => "sessions",     :action => "new"            ).name(nil, :login)
-      scope.match("/login", :method => :post).to(:controller => "sessions",     :action => "create"         ).name(nil, :authenticate)
-      scope.match("/logout"                 ).to(:controller => "sessions",     :action => "destroy"        ).name(nil, :logout)
+      Merb::Router.prepare do
+        match("/login", :method => :get ).to(:controller => "merb_auth_slice_restful/sessions",     :action => "new"            ).name(nil, :login)
+        match("/login", :method => :post).to(:controller => "merb_auth_slice_restful/sessions",     :action => "create"         ).name(nil, :authenticate)
+        match("/logout"                 ).to(:controller => "merb_auth_slice_restful/sessions",     :action => "destroy"        ).name(nil, :logout)
+      end
+      #scope.match("/login", :method => :get ).to(:controller => "sessions",     :action => "new"            ).name(nil, :login)
+      #scope.match("/login", :method => :post).to(:controller => "sessions",     :action => "create"         ).name(nil, :authenticate)
+      #scope.match("/logout"                 ).to(:controller => "sessions",     :action => "destroy"        ).name(nil, :logout)
     end
     
   end
