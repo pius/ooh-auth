@@ -2,6 +2,8 @@ if defined?(Merb::Plugins)
 
   $:.unshift File.dirname(__FILE__)
 
+  load_dependency 'merb-auth-core'
+  load_dependency 'merb-auth-more'
   load_dependency 'merb-slices'
   Merb::Plugins.add_rakefiles "merb-auth-slice-restful/merbtasks", "merb-auth-slice-restful/slicetasks", "merb-auth-slice-restful/spectasks"
 
@@ -14,11 +16,16 @@ if defined?(Merb::Plugins)
   # 
   # Configuration options:
   # :layout - the layout to use; defaults to :merb-auth-slice-restful
-  # :mirror - which path component types to use on copy operations; defaults to all
+  # :mirror - which path component types to use on copy operations; defaults to all.  
   Merb::Slices::config[:merb_auth_slice_restful][:layout] ||= :merb_auth_slice_restful
   Merb::Slices::config[:merb_auth_slice_restful].merge!({
-    :user_class_name => "User"
+    :return_to_param  =>  :return_to # key to use when pulling the return url from login and logout links.
   })
+  # SliceRestful uses merb-auth-more's configuration options:
+  # Merb::Plugins.config[:"merb-auth"][:password_param] => key to use when looking up the LOGIN in requests.
+  # Merb::Plugins.config[:"merb-auth"][:password_param] => key to use when looking up the PASSWORD in requests.
+  # Merb::Authentication.user_class => the class to use when calling #authenticate on your user model.
+
   
   # All Slice code is expected to be namespaced inside a module
   module MerbAuthSliceRestful
@@ -51,9 +58,6 @@ if defined?(Merb::Plugins)
         match("/login", :method => :post).to(:controller => "merb_auth_slice_restful/sessions",     :action => "create"         ).name(nil, :authenticate)
         match("/logout"                 ).to(:controller => "merb_auth_slice_restful/sessions",     :action => "destroy"        ).name(nil, :logout)
       end
-      #scope.match("/login", :method => :get ).to(:controller => "sessions",     :action => "new"            ).name(nil, :login)
-      #scope.match("/login", :method => :post).to(:controller => "sessions",     :action => "create"         ).name(nil, :authenticate)
-      #scope.match("/logout"                 ).to(:controller => "sessions",     :action => "destroy"        ).name(nil, :logout)
     end
     
   end

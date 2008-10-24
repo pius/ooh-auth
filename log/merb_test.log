@@ -373,3 +373,552 @@
  ~ {:action_time=>0.002522, :after_filters_time=>1.1e-05, :before_filters_time=>1.1e-05}
  ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
  ~ {:action_time=>9.9e-05, :after_filters_time=>8.0e-06, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.00046, :after_filters_time=>2.9e-05, :before_filters_time=>3.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.0001, :after_filters_time=>8.0e-06, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.000131, :after_filters_time=>1.0e-05, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.000104, :after_filters_time=>8.0e-06, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.004627, :after_filters_time=>3.6e-05, :before_filters_time=>4.5e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.003248, :after_filters_time=>1.3e-05, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.003026, :after_filters_time=>1.5e-05, :before_filters_time=>1.2e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.003144, :after_filters_time=>1.3e-05, :before_filters_time=>1.3e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Could not load /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:
+
+undefined method `customize_default' for Merb::MerbAuthSliceRestful:Module - (NoMethodError)
+
+/Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:11
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load_file'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:953:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:838:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:50:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module_mixin.rb:83:in `load_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `call'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:99:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:171:in `bootup'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:42:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:132:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:145:in `start_environment'
+./spec/controllers/../spec_helper.rb:13
+./spec/controllers/application_spec.rb:1:in `require'
+./spec/controllers/application_spec.rb:1
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `each'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/options.rb:98:in `run_examples'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/command_line.rb:10:in `run'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/bin/spec:4
+ ~ 
+ ~ [1;31;47mFATAL: /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb failed to load.[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Could not load /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:
+
+undefined method `customize_default' for Merb::MerbAuthSliceRestful:Module - (NoMethodError)
+
+/Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:11
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load_file'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:953:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:838:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:50:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module_mixin.rb:83:in `load_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `call'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:99:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:171:in `bootup'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:42:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:132:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:145:in `start_environment'
+./spec/controllers/../spec_helper.rb:13
+./spec/controllers/application_spec.rb:1:in `require'
+./spec/controllers/application_spec.rb:1
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `each'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/options.rb:98:in `run_examples'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/command_line.rb:10:in `run'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/bin/spec:4
+ ~ 
+ ~ [1;31;47mFATAL: /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb failed to load.[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Could not load /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:
+
+undefined method `customize_default' for Merb::MerbAuthSliceRestful:Module - (NoMethodError)
+
+/Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:11
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load_file'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:953:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:838:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:50:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module_mixin.rb:83:in `load_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `call'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:99:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:171:in `bootup'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:42:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:132:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:145:in `start_environment'
+./spec/controllers/../spec_helper.rb:13
+./spec/controllers/application_spec.rb:1:in `require'
+./spec/controllers/application_spec.rb:1
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `each'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/options.rb:98:in `run_examples'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/command_line.rb:10:in `run'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/bin/spec:4
+ ~ 
+ ~ [1;31;47mFATAL: /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb failed to load.[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Could not load /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:
+
+uninitialized constant Merb::Authentication - (NameError)
+
+/Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:11
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load_file'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:953:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:838:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:50:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module_mixin.rb:83:in `load_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `call'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:99:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:171:in `bootup'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:42:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:132:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:145:in `start_environment'
+./spec/controllers/../spec_helper.rb:13
+./spec/controllers/application_spec.rb:1:in `require'
+./spec/controllers/application_spec.rb:1
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `each'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/options.rb:98:in `run_examples'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/command_line.rb:10:in `run'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/bin/spec:4
+ ~ 
+ ~ [1;31;47mFATAL: /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb failed to load.[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Could not load /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:
+
+uninitialized constant Merb::Authentication - (NameError)
+
+/Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:11
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load_file'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:953:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:838:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:50:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module_mixin.rb:83:in `load_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `call'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:99:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:171:in `bootup'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:42:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:132:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:145:in `start_environment'
+./spec/controllers/../spec_helper.rb:13
+./spec/controllers/sessions_spec.rb:1:in `require'
+./spec/controllers/sessions_spec.rb:1
+ ~ 
+ ~ [1;31;47mFATAL: /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb failed to load.[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Could not load /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:
+
+uninitialized constant Merb::Authentication - (NameError)
+
+/Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:11
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load_file'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:953:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:838:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:50:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module_mixin.rb:83:in `load_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `call'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:99:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:171:in `bootup'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:42:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:132:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:145:in `start_environment'
+./spec/controllers/../spec_helper.rb:13
+./spec/controllers/application_spec.rb:1:in `require'
+./spec/controllers/application_spec.rb:1
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `each'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/options.rb:98:in `run_examples'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/command_line.rb:10:in `run'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/bin/spec:4
+ ~ 
+ ~ [1;31;47mFATAL: /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb failed to load.[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Could not load /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:
+
+uninitialized constant Merb::Authentication - (NameError)
+
+/Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:11
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load_file'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:953:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:838:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:50:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module_mixin.rb:83:in `load_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `call'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:99:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:171:in `bootup'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:42:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:132:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:145:in `start_environment'
+./spec/controllers/../spec_helper.rb:13
+./spec/controllers/application_spec.rb:1:in `require'
+./spec/controllers/application_spec.rb:1
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `each'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/options.rb:98:in `run_examples'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/command_line.rb:10:in `run'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/bin/spec:4
+ ~ 
+ ~ [1;31;47mFATAL: /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb failed to load.[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.003178, :after_filters_time=>2.9e-05, :before_filters_time=>2.7e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.004956, :after_filters_time=>2.5e-05, :before_filters_time=>1.6e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002732, :after_filters_time=>1.6e-05, :before_filters_time=>1.2e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002397, :after_filters_time=>1.1e-05, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Could not load /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:
+
+uninitialized constant Merb::Authentication - (NameError)
+
+/Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:11
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load_file'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:953:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:838:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:50:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module_mixin.rb:83:in `load_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `call'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:99:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:171:in `bootup'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:42:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:132:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:145:in `start_environment'
+./spec/controllers/../spec_helper.rb:13
+./spec/controllers/application_spec.rb:1:in `require'
+./spec/controllers/application_spec.rb:1
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `each'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/options.rb:98:in `run_examples'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/command_line.rb:10:in `run'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/bin/spec:4
+ ~ 
+ ~ [1;31;47mFATAL: /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb failed to load.[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.0032, :after_filters_time=>3.2e-05, :before_filters_time=>2.7e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002724, :after_filters_time=>9.0e-06, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.00272, :after_filters_time=>1.4e-05, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.003034, :after_filters_time=>1.6e-05, :before_filters_time=>1.5e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Could not load /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:
+
+uninitialized constant Merb::Authentication - (NameError)
+
+/Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:11
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load_file'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:953:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:838:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:50:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module_mixin.rb:83:in `load_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `call'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:99:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:171:in `bootup'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:42:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:132:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:145:in `start_environment'
+./spec/controllers/../spec_helper.rb:13
+./spec/controllers/application_spec.rb:1:in `require'
+./spec/controllers/application_spec.rb:1
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `each'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/options.rb:98:in `run_examples'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/command_line.rb:10:in `run'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/bin/spec:4
+ ~ 
+ ~ [1;31;47mFATAL: /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb failed to load.[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Could not load /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:
+
+uninitialized constant Merb::Authentication - (NameError)
+
+/Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:11
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load_file'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:953:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:838:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:50:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module_mixin.rb:83:in `load_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `call'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:99:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:171:in `bootup'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:42:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:132:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:145:in `start_environment'
+./spec/controllers/../spec_helper.rb:13
+./spec/controllers/application_spec.rb:1:in `require'
+./spec/controllers/application_spec.rb:1
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `each'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/options.rb:98:in `run_examples'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/command_line.rb:10:in `run'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/bin/spec:4
+ ~ 
+ ~ [1;31;47mFATAL: /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb failed to load.[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Could not load /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:
+
+uninitialized constant Merb::Authentication - (NameError)
+
+/Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb:11
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load_file'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:953:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:838:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:50:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module_mixin.rb:83:in `load_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `call'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:260:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:258:in `each_slice'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:29:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:99:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:171:in `bootup'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:42:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:132:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:145:in `start_environment'
+./spec/controllers/../spec_helper.rb:13
+./spec/controllers/application_spec.rb:1:in `require'
+./spec/controllers/application_spec.rb:1
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `each'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/options.rb:98:in `run_examples'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/command_line.rb:10:in `run'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/bin/spec:4
+ ~ 
+ ~ [1;31;47mFATAL: /Users/angryamoeba/Sites/merb-auth-slice-restful/app/controllers/exceptions.rb failed to load.[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002953, :after_filters_time=>2.7e-05, :before_filters_time=>2.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.004915, :after_filters_time=>1.9e-05, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.003876, :after_filters_time=>1.6e-05, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.003537, :after_filters_time=>1.3e-05, :before_filters_time=>1.4e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.005111, :after_filters_time=>4.1e-05, :before_filters_time=>4.7e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.003623, :after_filters_time=>2.6e-05, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.00253, :after_filters_time=>1.3e-05, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002471, :after_filters_time=>1.2e-05, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.004591, :after_filters_time=>3.3e-05, :before_filters_time=>2.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002719, :after_filters_time=>2.2e-05, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.003007, :after_filters_time=>1.3e-05, :before_filters_time=>1.2e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002471, :after_filters_time=>1.1e-05, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.005627, :after_filters_time=>4.1e-05, :before_filters_time=>4.6e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.003382, :after_filters_time=>1.7e-05, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:action_time=>0.00038, :after_filters_time=>1.5e-05, :before_filters_time=>1.6e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:action_time=>0.000139, :after_filters_time=>1.0e-05, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:action_time=>0.000119, :after_filters_time=>1.0e-05, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.00326, :after_filters_time=>1.6e-05, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002606, :after_filters_time=>1.3e-05, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.003068, :after_filters_time=>3.9e-05, :before_filters_time=>3.3e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.0027, :after_filters_time=>1.5e-05, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:action_time=>0.000357, :after_filters_time=>1.8e-05, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:action_time=>0.000134, :after_filters_time=>1.0e-05, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:action_time=>0.000114, :after_filters_time=>1.0e-05, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002904, :after_filters_time=>1.3e-05, :before_filters_time=>1.2e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.004417, :after_filters_time=>4.5e-05, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002973, :after_filters_time=>3.0e-05, :before_filters_time=>2.5e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002777, :after_filters_time=>1.0e-05, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:action_time=>0.000273, :after_filters_time=>1.4e-05, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:action_time=>0.000108, :after_filters_time=>8.0e-06, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:action_time=>0.000107, :after_filters_time=>8.0e-06, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002566, :after_filters_time=>1.1e-05, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002433, :after_filters_time=>9.0e-06, :before_filters_time=>1.0e-05}

@@ -22,6 +22,8 @@ describe MerbAuthSliceRestful::Sessions do
     @controller.should be_kind_of(MerbAuthSliceRestful::Sessions)
     @controller.action_name.should == 'new'
   end
-
+  
+  it "should render a login form"
+  it "should offer HTTP Basic auth"
 
 end
