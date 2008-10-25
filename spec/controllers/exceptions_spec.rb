@@ -1,6 +1,6 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
-describe Exceptions, "index action" do
+describe Exceptions do
   
   before(:each) do
     Merb::Router.prepare { add_slice(:MerbAuthSliceRestful) } if standalone?

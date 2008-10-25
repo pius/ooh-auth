@@ -18,20 +18,27 @@ describe MerbAuthSliceRestful::Sessions do
   end
 
   it "should have a route to the login form" do
-    #@controller = get("/#{@prefix}/login")
     @controller.slice_url(:merb_auth_slice_restful, :login).should == "/#{@prefix}/login"
     @controller.slice_url(:login).should == "/#{@prefix}/login"
-    #@controller.should be_kind_of(MerbAuthSliceRestful::Sessions)
-    #@controller.action_name.should == 'new'
+
+    @controller = get("/#{@prefix}/login")
+    @controller.should be_kind_of(MerbAuthSliceRestful::Sessions)
+    @controller.action_name.should == 'new'
   end
   
+  it "should successfully render the login form"
+  it "should have a route to submit the login form"
+  it "should authenticate a valid user"
+  it "should not authenticate an invalid user"
+  it "should function with additional merb-auth strategies"
+  
   it "should be mountable at the application root" do
-   Merb::Router.prepare { slice( :MerbAuthSliceRestful, :name_prefix => nil, :path_prefix => nil ) }
-     @controller = get("/login")
-     @controller.slice_url(:login).should == "/login"
-     @controller.should be_kind_of(MerbAuthSliceRestful::Sessions)
-     @controller.action_name.should == 'new'
-   Merb::Router.reset!
+    Merb::Router.prepare { slice( :MerbAuthSliceRestful, :name_prefix => nil, :path_prefix => nil ) }
+      @controller = get("/login")
+      @controller.slice_url(:login).should == "/login"
+      @controller.should be_kind_of(MerbAuthSliceRestful::Sessions)
+      @controller.action_name.should == 'new'
+    Merb::Router.reset!
   end
 
 
