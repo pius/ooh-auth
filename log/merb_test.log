@@ -922,3 +922,1261 @@ uninitialized constant Merb::Authentication - (NameError)
  ~ {:action_time=>0.002566, :after_filters_time=>1.1e-05, :before_filters_time=>1.1e-05}
  ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
  ~ {:action_time=>0.002433, :after_filters_time=>9.0e-06, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.3e-05, :action_time=>0.002608, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>6.1e-05, :action_time=>0.003057, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000239, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.000211, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.000183, :before_filters_time=>1.8e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.002322, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002255, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Could not load /Users/danski/Sites/merb-auth-slice-restful/lib/merb-auth-slice-restful.rb:
+
+undefined method `endif' for main:Object - (NoMethodError)
+
+/Users/danski/Sites/merb-auth-slice-restful/lib/merb-auth-slice-restful.rb:70
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load_file'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:953:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:838:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:50:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:64:in `register_slices_from_search_path!'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:61:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:61:in `register_slices_from_search_path!'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:28:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:99:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:171:in `bootup'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:42:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:132:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:145:in `start_environment'
+./spec/controllers/../spec_helper.rb:13
+./spec/controllers/application_spec.rb:1:in `require'
+./spec/controllers/application_spec.rb:1
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `each'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/options.rb:98:in `run_examples'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/command_line.rb:10:in `run'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/bin/spec:4
+ ~ 
+ ~ [1;31;47mFATAL: /Users/danski/Sites/merb-auth-slice-restful/lib/merb-auth-slice-restful.rb failed to load.[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Could not load /Users/danski/Sites/merb-auth-slice-restful/lib/merb-auth-slice-restful.rb:
+
+undefined method `endif' for main:Object - (NoMethodError)
+
+/Users/danski/Sites/merb-auth-slice-restful/lib/merb-auth-slice-restful.rb:70
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load_file'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:953:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:838:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:50:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:64:in `register_slices_from_search_path!'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:61:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:61:in `register_slices_from_search_path!'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:28:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:99:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:171:in `bootup'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:42:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:132:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:145:in `start_environment'
+./spec/controllers/../spec_helper.rb:13
+./spec/controllers/application_spec.rb:1:in `require'
+./spec/controllers/application_spec.rb:1
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `each'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/options.rb:98:in `run_examples'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/command_line.rb:10:in `run'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/bin/spec:4
+ ~ 
+ ~ [1;31;47mFATAL: /Users/danski/Sites/merb-auth-slice-restful/lib/merb-auth-slice-restful.rb failed to load.[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Could not load /Users/danski/Sites/merb-auth-slice-restful/lib/merb-auth-slice-restful.rb:
+
+undefined method `endif' for main:Object - (NoMethodError)
+
+/Users/danski/Sites/merb-auth-slice-restful/lib/merb-auth-slice-restful.rb:70
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load_file'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:953:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:838:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:50:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:64:in `register_slices_from_search_path!'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:61:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:61:in `register_slices_from_search_path!'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:28:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:99:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:171:in `bootup'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:42:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:132:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:145:in `start_environment'
+./spec/controllers/../spec_helper.rb:13
+./spec/controllers/application_spec.rb:1:in `require'
+./spec/controllers/application_spec.rb:1
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `each'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/options.rb:98:in `run_examples'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/command_line.rb:10:in `run'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/bin/spec:4
+ ~ 
+ ~ [1;31;47mFATAL: /Users/danski/Sites/merb-auth-slice-restful/lib/merb-auth-slice-restful.rb failed to load.[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Could not load /Users/danski/Sites/merb-auth-slice-restful/lib/merb-auth-slice-restful.rb:
+
+undefined method `endif' for main:Object - (NoMethodError)
+
+/Users/danski/Sites/merb-auth-slice-restful/lib/merb-auth-slice-restful.rb:70
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load_file'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:953:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:838:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:50:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:64:in `register_slices_from_search_path!'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:61:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:61:in `register_slices_from_search_path!'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:28:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:99:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:171:in `bootup'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:42:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:132:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:145:in `start_environment'
+./spec/controllers/../spec_helper.rb:13
+./spec/controllers/application_spec.rb:1:in `require'
+./spec/controllers/application_spec.rb:1
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `each'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/options.rb:98:in `run_examples'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/command_line.rb:10:in `run'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/bin/spec:4
+ ~ 
+ ~ [1;31;47mFATAL: /Users/danski/Sites/merb-auth-slice-restful/lib/merb-auth-slice-restful.rb failed to load.[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Could not load /Users/danski/Sites/merb-auth-slice-restful/lib/merb-auth-slice-restful.rb:
+
+undefined method `endif' for main:Object - (NoMethodError)
+
+/Users/danski/Sites/merb-auth-slice-restful/lib/merb-auth-slice-restful.rb:70
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:800:in `load_file'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:953:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:950:in `load_classes_with_requirements'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:838:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:50:in `load_classes'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:64:in `register_slices_from_search_path!'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:61:in `each'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices/module.rb:61:in `register_slices_from_search_path!'
+/Library/Ruby/Gems/1.8/gems/merb-slices-0.9.10/lib/merb-slices.rb:28:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/bootloader.rb:99:in `run'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:171:in `bootup'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core/server.rb:42:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:132:in `start'
+/Library/Ruby/Gems/1.8/gems/merb-core-0.9.10/lib/merb-core.rb:145:in `start_environment'
+./spec/controllers/../spec_helper.rb:13
+./spec/controllers/application_spec.rb:1:in `require'
+./spec/controllers/application_spec.rb:1
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `each'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/example_group_runner.rb:13:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/options.rb:98:in `run_examples'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/lib/spec/runner/command_line.rb:10:in `run'
+/Library/Ruby/Gems/1.8/gems/rspec-1.1.9/bin/spec:4
+ ~ 
+ ~ [1;31;47mFATAL: /Users/danski/Sites/merb-auth-slice-restful/lib/merb-auth-slice-restful.rb failed to load.[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>4.1e-05, :action_time=>0.003272, :before_filters_time=>3.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002373, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000235, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>9.4e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.2e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.002209, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>3.5e-05, :action_time=>0.003214, :before_filters_time=>2.6e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002277, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000219, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>9.8e-05, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>8.4e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002142, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>3.9e-05, :action_time=>0.002436, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002091, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.00024, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.000191, :before_filters_time=>2.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.0e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002127, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.1e-05, :action_time=>0.00246, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.00248, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.00023, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>8.4e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>9.5e-05, :before_filters_time=>1.7e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002084, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>7.6e-05, :action_time=>0.003282, :before_filters_time=>2.6e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002516, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.000216, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.8e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.5e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.002563, :before_filters_time=>1.1e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.5e-05, :action_time=>0.002631, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002417, :before_filters_time=>1.2e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.000212, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.2e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.6e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.002291, :before_filters_time=>1.1e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.9e-05, :action_time=>0.002897, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.002085, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.000212, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>8.0e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>7.8e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002057, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.002578, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002377, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.00022, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.8e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.6e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.00206, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>3.2e-05, :action_time=>0.002498, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.002092, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.00022, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>8.1e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.7e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>3.4e-05, :action_time=>0.002602, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.1e-05, :action_time=>0.002462, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.00208, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000216, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.8e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.3e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002127, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>3.9e-05, :action_time=>0.003094, :before_filters_time=>2.3e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.002451, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000215, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.000102, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>9.8e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.002194, :before_filters_time=>1.2e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.002589, :before_filters_time=>2.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.002085, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000221, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>8.5e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.000117, :before_filters_time=>1.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002139, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.1e-05, :action_time=>0.002475, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.002017, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000205, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.5e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.3e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002115, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>4.2e-05, :action_time=>0.002893, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002205, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000219, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.5e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.7e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.002394, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.1e-05, :action_time=>0.002741, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.002085, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.000225, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>9.0e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.6e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002164, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.6e-05, :action_time=>0.003111, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.002217, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000234, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.7e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>5.0e-06, :action_time=>7.4e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.002196, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.002584, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002191, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.000256, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>9.1e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.6e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.00218, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.002502, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.002052, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.00021, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>5.0e-06, :action_time=>7.4e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.3e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.003065, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>3.2e-05, :action_time=>0.003028, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.002552, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000259, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>7.8e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.8e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.002634, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.8e-05, :action_time=>0.003182, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.002662, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.000234, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.5e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.4e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002079, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.4e-05, :action_time=>0.003329, :before_filters_time=>2.7e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002385, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000233, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.6e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.4e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002176, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.002609, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.002616, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000223, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.0e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>5.0e-06, :action_time=>0.000125, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002187, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.9e-05, :action_time=>0.003107, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.6e-05, :action_time=>0.002095, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>0.000103, :action_time=>0.000366, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.9e-05, :before_filters_time=>1.2e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>9.3e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002131, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.5e-05, :action_time=>0.002613, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.00238, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.000229, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.0e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.8e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.002449, :before_filters_time=>9.0e-06}
+ ~ 
+ ~ [1;31;47mFATAL: The gem merb-auth-slice-restful (= 0.9.10, runtime), [] was not found[0m
+ ~ 
+ ~ 
+ ~ [1;31;47mFATAL: The file merb-auth-slice-restful was not found[0m
+ ~ 
+ ~ 
+ ~ [1;31;47mFATAL: The gem merb-auth-slice-restful (= 0.0.1, runtime), [] was not found[0m
+ ~ 
+ ~ 
+ ~ [1;31;47mFATAL: The file merb-auth-slice-restful was not found[0m
+ ~ 
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.4e-05, :action_time=>0.002572, :before_filters_time=>2.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.00203, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.000207, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.9e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.5e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002012, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.1e-05, :action_time=>0.002525, :before_filters_time=>2.6e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002027, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000218, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.6e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>5.0e-06, :action_time=>7.5e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002083, :before_filters_time=>2.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.002648, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002365, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.00024, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.5e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.7e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002244, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.7e-05, :action_time=>0.002696, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.002604, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>3.0e-05, :action_time=>0.000449, :before_filters_time=>1.6e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>9.2e-05, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.0e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.002396, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.002494, :before_filters_time=>2.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002211, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000213, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>7.6e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.5e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.9e-05, :action_time=>0.002134, :before_filters_time=>1.1e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.002456, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002027, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.000371, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.000122, :before_filters_time=>1.8e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>9.3e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002215, :before_filters_time=>1.4e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.00251, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002195, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.000241, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>9.7e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.0e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002071, :before_filters_time=>1.1e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.4e-05, :action_time=>0.002838, :before_filters_time=>2.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.002268, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000218, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.8e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.7e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002094, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.4e-05, :action_time=>0.003024, :before_filters_time=>2.6e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002636, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.4e-05, :action_time=>0.000428, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.000108, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>8.2e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.002562, :before_filters_time=>1.1e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.4e-05, :action_time=>0.002623, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002718, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000377, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>8.6e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.5e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.9e-05, :action_time=>0.002143, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.1e-05, :action_time=>0.002411, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.002406, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.000277, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>9.0e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.5e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.002258, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>3.0e-05, :action_time=>0.003127, :before_filters_time=>3.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002352, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000222, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>9.6e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>9.5e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002123, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.1e-05, :action_time=>0.002458, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002319, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000252, :before_filters_time=>2.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.3e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.9e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002106, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>3.2e-05, :action_time=>0.003149, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002247, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000229, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>7.9e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.000105, :before_filters_time=>1.7e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002196, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.5e-05, :action_time=>0.002549, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.00215, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.000236, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.5e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.1e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002449, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.002413, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002045, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000222, :before_filters_time=>1.2e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.2e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.9e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002089, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>3.3e-05, :action_time=>0.003117, :before_filters_time=>2.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002114, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000241, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.5e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.5e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002095, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.1e-05, :action_time=>0.002598, :before_filters_time=>4.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.002062, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000209, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.5e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.3e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002027, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.3e-05, :action_time=>0.002528, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.7e-05, :action_time=>0.002328, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.00024, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>9.2e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.000147, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002161, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.1e-05, :action_time=>0.002358, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.0e-05, :action_time=>0.002803, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000237, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.000103, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.2e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.7e-05, :action_time=>0.002519, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.003008, :before_filters_time=>3.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.4e-05, :action_time=>0.002517, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000236, :before_filters_time=>2.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.5e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.4e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.4e-05, :action_time=>0.002415, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>3.5e-05, :action_time=>0.003445, :before_filters_time=>2.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.00242, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.00027, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.0001, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>8.9e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.002393, :before_filters_time=>1.1e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.002544, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.002518, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>2.1e-05, :action_time=>0.000247, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.6e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.5e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.002044, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.1e-05, :action_time=>0.002427, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.00209, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.000209, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.000121, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.2e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002184, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.1e-05, :action_time=>0.002439, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002276, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000216, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>5.0e-06, :action_time=>7.9e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.5e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002055, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.1e-05, :action_time=>0.002406, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.002404, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.000209, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>9.3e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.0e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002207, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.3e-05, :action_time=>0.002554, :before_filters_time=>2.3e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002146, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000206, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.000116, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.0e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002075, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.4e-05, :action_time=>0.002569, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002162, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.000226, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.6e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.6e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.00200200000000006, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.002547, :before_filters_time=>3.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.002327, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.000211, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.8e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.7e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002052, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002301, :before_filters_time=>7.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>3.0e-05, :action_time=>0.002897, :before_filters_time=>2.7e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002105, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>8.7e-05, :action_time=>0.000375, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>9.0e-05, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.000136, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002114, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002472, :before_filters_time=>7.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.002505, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.4e-05, :action_time=>0.002447, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000258, :before_filters_time=>2.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.000104, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.000107, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.0021, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002607, :before_filters_time=>7.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>3.6e-05, :action_time=>0.003723, :before_filters_time=>2.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.002223, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000212, :before_filters_time=>1.2e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.9e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.6e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002227, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.002585, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002593, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.00025, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>5.0e-06, :action_time=>7.3e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.9e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.002397, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002227, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>3.1e-05, :action_time=>0.003451, :before_filters_time=>3.9e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002138, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000229, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.9e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.5e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002101, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.002206, :before_filters_time=>7.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.7e-05, :action_time=>0.003004, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002116, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.000235, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.0e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>5.0e-06, :action_time=>7.4e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.002538, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.00235, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :before_filters_time=>2.0e-05, :action_time=>0.002369}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :before_filters_time=>7.0e-06, :action_time=>0.00248}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.00321, :after_filters_time=>3.0e-05, :before_filters_time=>1.8e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002365, :after_filters_time=>7.0e-06, :before_filters_time=>7.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002736, :after_filters_time=>2.2e-05, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002445, :after_filters_time=>8.0e-06, :before_filters_time=>7.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002317, :after_filters_time=>2.2e-05, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002313, :after_filters_time=>8.0e-06, :before_filters_time=>7.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002344, :after_filters_time=>2.2e-05, :before_filters_time=>1.8e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:action_time=>0.002985, :after_filters_time=>1.0e-05, :before_filters_time=>1.5e-05}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :before_filters_time=>2.5e-05, :action_time=>0.002312}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.1e-05, :before_filters_time=>8.0e-06, :action_time=>0.00287}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.1e-05, :before_filters_time=>7.0e-06, :action_time=>0.002849}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.002477, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.002988, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000218, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.3e-05, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.8e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002131, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.002241, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>5.2e-05, :action_time=>0.002943, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.002543, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.000232, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.6e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>7.8e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002096, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.002152, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.8e-05, :action_time=>0.002991, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.9e-05, :action_time=>0.002859, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.4e-05, :action_time=>0.000302, :before_filters_time=>1.6e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.9e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>8.2e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.0023, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.002514, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.7e-05, :action_time=>0.002555, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002296, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000287, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>8.1e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>7.8e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.002296, :before_filters_time=>1.2e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.00233, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.1e-05, :before_filters_time=>1.9e-05, :action_time=>0.002253}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :before_filters_time=>7.0e-06, :action_time=>0.002187}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>3.4e-05, :before_filters_time=>2.4e-05, :action_time=>0.003092}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :before_filters_time=>9.0e-06, :action_time=>0.002499}
+ ~ Found slice 'merb-auth-slice-restful' in search path at lib/merb-auth-slice-restful.rb
+ ~ Loaded slice 'MerbAuthSliceRestful' ...
+ ~ Activating slice 'MerbAuthSliceRestful' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>2.1e-05, :action_time=>0.002494, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>1.6e-05, :action_time=>0.002682, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000256, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.000107, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.6e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002043, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_restful/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002207, :before_filters_time=>7.0e-06}

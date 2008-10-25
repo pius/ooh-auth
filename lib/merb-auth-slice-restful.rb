@@ -19,10 +19,11 @@ if defined?(Merb::Plugins)
   # :mirror - which path component types to use on copy operations; defaults to all.  
   Merb::Slices::config[:merb_auth_slice_restful][:layout] ||= :merb_auth_slice_restful
   Merb::Slices::config[:merb_auth_slice_restful].merge!({
+    :path_prefix=>"auth",
     :return_to_param  =>  :return_to # key to use when pulling the return url from login and logout links.
   })
   # SliceRestful uses merb-auth-more's configuration options:
-  # Merb::Plugins.config[:"merb-auth"][:password_param] => key to use when looking up the LOGIN in requests.
+  # Merb::Plugins.config[:"merb-auth"][:login_param] => key to use when looking up the LOGIN in requests.
   # Merb::Plugins.config[:"merb-auth"][:password_param] => key to use when looking up the PASSWORD in requests.
   # Merb::Authentication.user_class => the class to use when calling #authenticate on your user model.
 
@@ -34,6 +35,7 @@ if defined?(Merb::Plugins)
     self.description = "MerbAuthSliceRestful is Merb slice that extends merb-auth-more with RESTful authentication"
     self.version = "0.0.1"
     self.author = "Dan Glegg"
+    self.identifier = "merb-auth-slice-restful"
     
     # Stub classes loaded hook - runs before LoadClasses BootLoader
     # right after a slice's classes have been loaded internally.
@@ -53,11 +55,13 @@ if defined?(Merb::Plugins)
     end
     
     def self.setup_router(scope)
-      Merb::Router.prepare do
-        match("/login", :method => :get ).to(:controller => "merb_auth_slice_restful/sessions",     :action => "new"            ).name(nil, :login)
-        match("/login", :method => :post).to(:controller => "merb_auth_slice_restful/sessions",     :action => "create"         ).name(nil, :authenticate)
-        match("/logout"                 ).to(:controller => "merb_auth_slice_restful/sessions",     :action => "destroy"        ).name(nil, :logout)
-      end
+      # Add the following to your app's router to mount SliceRestful at the root:
+      # Merb::Router.prepare do
+      #   slice( :MerbAuthSliceRestful, :name_prefix => nil, :path_prefix => "auth", :default_routes => false )
+      # end      
+      scope.match("/login", :method => :get ).to(:controller => "sessions",     :action => "new"            ).name(:login)
+      #scope.match("/login", :method => :post).to(:controller => "sessions",     :action => "create"         ).name(:authenticate)
+      scope.match("/logout"                 ).to(:controller => "sessions",     :action => "destroy"        ).name(:logout)
     end
     
   end

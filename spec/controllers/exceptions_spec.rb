@@ -3,8 +3,12 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 describe Exceptions, "index action" do
   
   before(:each) do
-    Merb::Router.prepare { all_slices } if standalone?
+    Merb::Router.prepare { add_slice(:MerbAuthSliceRestful) } if standalone?
     dispatch_to(Exceptions, :unauthenticated)
+  end
+  
+  after :all do
+    Merb::Router.reset! if standalone?
   end
   
   it "should have an unauthenticated action"

@@ -1,7 +1,9 @@
 # the mixin to provide the exceptions controller action for Unauthenticated
 module MerbAuthSliceRestful::ExceptionsMixin
   
-  # Catch unauthenticated users and redirect them to the sessions controller
+  # Catch unauthenticated requests and handle the exception.
+  # HTML requests should be redirected to the login form with a ?return_to param for the current uri
+  # JS, JSON, XML and YAML requests should respond with a straight 403 header
   def unauthenticated
     ""
   end

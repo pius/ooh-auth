@@ -3,7 +3,8 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 describe MerbAuthSliceRestful::Sessions do
   
   before :all do
-    Merb::Router.prepare { all_slices } if standalone?
+    Merb::Router.prepare { add_slice(:MerbAuthSliceRestful) } if standalone?
+    @prefix = MerbAuthSliceRestful[:path_prefix]
     @controller = dispatch_to(MerbAuthSliceRestful::Sessions, :index)
   end
    
@@ -16,14 +17,22 @@ describe MerbAuthSliceRestful::Sessions do
     @controller.body.should contain('MerbAuthSliceRestful')
   end
 
-  it "should work with the default route" do
-    @controller = get("/login")
-    @controller.slice_url :login
-    @controller.should be_kind_of(MerbAuthSliceRestful::Sessions)
-    @controller.action_name.should == 'new'
+  it "should have a route to the login form" do
+    #@controller = get("/#{@prefix}/login")
+    @controller.slice_url(:merb_auth_slice_restful, :login).should == "/#{@prefix}/login"
+    @controller.slice_url(:login).should == "/#{@prefix}/login"
+    #@controller.should be_kind_of(MerbAuthSliceRestful::Sessions)
+    #@controller.action_name.should == 'new'
   end
   
-  it "should render a login form"
-  it "should offer HTTP Basic auth"
+  it "should be mountable at the application root" do
+   Merb::Router.prepare { slice( :MerbAuthSliceRestful, :name_prefix => nil, :path_prefix => nil ) }
+     @controller = get("/login")
+     @controller.slice_url(:login).should == "/login"
+     @controller.should be_kind_of(MerbAuthSliceRestful::Sessions)
+     @controller.action_name.should == 'new'
+   Merb::Router.reset!
+  end
+
 
 end

@@ -3,7 +3,7 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 describe MerbAuthSliceRestful::Application do
   
   before(:each) do
-    Merb::Router.prepare { all_slices } if standalone?
+    Merb::Router.prepare { add_slice(:MerbAuthSliceRestful) } if standalone?
   end
   
   after :all do
