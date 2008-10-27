@@ -3,7 +3,7 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 describe Exceptions do
   
   before(:each) do
-    Merb::Router.prepare { add_slice(:MerbAuthSliceRestful) } if standalone?
+    Merb::Router.prepare { add_slice(:MerbAuthSliceFullfat) } if standalone?
     dispatch_to(Exceptions, :unauthenticated)
   end
   

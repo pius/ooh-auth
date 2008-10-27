@@ -1,2 +1,2 @@
-class MerbAuthSliceRestful::Main < MerbAuthSliceRestful::Application
+class MerbAuthSliceFullfat::Main < MerbAuthSliceFullfat::Application
 end

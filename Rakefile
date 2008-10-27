@@ -4,10 +4,10 @@ require 'rake/gempackagetask'
 require 'merb-core'
 require 'merb-core/tasks/merb'
 
-GEM_NAME = "merb-auth-slice-restful"
+GEM_NAME = "merb-auth-slice-fullfat"
 AUTHOR = "Dan Glegg"
 EMAIL = "dan@angryamoeba.co.uk"
-HOMEPAGE = "http://github.com/danski/merb-auth-slice-restful"
+HOMEPAGE = "http://github.com/danski/merb-auth-slice-fullfat"
 SUMMARY = "Merb Slice that provides RESTful authentication functionality for your application."
 GEM_VERSION = "0.9.10"
 

@@ -1,4 +1,4 @@
-class MerbAuthSliceRestful::Sessions < MerbAuthSliceRestful::Application
+class MerbAuthSliceFullfat::Sessions < MerbAuthSliceFullfat::Application
 
   # Ignore me, just passing through. Hee hee.
   def index; new; end

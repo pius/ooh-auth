@@ -1,7 +1,7 @@
 namespace :slices do
-  namespace :merb_auth_slice_restful do
+  namespace :merb_auth_slice_fullfat do
   
-    desc "Install MerbAuthSliceRestful"
+    desc "Install MerbAuthSliceFullfat"
     task :install => [:preflight, :setup_directories, :copy_assets, :migrate]
     
     desc "Test for any dependencies"
@@ -11,9 +11,9 @@ namespace :slices do
     desc "Setup directories"
     task :setup_directories do
       puts "Creating directories for host application"
-      MerbAuthSliceRestful.mirrored_components.each do |type|
-        if File.directory?(MerbAuthSliceRestful.dir_for(type))
-          if !File.directory?(dst_path = MerbAuthSliceRestful.app_dir_for(type))
+      MerbAuthSliceFullfat.mirrored_components.each do |type|
+        if File.directory?(MerbAuthSliceFullfat.dir_for(type))
+          if !File.directory?(dst_path = MerbAuthSliceFullfat.app_dir_for(type))
             relative_path = dst_path.relative_path_from(Merb.root)
             puts "- creating directory :#{type} #{File.basename(Merb.root) / relative_path}"
             mkdir_p(dst_path)
@@ -24,8 +24,8 @@ namespace :slices do
     
     desc "Copy stub files to host application"
     task :stubs do
-      puts "Copying stubs for MerbAuthSliceRestful - resolves any collisions"
-      copied, preserved = MerbAuthSliceRestful.mirror_stubs!
+      puts "Copying stubs for MerbAuthSliceFullfat - resolves any collisions"
+      copied, preserved = MerbAuthSliceFullfat.mirror_stubs!
       puts "- no files to copy" if copied.empty? && preserved.empty?
       copied.each { |f| puts "- copied #{f}" }
       preserved.each { |f| puts "! preserved override as #{f}" }
@@ -36,8 +36,8 @@ namespace :slices do
   
     desc "Copy public assets to host application"
     task :copy_assets do
-      puts "Copying assets for MerbAuthSliceRestful - resolves any collisions"
-      copied, preserved = MerbAuthSliceRestful.mirror_public!
+      puts "Copying assets for MerbAuthSliceFullfat - resolves any collisions"
+      copied, preserved = MerbAuthSliceFullfat.mirror_public!
       puts "- no files to copy" if copied.empty? && preserved.empty?
       copied.each { |f| puts "- copied #{f}" }
       preserved.each { |f| puts "! preserved override as #{f}" }
@@ -47,21 +47,21 @@ namespace :slices do
     task :migrate do # see slicetasks.rb
     end
     
-    desc "Freeze MerbAuthSliceRestful into your app (only merb-auth-slice-restful/app)" 
+    desc "Freeze MerbAuthSliceFullfat into your app (only merb-auth-slice-fullfat/app)" 
     task :freeze => [ "freeze:app" ]
 
     namespace :freeze do
       
-      desc "Freezes MerbAuthSliceRestful by installing the gem into application/gems"
+      desc "Freezes MerbAuthSliceFullfat by installing the gem into application/gems"
       task :gem do
-        ENV["GEM"] ||= "merb-auth-slice-restful"
+        ENV["GEM"] ||= "merb-auth-slice-fullfat"
         Rake::Task['slices:install_as_gem'].invoke
       end
       
-      desc "Freezes MerbAuthSliceRestful by copying all files from merb-auth-slice-restful/app to your application"
+      desc "Freezes MerbAuthSliceFullfat by copying all files from merb-auth-slice-fullfat/app to your application"
       task :app do
-        puts "Copying all merb-auth-slice-restful/app files to your application - resolves any collisions"
-        copied, preserved = MerbAuthSliceRestful.mirror_app!
+        puts "Copying all merb-auth-slice-fullfat/app files to your application - resolves any collisions"
+        copied, preserved = MerbAuthSliceFullfat.mirror_app!
         puts "- no files to copy" if copied.empty? && preserved.empty?
         copied.each { |f| puts "- copied #{f}" }
         preserved.each { |f| puts "! preserved override as #{f}" }
@@ -70,7 +70,7 @@ namespace :slices do
       desc "Freeze all views into your application for easy modification" 
       task :views do
         puts "Copying all view templates to your application - resolves any collisions"
-        copied, preserved = MerbAuthSliceRestful.mirror_files_for :view
+        copied, preserved = MerbAuthSliceFullfat.mirror_files_for :view
         puts "- no files to copy" if copied.empty? && preserved.empty?
         copied.each { |f| puts "- copied #{f}" }
         preserved.each { |f| puts "! preserved override as #{f}" }
@@ -79,19 +79,19 @@ namespace :slices do
       desc "Freeze all models into your application for easy modification" 
       task :models do
         puts "Copying all models to your application - resolves any collisions"
-        copied, preserved = MerbAuthSliceRestful.mirror_files_for :model
+        copied, preserved = MerbAuthSliceFullfat.mirror_files_for :model
         puts "- no files to copy" if copied.empty? && preserved.empty?
         copied.each { |f| puts "- copied #{f}" }
         preserved.each { |f| puts "! preserved override as #{f}" }
       end
       
-      desc "Freezes MerbAuthSliceRestful as a gem and copies over merb-auth-slice-restful/app"
+      desc "Freezes MerbAuthSliceFullfat as a gem and copies over merb-auth-slice-fullfat/app"
       task :app_with_gem => [:gem, :app]
       
-      desc "Freezes MerbAuthSliceRestful by unpacking all files into your application"
+      desc "Freezes MerbAuthSliceFullfat by unpacking all files into your application"
       task :unpack do
-        puts "Unpacking MerbAuthSliceRestful files to your application - resolves any collisions"
-        copied, preserved = MerbAuthSliceRestful.unpack_slice!
+        puts "Unpacking MerbAuthSliceFullfat files to your application - resolves any collisions"
+        copied, preserved = MerbAuthSliceFullfat.unpack_slice!
         puts "- no files to copy" if copied.empty? && preserved.empty?
         copied.each { |f| puts "- copied #{f}" }
         preserved.each { |f| puts "! preserved override as #{f}" }

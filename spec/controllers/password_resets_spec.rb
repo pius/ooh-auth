@@ -1,10 +1,10 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
-describe MerbAuthSliceRestful::PasswordResets, "index action" do
+describe MerbAuthSliceFullfat::PasswordResets, "index action" do
   
   before :each do
-    Merb::Router.prepare { add_slice(:MerbAuthSliceRestful) } if standalone?
-    dispatch_to(MerbAuthSliceRestful::PasswordResets, :index)
+    Merb::Router.prepare { add_slice(:MerbAuthSliceFullfat) } if standalone?
+    dispatch_to(MerbAuthSliceFullfat::PasswordResets, :index)
   end
   
   after :all do

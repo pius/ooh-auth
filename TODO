@@ -1,12 +1,12 @@
 TODO:
 
-- Add your code to lib/merb-auth-slice-restful.rb
-- Add your Merb rake tasks to lib/merb-auth-slice-restful/merbtasks.rb
+- Add your code to lib/merb-auth-slice-fullfat.rb
+- Add your Merb rake tasks to lib/merb-auth-slice-fullfat/merbtasks.rb
 
 Remove anything that you don't need:
 
-- app/controllers/main.rb MerbAuthSliceRestful::Main controller
-- app/views/layout/merb-auth-slice-restful.html.erb
+- app/controllers/main.rb MerbAuthSliceFullfat::Main controller
+- app/views/layout/merb-auth-slice-fullfat.html.erb
 - spec/controllers/main_spec.rb controller specs
 - public/* any public files
 - stubs/* any stub files

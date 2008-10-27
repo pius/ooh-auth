@@ -1,2 +1,2 @@
-class MerbAuthSliceRestful::Application < Merb::Controller
+class MerbAuthSliceFullfat::Application < Merb::Controller
 end

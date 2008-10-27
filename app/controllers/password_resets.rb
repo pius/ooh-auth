@@ -1,4 +1,4 @@
-class MerbAuthSliceRestful::PasswordResets < MerbAuthSliceRestful::Application
+class MerbAuthSliceFullfat::PasswordResets < MerbAuthSliceFullfat::Application
 
   # ...and remember, everything returned from an action
   # goes to the client...

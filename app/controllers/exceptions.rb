@@ -1,5 +1,5 @@
 # the mixin to provide the exceptions controller action for Unauthenticated
-module MerbAuthSliceRestful::ExceptionsMixin
+module MerbAuthSliceFullfat::ExceptionsMixin
   
   # Catch unauthenticated requests and handle the exception.
   # HTML requests should be redirected to the login form with a ?return_to param for the current uri
@@ -20,7 +20,7 @@ Merb::Authentication.customize_default do
     self._template_roots << [the_view_path, :_template_location]
     self._template_roots << [Merb.dir_for(:view), :_template_location]
     
-    include MerbAuthSliceRestful::ExceptionsMixin
+    include MerbAuthSliceFullfat::ExceptionsMixin
     
     show_action :unauthenticated
   

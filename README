@@ -1,4 +1,4 @@
-MerbAuthSliceRestful
+MerbAuthSliceFullfat
 ====================
 
 A slice for the Merb framework which extends merb-auth-more with a RESTful interface for sessions and password resets.
@@ -7,22 +7,22 @@ A slice for the Merb framework which extends merb-auth-more with a RESTful inter
 
 1. Rake tasks to package/install the gem - edit this to modify the manifest.
 2. The slice application: controllers, models, helpers, views.
-3. The default layout, as specified in Merb::Slices::config[:merb_auth_slice_restful][:layout]
+3. The default layout, as specified in Merb::Slices::config[:merb_auth_slice_fullfat][:layout]
    change this to :application to use the app's layout.
 4. Standard rake tasks available to your application.
 5. Your custom application rake tasks.
 6. The main slice file - contains all slice setup logic/config.
-7. Public assets you (optionally) install using rake slices:merb_auth_slice_restful:install
+7. Public assets you (optionally) install using rake slices:merb_auth_slice_fullfat:install
 8. Specs for basis slice behaviour - you usually adapt these for your slice.
 9. Stubs of classes/views/files for the end-user to override - usually these 
-   mimic the files in app/ and/or public/; use rake slices:merb_auth_slice_restful:stubs to
-   get started with the override stubs. Also, slices:merb_auth_slice_restful:patch will
+   mimic the files in app/ and/or public/; use rake slices:merb_auth_slice_fullfat:stubs to
+   get started with the override stubs. Also, slices:merb_auth_slice_fullfat:patch will
    copy over views to override in addition to the files found in /stubs.
    
 
-To see all available tasks for MerbAuthSliceRestful run:
+To see all available tasks for MerbAuthSliceFullfat run:
 
-rake -T slices:merb_auth_slice_restful
+rake -T slices:merb_auth_slice_fullfat
 
 ------------------------------------------------------------------------------
 
@@ -32,66 +32,66 @@ file: config/init.rb
 
 # add the slice as a regular dependency
 
-dependency 'merb-auth-slice-restful'
+dependency 'merb-auth-slice-fullfat'
 
 # if needed, configure which slices to load and in which order
 
-Merb::Plugins.config[:merb_slices] = { :queue => ["MerbAuthSliceRestful", ...] }
+Merb::Plugins.config[:merb_slices] = { :queue => ["MerbAuthSliceFullfat", ...] }
 
 # optionally configure the plugins in a before_app_loads callback
 
 Merb::BootLoader.before_app_loads do
   
-  Merb::Slices::config[:merb_auth_slice_restful][:option] = value
+  Merb::Slices::config[:merb_auth_slice_fullfat][:option] = value
   
 end
 
 file: config/router.rb
 
-# example: /merb_auth_slice_restful/:controller/:action/:id
+# example: /merb_auth_slice_fullfat/:controller/:action/:id
 
-add_slice(:MerbAuthSliceRestful)
+add_slice(:MerbAuthSliceFullfat)
 
 # example: /foo/:controller/:action/:id
 
-add_slice(:MerbAuthSliceRestful, 'foo') # same as :path => 'foo'
+add_slice(:MerbAuthSliceFullfat, 'foo') # same as :path => 'foo'
 
 # example: /:lang/:controller/:action/:id
 
-add_slice(:MerbAuthSliceRestful, :path => ':lang')
+add_slice(:MerbAuthSliceFullfat, :path => ':lang')
 
 # example: /:controller/:action/:id
 
-slice(:MerbAuthSliceRestful)
+slice(:MerbAuthSliceFullfat)
 
 Normally you should also run the following rake task:
 
-rake slices:merb_auth_slice_restful:install
+rake slices:merb_auth_slice_fullfat:install
 
 ------------------------------------------------------------------------------
 
 You can put your application-level overrides in:
 
-host-app/slices/merb-auth-slice-restful/app - controllers, models, views ...
+host-app/slices/merb-auth-slice-fullfat/app - controllers, models, views ...
 
 Templates are located in this order:
 
-1. host-app/slices/merb-auth-slice-restful/app/views/*
-2. gems/merb-auth-slice-restful/app/views/*
+1. host-app/slices/merb-auth-slice-fullfat/app/views/*
+2. gems/merb-auth-slice-fullfat/app/views/*
 3. host-app/app/views/*
 
 You can use the host application's layout by configuring the
-merb-auth-slice-restful slice in a before_app_loads block:
+merb-auth-slice-fullfat slice in a before_app_loads block:
 
-Merb::Slices.config[:merb_auth_slice_restful] = { :layout => :application }
+Merb::Slices.config[:merb_auth_slice_fullfat] = { :layout => :application }
 
-By default :merb_auth_slice_restful is used. If you need to override
+By default :merb_auth_slice_fullfat is used. If you need to override
 stylesheets or javascripts, just specify your own files in your layout
 instead/in addition to the ones supplied (if any) in 
-host-app/public/slices/merb-auth-slice-restful.
+host-app/public/slices/merb-auth-slice-fullfat.
 
 In any case don't edit those files directly as they may be clobbered any time
-rake merb_auth_slice_restful:install is run.
+rake merb_auth_slice_fullfat:install is run.
 
 ------------------------------------------------------------------------------
 

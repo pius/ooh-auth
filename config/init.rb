@@ -1,5 +1,5 @@
 #
-# ==== Standalone MerbAuthSliceRestful configuration
+# ==== Standalone MerbAuthSliceFullfat configuration
 # 
 # This configuration/environment file is only loaded by bin/slice, which can be 
 # used during development of the slice. It has no effect on this slice being
@@ -45,7 +45,7 @@ end
 dependency "merb-auth-core"
 dependency "merb-auth-more"
 
-#Merb::Authentication.user_class = MerbAuthSliceRestful::MockUser
+#Merb::Authentication.user_class = MerbAuthSliceFullfat::MockUser
 
 dependency "dm-core", "0.9.6"         # The datamapper ORM
 dependency "dm-aggregates", "0.9.6"   # Provides your DM models with count, sum, avg, min, max, etc.

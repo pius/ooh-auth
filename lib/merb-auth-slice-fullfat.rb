@@ -5,7 +5,7 @@ if defined?(Merb::Plugins)
   load_dependency 'merb-auth-core'
   load_dependency 'merb-auth-more'
   load_dependency 'merb-slices'
-  Merb::Plugins.add_rakefiles "merb-auth-slice-restful/merbtasks", "merb-auth-slice-restful/slicetasks", "merb-auth-slice-restful/spectasks"
+  Merb::Plugins.add_rakefiles "merb-auth-slice-fullfat/merbtasks", "merb-auth-slice-fullfat/slicetasks", "merb-auth-slice-fullfat/spectasks"
 
   # Register the Slice for the current host application
   Merb::Slices::register(__FILE__)
@@ -15,10 +15,10 @@ if defined?(Merb::Plugins)
   # the main application layout or no layout at all if needed.
   # 
   # Configuration options:
-  # :layout - the layout to use; defaults to :merb-auth-slice-restful
+  # :layout - the layout to use; defaults to :merb-auth-slice-fullfat
   # :mirror - which path component types to use on copy operations; defaults to all.  
-  Merb::Slices::config[:merb_auth_slice_restful][:layout] ||= :merb_auth_slice_restful
-  Merb::Slices::config[:merb_auth_slice_restful].merge!({
+  Merb::Slices::config[:merb_auth_slice_fullfat][:layout] ||= :merb_auth_slice_fullfat
+  Merb::Slices::config[:merb_auth_slice_fullfat].merge!({
     :path_prefix=>"auth",
     :return_to_param  =>  :return_to # key to use when pulling the return url from login and logout links.
   })
@@ -29,13 +29,13 @@ if defined?(Merb::Plugins)
 
   
   # All Slice code is expected to be namespaced inside a module
-  module MerbAuthSliceRestful
+  module MerbAuthSliceFullfat
     
     # Slice metadata
-    self.description = "MerbAuthSliceRestful is Merb slice that extends merb-auth-more with RESTful authentication"
+    self.description = "MerbAuthSliceFullfat is Merb slice that extends merb-auth-more with RESTful authentication"
     self.version = "0.0.1"
     self.author = "Dan Glegg"
-    self.identifier = "merb-auth-slice-restful"
+    self.identifier = "merb-auth-slice-fullfat"
     
     # Stub classes loaded hook - runs before LoadClasses BootLoader
     # right after a slice's classes have been loaded internally.
@@ -50,14 +50,14 @@ if defined?(Merb::Plugins)
     def self.activate
     end
     
-    # Deactivation hook - triggered by Merb::Slices.deactivate(MerbAuthSliceRestful)
+    # Deactivation hook - triggered by Merb::Slices.deactivate(MerbAuthSliceFullfat)
     def self.deactivate
     end
     
     def self.setup_router(scope)
       # Add the following to your app's router to mount SliceRestful at the root:
       # Merb::Router.prepare do
-      #   slice( :MerbAuthSliceRestful, :name_prefix => nil, :path_prefix => "auth", :default_routes => false )
+      #   slice( :MerbAuthSliceFullfat, :name_prefix => nil, :path_prefix => "auth", :default_routes => false )
       # end      
       scope.match("/login", :method => :get ).to(:controller => "sessions",     :action => "new"            ).name(:login)
       scope.match("/login", :method => :post).to(:controller => "sessions",     :action => "create"         ).name(:authenticate)
@@ -66,9 +66,9 @@ if defined?(Merb::Plugins)
     
   end
   
-  MerbAuthSliceRestful.setup_default_structure!
+  MerbAuthSliceFullfat.setup_default_structure!
   
-  # Add dependencies for other MerbAuthSliceRestful classes below. Example:
-  # dependency "merb-auth-slice-restful/other"
+  # Add dependencies for other MerbAuthSliceFullfat classes below. Example:
+  # dependency "merb-auth-slice-fullfat/other"
   
 end
