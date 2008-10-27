@@ -60,7 +60,7 @@ if defined?(Merb::Plugins)
       #   slice( :MerbAuthSliceRestful, :name_prefix => nil, :path_prefix => "auth", :default_routes => false )
       # end      
       scope.match("/login", :method => :get ).to(:controller => "sessions",     :action => "new"            ).name(:login)
-      #scope.match("/login", :method => :post).to(:controller => "sessions",     :action => "create"         ).name(:authenticate)
+      scope.match("/login", :method => :post).to(:controller => "sessions",     :action => "create"         ).name(:authenticate)
       scope.match("/logout"                 ).to(:controller => "sessions",     :action => "destroy"        ).name(:logout)
     end
     

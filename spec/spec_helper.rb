@@ -32,6 +32,13 @@ module Merb
         File.join(Merb.root, "") == File.join(::MerbAuthSliceRestful.root, "")
       end
       
+      def login_param
+        Merb::Plugins.config[:"merb-auth"][:login_param]
+      end      
+    	def password_param
+    	  Merb::Plugins.config[:"merb-auth"][:password_param]
+  	  end
+      
     end
   end
 end

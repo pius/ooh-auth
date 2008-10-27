@@ -5,6 +5,9 @@ describe MerbAuthSliceRestful::Sessions do
   before :all do
     Merb::Router.prepare { add_slice(:MerbAuthSliceRestful) } if standalone?
     @prefix = MerbAuthSliceRestful[:path_prefix]
+    # If running standalone, use the MockUser fixture class as the authenticatable model.
+    #raise "hai im standalone" if config.standalone?
+    
     @controller = dispatch_to(MerbAuthSliceRestful::Sessions, :index)
   end
    
@@ -26,9 +29,24 @@ describe MerbAuthSliceRestful::Sessions do
     @controller.action_name.should == 'new'
   end
   
-  it "should successfully render the login form"
-  it "should have a route to submit the login form"
-  it "should authenticate a valid user"
+  it "should successfully render the login form" do
+    @controller = get("/#{@prefix}/login")
+    @controller.status.should == 200
+    @controller.body.should contain("#{@prefix}/login") # intended to locate forms pointing to the authenticate method.
+  end
+  
+  it "should have a route to submit the login form" do
+    @controller.slice_url(:merb_auth_slice_restful, :authenticate).should == "/#{@prefix}/login"
+    @controller.slice_url(:authenticate).should == "/#{@prefix}/login"
+  end
+  
+  it "should authenticate a valid user on POST" do
+      #@controller = post("/#{@prefix}/login")
+      #@controller.should be_kind_of(MerbAuthSliceRestful::Sessions)
+      #@controller.action_name.should == 'create'
+  end
+  
+  it "should return a valid user to the return_to url if one was provided"
   it "should not authenticate an invalid user"
   it "should function with additional merb-auth strategies"
   

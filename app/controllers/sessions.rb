@@ -11,20 +11,14 @@ class MerbAuthSliceRestful::Sessions < MerbAuthSliceRestful::Application
   
   # Actually create the session based on user response.
   def create
-    provides :xml, :js, :json, :yaml
-
-    case content_type
-    when :html
-      render
-    else
-      basic_authentication.request!
-      ""
-    end
+    session.authenticate!(
+      request, params
+    )
   end
   
   # Destroy the session, logging the user out.
   def destroy
-    ""
+    session.abandon!
   end
   
 end

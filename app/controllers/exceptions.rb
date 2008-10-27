@@ -5,7 +5,7 @@ module MerbAuthSliceRestful::ExceptionsMixin
   # HTML requests should be redirected to the login form with a ?return_to param for the current uri
   # JS, JSON, XML and YAML requests should respond with a straight 403 header
   def unauthenticated
-    ""
+    "unauthenticated but successfully handled"
   end
   
 end

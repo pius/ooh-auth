@@ -42,6 +42,11 @@ Merb::Config.use do |c|
   
 end
 
+dependency "merb-auth-core"
+dependency "merb-auth-more"
+
+#Merb::Authentication.user_class = MerbAuthSliceRestful::MockUser
+
 dependency "dm-core", "0.9.6"         # The datamapper ORM
 dependency "dm-aggregates", "0.9.6"   # Provides your DM models with count, sum, avg, min, max, etc.
 dependency "dm-migrations", "0.9.6"   # Make incremental changes to your database.
