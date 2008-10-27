@@ -1,5 +1,7 @@
 require 'rubygems'
 require 'merb-core'
+require 'merb-auth-core'
+require 'merb-auth-more'
 require 'merb-slices'
 require 'spec'
 
@@ -33,11 +35,15 @@ module Merb
       end
       
       def login_param
-        Merb::Plugins.config[:"merb-auth"][:login_param]
+        Merb::Authentication::Strategies::Basic::Base.login_param
       end      
     	def password_param
-    	  Merb::Plugins.config[:"merb-auth"][:password_param]
+    	  Merb::Authentication::Strategies::Basic::Base.password_param
   	  end
+  	  
+  	  def nil.id
+  	    raise NoMethodError, "#id called on a nil object. STOP IT TED."
+	    end
       
     end
   end

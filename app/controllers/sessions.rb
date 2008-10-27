@@ -11,9 +11,15 @@ class MerbAuthSliceFullfat::Sessions < MerbAuthSliceFullfat::Application
   
   # Actually create the session based on user response.
   def create
-    session.authenticate!(
-      request, params
-    )
+    provides :html, :json, :xml, :yaml
+    
+    case content_type
+    when :html
+      @user = session.authenticate!(request, params)
+    else
+      basic_authentication.request!
+      ""
+    end
   end
   
   # Destroy the session, logging the user out.
