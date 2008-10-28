@@ -2,6 +2,32 @@ require File.dirname(__FILE__) + '/spec_helper'
 
 describe "MerbAuthSliceFullfat" do
 
+  describe "::Secrets (mock controller)" do
+    
+    #before(:each) { @controller = MerbAuthSliceFullfat::Secrets }
+    
+    it "should raise unauthenticated and direct to the login page for HTML requests if the user is not authenticated" do
+      lambda { @controller = dispatch_to(MerbAuthSliceFullfat::Secrets, :index, :format=>"html") }.should raise_error(Merb::Controller::Unauthenticated)
+    end
+    it "should raise unauthenticated for other requests" do
+      lambda { @controller = dispatch_to(MerbAuthSliceFullfat::Secrets, :index, :format=>"xml") }.should raise_error(Merb::Controller::Unauthenticated)
+      @controller = dispatch_to(MerbAuthSliceFullfat::Secrets, :index, :format=>"xml")
+    end
+    it "should display for authenticated users using HTTP auth" do 
+      @controller = dispatch_with_basic_authentication_to(
+        MerbAuthSliceFullfat::Secrets, :index, 
+        MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, MerbAuthSliceFullfat::Mocks::User::GOOD_PASSWORD, 
+        :format=>"xml"
+      ) #dispatch_with_basic_authentication_to
+      @controller.status.should == 200
+      @controller.should be_kind_of(MerbAuthSliceFullfat::Secrets)
+    end
+    
+    it "should display for authenticated users using session auth"    
+    it "should be displayable with a valid API authentication token"
+    
+  end
+
   describe "::KeyGenerators" do
     
     before(:each) { @module = MerbAuthSliceFullfat::KeyGenerators }

@@ -4,8 +4,7 @@ class PasswordReset
   property :id, Serial
   property :passphrase, String
   property :created_at, DateTime
-
-  belongs_to :user
+  property :user_id, Integer
   
   # A password reset is a small token with a long alphanumeric passphrase associated with it.
   # An unauthenticated user may consume a PasswordReset in order to change their password.
