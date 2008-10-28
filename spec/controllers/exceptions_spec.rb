@@ -4,7 +4,6 @@ describe Exceptions do
   
   before(:each) do
     Merb::Router.prepare { add_slice(:MerbAuthSliceFullfat) } if standalone?
-    dispatch_to(Exceptions, :unauthenticated)
   end
   
   after :all do

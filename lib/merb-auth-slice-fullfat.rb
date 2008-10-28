@@ -71,5 +71,6 @@ if defined?(Merb::Plugins)
   # Add dependencies for other MerbAuthSliceFullfat classes below. Example:
   # dependency "merb-auth-slice-fullfat/other"
   require "merb-auth-slice-fullfat/authentication_mixin"
+  require "merb-auth-slice-fullfat/key_generators"
   
 end

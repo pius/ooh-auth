@@ -4580,3 +4580,994 @@ uninitialized constant Application - (NameError)
  ~ {:after_filters_time=>6.0e-06, :action_time=>0.001009, :before_filters_time=>5.0e-06}
  ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
  ~ {:after_filters_time=>1.8e-05, :action_time=>0.001589, :before_filters_time=>1.1e-05}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.0e-05, :action_time=>0.001505, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001221, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000232, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.6e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>7.6e-05, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.001491, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001146, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001634, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001185, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.001501, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001231, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001477, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001463, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001066, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001412, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.8e-05, :action_time=>0.002046, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001332, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.000229, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>8.3e-05, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>8.2e-05, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.4e-05, :action_time=>0.001566, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.001227, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.001535, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001175, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001229, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.002059, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001606, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.001485, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001103, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001559, :before_filters_time=>1.4e-05}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.4e-05, :action_time=>0.001974, :before_filters_time=>2.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.0015, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ Redirecting to: /auth/login?_message=BAgiNVdlIGNvdWxkbid0IGF1dGhlbnRpY2F0ZSB5b3Ugd2l0aCB0aG9zZSBk%0AZXRhaWxzLg%3D%3D%0A (302)
+ ~ {:after_filters_time=>1.6e-05, :action_time=>0.000878, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ Params: {"action"=>"unauthenticated", "controller"=>"exceptions"}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.00142, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.001428, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001294, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.00117, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.00154, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001648, :before_filters_time=>1.2e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001611, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001733, :before_filters_time=>2.3e-05}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.001, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001617, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.0e-05, :action_time=>0.001625, :before_filters_time=>2.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001249, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.6e-05, :action_time=>0.00165, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001134, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001169, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001138, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001155, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001189, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001403, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001806, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001297, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001663, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.0e-05, :action_time=>0.001492, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001172, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.001417, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001123, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001049, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.001898, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.00123, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001683, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001391, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001289, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.000941, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001609, :before_filters_time=>7.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.001666, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001376, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.8e-05, :action_time=>0.002471, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001344, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001297, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001225, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001277, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001417, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001655, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001772, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001025, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001667, :before_filters_time=>7.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.001634, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001247, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.001676, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.0011810000000001, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.001441, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>4.6e-05, :action_time=>0.001266, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001117, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001228, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001377, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.00176, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.001079, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.001842, :before_filters_time=>7.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Cannot load /Users/danski/Sites/merb-auth-slice-fullfat/lib/merb-auth-slice-fullfat.rb because of syntax error: /Users/danski/Sites/merb-auth-slice-fullfat/lib/merb-auth-slice-fullfat/key_generators.rb:28: syntax error, unexpected $end, expecting kEND
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.3e-05, :action_time=>0.001774, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001524, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>2.1e-05, :action_time=>0.001731, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001472, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001299, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001248, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001163, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.0012, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001421, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.002002, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.001292, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.001779, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Cannot load /Users/danski/Sites/merb-auth-slice-fullfat/lib/merb-auth-slice-fullfat.rb because of syntax error: /Users/danski/Sites/merb-auth-slice-fullfat/lib/merb-auth-slice-fullfat/key_generators.rb:45: syntax error, unexpected $end, expecting kEND
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.1e-05, :action_time=>0.00154, :before_filters_time=>1.8e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001428, :before_filters_time=>1.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>2.0e-05, :action_time=>0.001524, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001655, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.00134, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.00117, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001378, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001296, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001441, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.001342, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.001216, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.7e-05, :action_time=>0.001544, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Cannot load /Users/danski/Sites/merb-auth-slice-fullfat/lib/merb-auth-slice-fullfat.rb because of syntax error: /Users/danski/Sites/merb-auth-slice-fullfat/lib/merb-auth-slice-fullfat/key_generators.rb:45: syntax error, unexpected $end, expecting kEND
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Cannot load /Users/danski/Sites/merb-auth-slice-fullfat/lib/merb-auth-slice-fullfat.rb because of syntax error: /Users/danski/Sites/merb-auth-slice-fullfat/lib/merb-auth-slice-fullfat/key_generators.rb:45: syntax error, unexpected $end, expecting kEND
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.9e-05, :action_time=>0.001866, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.8e-05, :action_time=>0.001303, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.001588, :before_filters_time=>1.6e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.00155000000000005, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.001636, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001235, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001239, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001244, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001487, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001453, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001131, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001577, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Cannot load /Users/danski/Sites/merb-auth-slice-fullfat/lib/merb-auth-slice-fullfat.rb because of syntax error: /Users/danski/Sites/merb-auth-slice-fullfat/lib/merb-auth-slice-fullfat/key_generators.rb:45: syntax error, unexpected $end, expecting kEND
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.3e-05, :action_time=>0.001679, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001504, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.7e-05, :action_time=>0.001928, :before_filters_time=>4.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001409, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001439, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001411, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.001547, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001239, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001772, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001344, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001002, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001496, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.001628, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001159, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.001495, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.001663, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001384, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001125, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001133, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.00132, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.001735, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001387, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001094, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.00156, :before_filters_time=>6.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.7e-05, :action_time=>0.00192, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001276, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.6e-05, :action_time=>0.00164, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001311, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.002127, :before_filters_time=>1.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001222, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.7e-05, :action_time=>0.001274, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>3.8e-05, :action_time=>0.00162, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001859, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001552, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001248, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001589, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.3e-05, :action_time=>0.001674, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001231, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.8e-05, :action_time=>0.002005, :before_filters_time=>1.6e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.001593, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.001383, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.00135, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001308, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001179, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001516, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001661, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.001373, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001625, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.7e-05, :action_time=>0.00206, :before_filters_time=>2.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001243, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.4e-05, :action_time=>0.001591, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001387, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001282, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001142, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001145, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001264, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001387, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001353, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001046, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.002099, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>3.6e-05, :action_time=>0.001969, :before_filters_time=>2.3e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001322, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.4e-05, :action_time=>0.001455, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.00147, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001591, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.001094, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.002022, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001195, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.001675, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001406, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001039, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001688, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.001605, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001235, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.001542, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001208, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001366, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001394, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001424, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001378, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001376, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001353, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001038, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001523, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.7e-05, :action_time=>0.002026, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001674, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.001555, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001237, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001114, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.8e-05, :action_time=>0.001334, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001231, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.00114, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001391, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.001364, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001015, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001581, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.001638, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001216, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.8e-05, :action_time=>0.002029, :before_filters_time=>2.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001343, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.001546, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.00112, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001187, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001384, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.002089, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.002077, :before_filters_time=>1.2e-05}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001116, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.001741, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.4e-05, :action_time=>0.001666, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001198, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.4e-05, :action_time=>0.00147, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001212, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001118, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001328, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001513, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001362, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001501, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001338, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001024, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.001888, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.3e-05, :action_time=>0.001629, :before_filters_time=>1.9e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001181, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.4e-05, :action_time=>0.001492, :before_filters_time=>1.3e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001192, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001623, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001386, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001262, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001217, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.001841, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001406, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001058, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001595, :before_filters_time=>7.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.2e-05, :action_time=>0.001583, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001186, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.001557, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.7e-05, :action_time=>0.001204, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001337, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001258, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.00149, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001317, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001622, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.00156, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001259, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.002435, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>3.0e-05, :action_time=>0.001947, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001324, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>3.4e-05, :action_time=>0.002187, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001325, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>2.0e-05, :action_time=>0.002002, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001227, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.4e-05, :action_time=>0.001383, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001216, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.001425, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001784, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001077, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001668, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.3e-05, :action_time=>0.001631, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001531, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.001504, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.001298, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.001786, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001138, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001201, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>3.3e-05, :action_time=>0.001482, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001768, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.001402, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001377, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001874, :before_filters_time=>1.0e-05}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>3.5e-05, :action_time=>0.002096, :before_filters_time=>2.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.7e-05, :action_time=>0.001304, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.6e-05, :action_time=>0.00154, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.001453, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001159, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001082, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001218, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.00117, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001433, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.001329, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.001017, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001605, :before_filters_time=>7.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.3e-05, :action_time=>0.001662, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001262, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>2.0e-05, :action_time=>0.001848, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001345, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001178, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001167, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001148, :before_filters_time=>1.6e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001205, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.2e-05, :action_time=>0.001356, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.001331, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.00099, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001657, :before_filters_time=>9.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.4e-05, :action_time=>0.00165, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.00124, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.001528, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.001351, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.9e-05, :action_time=>0.002098, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.4e-05, :action_time=>0.0016, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001302, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001255, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001445, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.001374, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001042, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001563, :before_filters_time=>7.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.3e-05, :action_time=>0.001619, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001224, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.7e-05, :action_time=>0.00204, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001355, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.001465, :before_filters_time=>1.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.001358, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.001575, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.001663, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001484, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001478, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.001287, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001609, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.6e-05, :action_time=>0.001808, :before_filters_time=>2.1e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.6e-05, :action_time=>0.001889, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.001512, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.00117, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.00111, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001124, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001108, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001177, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001385, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.001363, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.00122, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.0016, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.3e-05, :action_time=>0.001574, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001232, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.001506, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001183, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001225, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.0012, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001451, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001195, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001371, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001635, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001228, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001586, :before_filters_time=>7.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.3e-05, :action_time=>0.001858, :before_filters_time=>2.2e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001382, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.7e-05, :action_time=>0.001585, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.001373, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.00114, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.00117, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001148, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001143, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001364, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001304, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.001036, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001583, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.3e-05, :action_time=>0.001632, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001146, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.00156, :before_filters_time=>1.4e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001177, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>2.8e-05, :action_time=>0.001138, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001324, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.3e-05, :action_time=>0.001916, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001316, :before_filters_time=>1.1e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001887, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.5e-05, :action_time=>0.001494, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001067, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001677, :before_filters_time=>8.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.3e-05, :action_time=>0.001616, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001325, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.001492, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001199, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.6e-05, :action_time=>0.001336, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001244, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.0e-05, :action_time=>0.001192, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001201, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.001371, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001312, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>6.0e-06, :action_time=>0.001117, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001506, :before_filters_time=>7.0e-06}
+ ~ Found slice 'merb-auth-slice-fullfat' in search path at lib/merb-auth-slice-fullfat.rb
+ ~ Loaded slice 'MerbAuthSliceFullfat' ...
+ ~ Activating slice 'MerbAuthSliceFullfat' ...
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>2.3e-05, :action_time=>0.001643, :before_filters_time=>2.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001211, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.5e-05, :action_time=>0.001607, :before_filters_time=>1.5e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>1.4e-05, :action_time=>0.002195, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>6.8e-05, :action_time=>0.001521, :before_filters_time=>1.0e-05}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001138, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/password_resets"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001138, :before_filters_time=>6.0e-06}
+ ~ Params: {"action"=>"index", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.00122, :before_filters_time=>9.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>7.0e-06, :action_time=>0.001486, :before_filters_time=>7.0e-06}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>1.1e-05, :action_time=>0.001698, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"betteronthegenesis"}
+ ~ {:after_filters_time=>8.0e-06, :action_time=>0.001241, :before_filters_time=>8.0e-06}
+ ~ Params: {"action"=>"create", "controller"=>"merb_auth_slice_fullfat/sessions", "login"=>"Dr. Kintobor", "password"=>"OVER NINE THOUSAAAAAAAAND"}
+ ~ Params: {"action"=>"new", "controller"=>"merb_auth_slice_fullfat/sessions"}
+ ~ {:after_filters_time=>9.0e-06, :action_time=>0.001722, :before_filters_time=>7.0e-06}

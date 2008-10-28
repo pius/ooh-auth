@@ -47,7 +47,11 @@ describe MerbAuthSliceFullfat::Sessions do
     @controller.session[:user].should == @controller.assigns(:user).id
   end
 
-  it "should not authenticate an invalid user and handle the exception within the exceptions controller"
+  it "should not authenticate an invalid user on POST" do
+    lambda do 
+      @controller = post("/#{@prefix}/login", login_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, password_param=>"OVER NINE THOUSAAAAAAAAND")
+    end.should raise_error(Merb::Controller::Unauthenticated)
+  end
   
   it "should return a valid user to the return_to url if one was provided"
   it "should function with additional merb-auth strategies"
