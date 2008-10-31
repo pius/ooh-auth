@@ -3,7 +3,10 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 describe MerbAuthSliceFullfat::Sessions do
   
   before :all do
-    Merb::Router.prepare { add_slice(:MerbAuthSliceFullfat) } if standalone?
+    Merb::Router.prepare do 
+      add_slice(:MerbAuthSliceFullfat)
+      match("/secrets").to(:controller=>"merb_auth_slice_fullfat/secrets", :action=>"index").name(:secrets)
+    end if standalone?
     @prefix = MerbAuthSliceFullfat[:path_prefix]
     # If running standalone, use the MockUser fixture class as the authenticatable model.
     #raise "hai im standalone" if config.standalone?
@@ -44,7 +47,24 @@ describe MerbAuthSliceFullfat::Sessions do
     @controller = post("/#{@prefix}/login", login_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, password_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_PASSWORD)
     @controller.should be_kind_of(MerbAuthSliceFullfat::Sessions)
     @controller.action_name.should == 'create'
-    @controller.session[:user].should == @controller.assigns(:user).id
+    @controller.session[:user].should be_kind_of(MerbAuthSliceFullfat::Mocks::User)
+    @controller.session[:user].should == @controller.assigns(:user)
+  end
+  
+  it "should start a browser session when authenticated" do
+    controllers = [Exceptions, MerbAuthSliceFullfat::Sessions]
+    with_cookies *controllers do |jar|
+      # okay - secret page should cause an auth error.
+      lambda { get("/secrets") }.should raise_error(Merb::Controller::Unauthenticated)
+      @controller.session.user.should be_nil
+      # so let's authenticate
+      @auth_controller = post("/#{@prefix}/login", login_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, password_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_PASSWORD, return_to_param=>"/success")
+      # assert that the auth happened
+      @auth_controller.should redirect_to("/success")
+      # load a new page and check the session
+      @controller = get("/#{@prefix}/login")
+      @controller.session.user.should be_kind_of(MerbAuthSliceFullfat::Mocks::User)
+    end
   end
 
   it "should not authenticate an invalid user on POS" do
@@ -53,8 +73,28 @@ describe MerbAuthSliceFullfat::Sessions do
     end.should raise_error(Merb::Controller::Unauthenticated)
   end
   
-  it "should return a valid user to the return_to url if one was provided"
-  it "should function with additional merb-auth strategies"
+  it "should return a valid user to the return_to url if one was provided" do
+    @controller = post("/#{@prefix}/login", login_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, password_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_PASSWORD, return_to_param=>"/success")
+    @controller.status.should == 302
+    @controller.should redirect_to("/success")
+  end
+  
+  it "should function with additional merb-auth strategies" do
+    # Register a totally passive strategy just designed to trigger a variable when queried.
+    class CustomStrategyDetector
+      cattr_accessor :has_run
+      @@has_run = false
+    end
+    Merb::Authentication.register :custom_strategy, MerbAuthSliceFullfat.root / "mocks" / "custom_auth_strategy.rb"
+    Merb::Authentication.activate! :custom_strategy
+    CustomStrategyDetector.has_run.should be_false
+    
+    lambda do
+      @controller = post("/#{@prefix}/login", login_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, password_param=>"SDFSDFSDF", return_to_param=>"/success")
+    end.should raise_error(Merb::Controller::Unauthenticated)
+    
+    CustomStrategyDetector.has_run.should be_true
+  end
   
   it "should be mountable at the application root" do
     Merb::Router.prepare { slice( :MerbAuthSliceFullfat, :name_prefix => nil, :path_prefix => nil ) }

@@ -1,17 +1,18 @@
 # the mixin to provide the exceptions controller action for Unauthenticated
+#class Application < Merb::Controller; end
+#class Exceptions < Application; end
+
 module MerbAuthSliceFullfat::ExceptionsMixin
   
   # Catch unauthenticated requests and handle the exception.
   # HTML requests should be redirected to the login form with a ?return_to param for the current uri
   # JS, JSON, XML and YAML requests should respond with a straight 403 header
   def unauthenticated
-    @exception_raised = "unauthenticated"
-    provides :xml, :json, :yaml
+    provides :html, :xml, :json, :yaml
     case content_type
     when :html
       return_to_key = MerbAuthSliceFullfat[:return_to_param]
-      redirect  slice_url(:merb_auth_slice_fullfat, :login, return_to_key=>params[return_to_key]), 
-                :message=>"We couldn't authenticate you with those details."
+      redirect  url(:merb_auth_slice_fullfat_login, return_to_key=>(params[return_to_key] or request.uri))
     else
       basic_authentication.request!
       ""

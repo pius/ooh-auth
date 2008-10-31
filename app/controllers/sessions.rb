@@ -11,11 +11,12 @@ class MerbAuthSliceFullfat::Sessions < MerbAuthSliceFullfat::Application
   
   # Actually create the session based on user response.
   def create
-    provides :html, :json, :xml, :yaml
-    
+    provides :html, :json, :xml, :yaml    
     case content_type
     when :html
-      @user = session.authenticate!(request, params)
+      if @user = session.authenticate!(request, params)
+        redirect(params[MerbAuthSliceFullfat[:return_to_param]] || MerbAuthSliceFullfat[:default_return_to])
+      end
     else
       basic_authentication.request!
       ""

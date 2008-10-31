@@ -19,6 +19,8 @@ Merb.start_environment(
   :session_store => 'memory'
 )
 
+
+
 module Merb
   module Test
     module SliceHelper
@@ -40,11 +42,29 @@ module Merb
     	def password_param
     	  Merb::Authentication::Strategies::Basic::Base.password_param
   	  end
+  	  def return_to_param
+    	  Merb::Slices::config[:merb_auth_slice_fullfat][:return_to_param]
+  	  end
+  	  def default_return_to
+  	    Merb::Slices::config[:merb_auth_slice_fullfat][:default_return_to]
+	    end
   	  
   	  def nil.id
   	    raise NoMethodError, "#id called on a nil object. STOP IT TED."
 	    end
-      
+	    
+	    # Override for buggy freaking redirect_to assertion in merb 0.9.11.
+      # duplicates syntax of old version, so can be safely removed once
+      # http://merb.lighthouseapp.com/projects/7433-merb/tickets/949-redirect_to-assertion-errors-on-success-under-some-setups
+      # is fixed.
+      def redirect_to(url)
+        simple_matcher("redirect to #{url.inspect}") do |controller, matcher|
+          actual_url = controller.rack_response[1]["Location"]
+          matcher.failure_message = "expected to be redirected to #{url.inspect} but instead was redirected to #{actual_url.inspect}"
+          actual_url == url
+        end
+      end
+	          
     end
   end
 end
