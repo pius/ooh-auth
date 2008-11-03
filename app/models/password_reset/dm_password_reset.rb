@@ -1,4 +1,4 @@
-class PasswordReset
+class MerbAuthSliceFullfat::PasswordReset
   include DataMapper::Resource
   
   property :id, Serial

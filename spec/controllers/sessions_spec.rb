@@ -69,7 +69,7 @@ describe MerbAuthSliceFullfat::Sessions do
 
   it "should not authenticate an invalid user on POS" do
     lambda do 
-      @controller = post("/#{@prefix}/login", login_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, password_param=>"OVER NINE THOUSAAAAAAAAND")
+      @controller = post("/#{@prefix}/login", login_param=>"THE POWER LEVEL", password_param=>"ITS OVER NINE THOUSAAAAAAAAND")
     end.should raise_error(Merb::Controller::Unauthenticated)
   end
   
@@ -90,7 +90,7 @@ describe MerbAuthSliceFullfat::Sessions do
     CustomStrategyDetector.has_run.should be_false
     
     lambda do
-      @controller = post("/#{@prefix}/login", login_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, password_param=>"SDFSDFSDF", return_to_param=>"/success")
+      @controller = post("/#{@prefix}/login", login_param=>"THE 90'S", password_param=>"WERE UNDERRATED", return_to_param=>"/success")
     end.should raise_error(Merb::Controller::Unauthenticated)
     
     CustomStrategyDetector.has_run.should be_true

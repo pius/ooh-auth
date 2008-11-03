@@ -59,10 +59,14 @@ if defined?(Merb::Plugins)
       # Add the following to your app's router to mount SliceRestful at the root:
       # Merb::Router.prepare do
       #   slice( :MerbAuthSliceFullfat, :name_prefix => nil, :path_prefix => "auth", :default_routes => false )
-      # end      
+      # end
+      
+      # Create sane-looking login routes for sessions
       scope.match("/login", :method => :get ).to(:controller => "sessions",     :action => "new"            ).name(:login)
       scope.match("/login", :method => :post).to(:controller => "sessions",     :action => "create"         ).name(:authenticate)
       scope.match("/logout"                 ).to(:controller => "sessions",     :action => "destroy"        ).name(:logout)
+      # Resource password resets
+      scope.resources :password_resets
     end
     
   end
