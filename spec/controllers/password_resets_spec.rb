@@ -4,11 +4,17 @@ describe MerbAuthSliceFullfat::PasswordResets, "index action" do
   
   before :each do
     Merb::Router.prepare { add_slice(:MerbAuthSliceFullfat) } if standalone?
-    dispatch_to(MerbAuthSliceFullfat::PasswordResets, :index)
+    @controller = dispatch_to(MerbAuthSliceFullfat::PasswordResets, :index)
   end
   
   after :all do
     Merb::Router.reset! if standalone?
+  end
+
+  it "should have resource-type routing" do
+    @controller.slice_url(:password_resets).should == "/auth/password_resets"
+    @controller = get(@controller.slice_url(:password_resets))
+    @controller.status.should == 200
   end
   
   it "should render a password reset form"

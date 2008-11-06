@@ -4,7 +4,7 @@ class MerbAuthSliceFullfat::PasswordResets < MerbAuthSliceFullfat::Application
 
   # Render a form allowing the user to start the password reset procedure.
   def new
-    
+    render(:new)
   end
   
   # Allow the user to create a password reset associated with their account.
