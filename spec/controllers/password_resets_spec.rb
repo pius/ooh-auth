@@ -1,10 +1,11 @@
 require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
-describe MerbAuthSliceFullfat::PasswordResets, "index action" do
+describe MerbAuthSliceFullfat::PasswordResets do
   
   before :each do
     Merb::Router.prepare { add_slice(:MerbAuthSliceFullfat) } if standalone?
     @controller = dispatch_to(MerbAuthSliceFullfat::PasswordResets, :index)
+    @prefix = MerbAuthSliceFullfat[:path_prefix]
   end
   
   after :all do
@@ -12,7 +13,8 @@ describe MerbAuthSliceFullfat::PasswordResets, "index action" do
   end
 
   it "should have resource-type routing" do
-    @controller.slice_url(:password_resets).should == "/auth/password_resets"
+    @controller = dispatch_to(MerbAuthSliceFullfat::PasswordResets, :index)
+    @controller.slice_url(:password_resets).should == "/#{@prefix}/password_resets"
     @controller = get(@controller.slice_url(:password_resets))
     @controller.status.should == 200
   end
