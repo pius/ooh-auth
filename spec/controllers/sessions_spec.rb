@@ -35,7 +35,8 @@ describe MerbAuthSliceFullfat::Sessions do
   it "should successfully render the login form" do
     @controller = get("/#{@prefix}/login")
     @controller.status.should == 200
-    @controller.body.should contain("#{@prefix}/login") # intended to locate forms pointing to the authenticate method.
+    @controller.body.should contain("<form") # intended to locate forms pointing to the authenticate method.
+    @controller.body.should contain("</form>")
   end
   
   it "should have a route to submit the login form" do

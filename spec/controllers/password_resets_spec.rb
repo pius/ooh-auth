@@ -4,7 +4,7 @@ describe MerbAuthSliceFullfat::PasswordResets do
   
   before :each do
     Merb::Router.prepare { add_slice(:MerbAuthSliceFullfat) } if standalone?
-    @controller = dispatch_to(MerbAuthSliceFullfat::PasswordResets, :index)
+    @controller = dispatch_to(MerbAuthSliceFullfat::PasswordResets, :index) rescue raise(StandardError, Merb::Router.named_routes.inspect)
     @prefix = MerbAuthSliceFullfat[:path_prefix]
   end
   

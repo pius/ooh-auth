@@ -2,14 +2,23 @@
 	@identifier_field = MerbAuthSliceFullfat[:password_reset_identifier_field]
 %>
 
+<h1>General routes</h1>
+
 <ul>
 	<% Merb::Router.named_routes.each do |r| %>
 		<li><%= r.inspect %></li>
 	<% end %>
 </ul>
 
+<h1>Slice routes</h1>
 
-<form method="POST" action="<%= slice_url(:new_password_reset, :format=>:html) %>">
+<ul>
+	<% Merb::Slices.named_routes[:merb_auth_slice_fullfat].each do |r| %>
+		<li><%= r.inspect %></li>
+	<% end %>
+</ul>
+
+<form method="POST" action="<%= slice_url(:password_resets, :format=>:html) %>">
 
 	<fieldset>
 		<legend>
