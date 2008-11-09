@@ -24,28 +24,28 @@ describe MerbAuthSliceFullfat::Sessions do
   end
 
   it "should have a route to the login form" do
-    @controller.slice_url(:merb_auth_slice_fullfat, :login).should == "/#{@prefix}/login"
-    @controller.slice_url(:login).should == "/#{@prefix}/login"
+    @controller.slice_url(:merb_auth_slice_fullfat, :new_session).should == "/#{@prefix}/sessions/new"
+    @controller.slice_url(:new_session).should == "/#{@prefix}/sessions/new"
 
-    @controller = get("/#{@prefix}/login")
+    @controller = get(@controller.slice_url(:new_session))
     @controller.should be_kind_of(MerbAuthSliceFullfat::Sessions)
     @controller.action_name.should == 'new'
   end
   
   it "should successfully render the login form" do
-    @controller = get("/#{@prefix}/login")
+    @controller = get(@controller.slice_url(:new_session))
     @controller.status.should == 200
     @controller.body.should contain("<form") # intended to locate forms pointing to the authenticate method.
     @controller.body.should contain("</form>")
   end
   
   it "should have a route to submit the login form" do
-    @controller.slice_url(:merb_auth_slice_fullfat, :authenticate).should == "/#{@prefix}/login"
-    @controller.slice_url(:authenticate).should == "/#{@prefix}/login"
+    @controller.slice_url(:merb_auth_slice_fullfat, :sessions).should == "/#{@prefix}/sessions"
+    @controller.slice_url(:sessions).should == "/#{@prefix}/sessions"
   end
   
   it "should authenticate a valid user on POST" do
-    @controller = post("/#{@prefix}/login", login_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, password_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_PASSWORD)
+    @controller = post(@controller.slice_url(:sessions), login_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, password_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_PASSWORD)
     @controller.should be_kind_of(MerbAuthSliceFullfat::Sessions)
     @controller.action_name.should == 'create'
     @controller.session[:user].should be_kind_of(MerbAuthSliceFullfat::Mocks::User)
@@ -59,23 +59,23 @@ describe MerbAuthSliceFullfat::Sessions do
       lambda { get("/secrets") }.should raise_error(Merb::Controller::Unauthenticated)
       @controller.session.user.should be_nil
       # so let's authenticate
-      @auth_controller = post("/#{@prefix}/login", login_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, password_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_PASSWORD, return_to_param=>"/success")
+      @auth_controller = post(@controller.slice_url(:sessions), login_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, password_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_PASSWORD, return_to_param=>"/success")
       # assert that the auth happened
       @auth_controller.should redirect_to("/success")
       # load a new page and check the session
-      @controller = get("/#{@prefix}/login")
+      @controller = get(@controller.slice_url(:new_session))
       @controller.session.user.should be_kind_of(MerbAuthSliceFullfat::Mocks::User)
     end
   end
 
-  it "should not authenticate an invalid user on POS" do
+  it "should not authenticate an invalid user on POST" do
     lambda do 
-      @controller = post("/#{@prefix}/login", login_param=>"THE POWER LEVEL", password_param=>"ITS OVER NINE THOUSAAAAAAAAND")
+      @controller = post(@controller.slice_url(:sessions), login_param=>"THE POWER LEVEL", password_param=>"ITS OVER NINE THOUSAAAAAAAAND")
     end.should raise_error(Merb::Controller::Unauthenticated)
   end
   
   it "should return a valid user to the return_to url if one was provided" do
-    @controller = post("/#{@prefix}/login", login_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, password_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_PASSWORD, return_to_param=>"/success")
+    @controller = post(@controller.slice_url(:sessions), login_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, password_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_PASSWORD, return_to_param=>"/success")
     @controller.status.should == 302
     @controller.should redirect_to("/success")
   end
@@ -91,7 +91,7 @@ describe MerbAuthSliceFullfat::Sessions do
     CustomStrategyDetector.has_run.should be_false
     
     lambda do
-      @controller = post("/#{@prefix}/login", login_param=>"THE 90'S", password_param=>"WERE UNDERRATED", return_to_param=>"/success")
+      @controller = post(@controller.slice_url(:sessions), login_param=>"THE 90'S", password_param=>"WERE UNDERRATED", return_to_param=>"/success")
     end.should raise_error(Merb::Controller::Unauthenticated)
     
     CustomStrategyDetector.has_run.should be_true
@@ -99,8 +99,8 @@ describe MerbAuthSliceFullfat::Sessions do
   
   it "should be mountable at the application root" do
     Merb::Router.prepare { slice( :MerbAuthSliceFullfat, :name_prefix => nil, :path_prefix => nil ) }
-      @controller = get("/login")
-      @controller.slice_url(:login).should == "/login"
+      @controller = get("/sessions/new")
+      @controller.slice_url(:new_session).should == "/sessions/new"
       @controller.should be_kind_of(MerbAuthSliceFullfat::Sessions)
       @controller.action_name.should == 'new'
     Merb::Router.reset!

@@ -12,7 +12,7 @@ module MerbAuthSliceFullfat::ExceptionsMixin
     case content_type
     when :html
       return_to_key = MerbAuthSliceFullfat[:return_to_param]
-      redirect  url(:merb_auth_slice_fullfat_login, return_to_key=>(params[return_to_key] or request.uri))
+      redirect  url(:new_merb_auth_slice_fullfat_session, return_to_key=>(params[return_to_key] or request.uri))
     else
       basic_authentication.request!
       ""

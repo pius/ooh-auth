@@ -9,7 +9,7 @@ class MerbAuthSliceFullfat::PasswordResets < MerbAuthSliceFullfat::Application
   
   # Allow the user to create a password reset associated with their account.
   def create
-    
+    render
   end
   
   

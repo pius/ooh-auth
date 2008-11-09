@@ -6,7 +6,7 @@ class MerbAuthSliceFullfat::Sessions < MerbAuthSliceFullfat::Application
   # Render a login form allowing the user to authenticate through merb-auth-more's
   # salted_user auth mixin.
   def new
-    render
+    render(:new)
   end
   
   # Actually create the session based on user response.

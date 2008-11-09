@@ -25,7 +25,7 @@ if defined?(Merb::Plugins)
     :default_return_to => "/"                   # if the return_to param is not specified, where should login and logout go on success?
   })
   # SliceRestful uses merb-auth-more's configuration options:
-  # Merb::Plugins.config[:"merb-auth"][:login_param] => key to use when looking up the LOGIN in requests.
+  # Merb::Plugins.config[:"merb-auth"][:new_session_param] => key to use when looking up the LOGIN in requests.
   # Merb::Plugins.config[:"merb-auth"][:password_param] => key to use when looking up the PASSWORD in requests.
   # Merb::Authentication.user_class => the class to use when calling #authenticate on your user model.
 
@@ -56,18 +56,13 @@ if defined?(Merb::Plugins)
     def self.deactivate
     end
     
+    # Add the following to your app's router to mount SliceRestful at the root:
+    # Merb::Router.prepare do
+    #   slice( :MerbAuthSliceFullfat, :name_prefix => nil, :path_prefix => "auth", :default_routes => false )
+    # end
     def self.setup_router(scope)
-      # Add the following to your app's router to mount SliceRestful at the root:
-      # Merb::Router.prepare do
-      #   slice( :MerbAuthSliceFullfat, :name_prefix => nil, :path_prefix => "auth", :default_routes => false )
-      # end
-      
-      # Create sane-looking login routes for sessions
-      scope.match("/login", :method => :get ).to(:controller => "sessions",     :action => "new"            ).name(:login)
-      scope.match("/login", :method => :post).to(:controller => "sessions",     :action => "create"         ).name(:authenticate)
-      scope.match("/logout"                 ).to(:controller => "sessions",     :action => "destroy"        ).name(:logout)
-      # Resource password resets
-      scope.resources :password_resets
+      scope.resources :sessions
+      scope.resources :password_resets      
     end
     
   end

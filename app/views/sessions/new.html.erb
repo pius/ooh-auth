@@ -3,7 +3,7 @@
 	@password_param = Merb::Authentication::Strategies::Basic::Base.password_param
 %>
 
-<form method="POST" action="<%= slice_url(:authenticate) %>">
+<form method="POST" action="<%= slice_url(:new_session) %>">
 	<fieldset>
 		<label for="<%= @login_param %>_field">Login</label>
 		<input type="text" name="<%= @login_param %>" id="<%= @login_param %>_field" />

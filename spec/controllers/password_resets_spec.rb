@@ -2,9 +2,12 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 describe MerbAuthSliceFullfat::PasswordResets do
   
-  before :each do
-    Merb::Router.prepare { add_slice(:MerbAuthSliceFullfat) } if standalone?
-    @controller = dispatch_to(MerbAuthSliceFullfat::PasswordResets, :index) rescue raise(StandardError, Merb::Router.named_routes.inspect)
+  before :all do
+    Merb::Router.prepare do 
+      add_slice(:MerbAuthSliceFullfat)
+      match("/secrets").to(:controller=>"merb_auth_slice_fullfat/secrets", :action=>"index").name(:secrets)
+    end if standalone?
+    @controller = dispatch_to(MerbAuthSliceFullfat::PasswordResets, :index)
     @prefix = MerbAuthSliceFullfat[:path_prefix]
   end
   

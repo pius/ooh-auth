@@ -20,14 +20,14 @@ describe Exceptions do
   it "should redirect users to the login screen for HTML requests when unauthenticated is encountered" do
     @controller = get("/sekkrit", :format=>"html")
     @controller.status.should == 302
-    @controller.should redirect_to(@controller.url(:merb_auth_slice_fullfat_login, @return_to_param=>"/sekkrit"))
-    lambda {@controller.should redirect_to(@controller.url(:merb_auth_slice_fullfat_login, @return_to_param=>"/WRONG"))}.should fail
+    @controller.should redirect_to(@controller.url(:new_merb_auth_slice_fullfat_session, @return_to_param=>"/sekkrit"))
+    lambda {@controller.should redirect_to(@controller.url(:new_merb_auth_slice_fullfat_session, @return_to_param=>"/WRONG"))}.should fail
   end
   it "should redirect users to the login screen with the correct return_to if return_to is set" do
     @controller = get("/sekkrit", :format=>"html", @return_to_param=>"/returned")
     @controller.status.should == 302
-    @controller.should redirect_to(@controller.url(:merb_auth_slice_fullfat_login, @return_to_param=>"/returned"))
-    lambda {@controller.should redirect_to(@controller.url(:merb_auth_slice_fullfat_login, @return_to_param=>"/WRONG"))}.should fail
+    @controller.should redirect_to(@controller.url(:new_merb_auth_slice_fullfat_session, @return_to_param=>"/returned"))
+    lambda {@controller.should redirect_to(@controller.url(:new_merb_auth_slice_fullfat_session, @return_to_param=>"/WRONG"))}.should fail
   end
   
   it "should return a 403 response for all other request types when unauthenticated is encountered"
