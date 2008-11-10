@@ -16,15 +16,27 @@ class MerbAuthSliceFullfat::PasswordReset
     after :save,    :mail_link
     after :destroy, :mail_new_password
     
+  # Common Interface - MUST be provided by all versions of this class for all ORMs.
+  # ------------------------------------------------------------------------------------------------
+    
   # Finds the most recent valid PasswordReset for the given user.
   def self.find_by_passphrase(p)
     self.first(:passphrase => p)
   end
+  
   # Creates a new reset for the given user.
   def self.new_for_user(u)
     create :user_id=>u.id
   end
+  
+  # Consumes the reset given a new password
+  def consume!(password)
     
+  end  
+  
+  # Internal functionality
+  # ------------------------------------------------------------------------------------------------
+  
   # Emails the user with a link to reset their password.
   def mail_link
     # TODO
