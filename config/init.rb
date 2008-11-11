@@ -44,17 +44,8 @@ end
 
 use_orm :datamapper
 
-Merb::Plugins.config[:fixtures] = {
-  :directory => Merb.root / "app" / "fixtures"
-}
-
 dependency "merb-auth-core"
 dependency "merb-auth-more"
-dependency "merb-fixtures"
-
-Merb::Plugins.config[:fixtures] = {
-  :directory => Merb.root / "app" / "fixtures"
-}
 
 Merb::BootLoader.after_app_loads do
   # This will get executed after your app's classes have been loaded.

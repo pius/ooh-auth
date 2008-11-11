@@ -62,7 +62,7 @@ if defined?(Merb::Plugins)
     # end
     def self.setup_router(scope)
       scope.resources :sessions
-      scope.resources :password_resets      
+      scope.resources :password_resets, :key=>:passphrase   
     end
     
   end

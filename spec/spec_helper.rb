@@ -19,8 +19,6 @@ Merb.start_environment(
   :session_store => 'memory'
 )
 
-
-
 module Merb
   module Test
     module SliceHelper
@@ -49,10 +47,6 @@ module Merb
   	    Merb::Slices::config[:merb_auth_slice_fullfat][:default_return_to]
 	    end
   	  
-  	  def nil.id
-  	    raise NoMethodError, "#id called on a nil object. STOP IT TED."
-	    end
-	    
 	    # Override for buggy freaking redirect_to assertion in merb 0.9.11.
       # duplicates syntax of old version, so can be safely removed once
       # http://merb.lighthouseapp.com/projects/7433-merb/tickets/949-redirect_to-assertion-errors-on-success-under-some-setups
@@ -68,6 +62,14 @@ module Merb
     end
   end
 end
+
+# this loads all plugins required in your init file so don't add them
+# here again, Merb will do it for you
+#Merb.start_environment(:testing => true, :adapter => 'runner', :environment => ENV['MERB_ENV'] || 'test')
+# Migrate that shit
+DataMapper.auto_migrate!
+# Load fixtures
+require File.join(File.dirname(__FILE__), 'spec_fixtures')
 
 Spec::Runner.configure do |config|
   config.include(Merb::Test::ViewHelper)

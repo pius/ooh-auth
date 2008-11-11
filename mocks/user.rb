@@ -10,10 +10,16 @@ module MerbAuthSliceFullfat
               o = new
               o.id = GOOD_ID
               return o if login == GOOD_LOGIN and pass == GOOD_PASSWORD
+              return nil
             end
             
-            attr_accessor :id
-                                    
+            attr_accessor :id            
+            attr_accessor :password
+            
+            def save
+              true
+            end
+                                 
        end
    end 
 end

@@ -12,8 +12,20 @@ class MerbAuthSliceFullfat::PasswordResets < MerbAuthSliceFullfat::Application
     render
   end
   
-  
+  # Finds a specific password reset and displays a form allowing the user to set
+  # a new password.
   def show
+    
+  end
+  
+  # Consumes a password reset for a given user
+  def update
+    
+  end
+  
+  # Destroys a password reset based on passphrase WITHOUT changing the user's password.
+  # Effectively, cancels the password reset procedure.
+  def destroy
     
   end
   

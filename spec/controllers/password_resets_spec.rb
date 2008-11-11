@@ -23,9 +23,11 @@ describe MerbAuthSliceFullfat::PasswordResets do
   end
   
   it "should render a password reset form"
+  it "should use the passphrase as identifer in all resource routes"
   it "should render the form with a notification when a bad reset key is entered"
   it "should have a link to claim a notification directly by key"
   it "should allow the user to reset their pass when a correct key is used"
   it "should return the user to the host application once a reset is claimed"
+  it "should allow cancellation of a passwordreset using the destroy action"
   
 end

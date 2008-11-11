@@ -4,6 +4,14 @@ require 'rake/gempackagetask'
 require 'merb-core'
 require 'merb-core/tasks/merb'
 
+require 'spec/rake/spectask'
+require 'merb-core/test/tasks/spectasks'
+require 'merb_datamapper/merbtasks'
+
+desc 'Default: run spec examples'
+task :default => 'spec'
+
+
 GEM_NAME = "merb-auth-slice-fullfat"
 AUTHOR = "Dan Glegg"
 EMAIL = "dan@angryamoeba.co.uk"
@@ -48,8 +56,3 @@ task :gemspec do
     file.puts spec.to_ruby
   end
 end
-
-require 'spec/rake/spectask'
-require 'merb-core/test/tasks/spectasks'
-desc 'Default: run spec examples'
-task :default => 'spec'
