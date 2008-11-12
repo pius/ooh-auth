@@ -1,15 +1,15 @@
 class MerbAuthSliceFullfat::PasswordReset
   include DataMapper::Resource
   
-  @@user_class = Merb::Authentication.user_class
+  def user_class; Merb::Authentication.user_class; end
   
   property :id, Serial              # internal ID
-  property :key, String             # long alphanumeric key used to identify this object in urls
-  property :passphrase, String      # passphrase required to change the password, only present in the sent email
+  property :identifier, String             # long alphanumeric identifier used to identify this object in urls
+  property :secret, String      # secret required to change the password, only present in the sent email
   property :created_at, DateTime    # timestamp for validity checking
   property :user_id, Integer        # probably need this to like, relate the object to a user or something. ymmv.
   
-  # A password reset is a small token with a long alphanumeric passphrase associated with it.
+  # A password reset is a small token with a long alphanumeric secret associated with it.
   # An unauthenticated user may consume a PasswordReset in order to change their password.
   # Important behavioural details:
   # - Creating a new password reset for a user will destroy all prior resets for that user.
@@ -19,8 +19,8 @@ class MerbAuthSliceFullfat::PasswordReset
   # ------------------------------------------------------------------------------------------------
     
   # Finds the most recent valid PasswordReset for the given user.
-  def self.find_by_key(k)
-    first(:key => k)
+  def self.find_by_identifier(k)
+    first(:identifier => k)
   end
   
   # Creates a new reset for the given user.
@@ -30,9 +30,14 @@ class MerbAuthSliceFullfat::PasswordReset
     create :user_id=>u.id
   end
   
-  # Consumes the reset given a new password
-  def consume!(password)
-    
+  # Consumes the reset given a new password and confirmation
+  # Returns the user with the changed password having attempted to save the user record.
+  # Deletes self if the save is successful
+  def consume!(password, password_confirmation=nil)
+    @user = user_class.get(user_id) unless @user
+    @user.password = password; @user.password_confirmation = password_confirmation
+    self.destroy if @user.save
+    return @user
   end  
   
   # Internal functionality
@@ -43,12 +48,12 @@ class MerbAuthSliceFullfat::PasswordReset
     self.class.all(:user_id=>user_id).destroy! if new_record?
   end
   
-  before :save, :generate_keys_if_new
-  def generate_keys_if_new
+  before :save, :generate_identifiers_if_new
+  def generate_identifiers_if_new
     if new_record?
-      while(key.nil? or passphrase.nil? or self.class.find_by_key(key)) do
-        self.key = MerbAuthSliceFullfat::KeyGenerators::Alphanum.new(30)
-        self.passphrase = MerbAuthSliceFullfat::KeyGenerators::Passphrase.new(4)
+      while(identifier.nil? or secret.nil? or self.class.find_by_identifier(identifier)) do
+        self.identifier = MerbAuthSliceFullfat::KeyGenerators::Alphanum.gen(30)
+        self.secret = MerbAuthSliceFullfat::KeyGenerators::Passphrase.gen(5)
       end
     end
   end

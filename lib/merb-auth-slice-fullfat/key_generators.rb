@@ -28,27 +28,27 @@ module MerbAuthSliceFullfat
     
     # A memorable password based on the pattern XXadjectiveNouns, for example 67blueTeeth or 267noisySandboxes.
     class Password < String
-      def self.new(len=0)
-        super "#{rand(999)}#{ADJECTIVES[rand(ADJECTIVES.length)]}#{NOUNS[rand(NOUNS.length)].capitalize}"
+      def self.gen(len=0)
+        return "#{rand(999)}#{ADJECTIVES[rand(ADJECTIVES.length)]}#{NOUNS[rand(NOUNS.length)].capitalize}"
       end
     end
   
     # A multi-word passphrase based on the dictionary, containing spaces.
     class Passphrase < String
-      def self.new(len=3)
+      def self.gen(len=3)
         p = []
         len.times do |i|
           pool = NOUNS.select {|w| !p.include?(w)}
           p << pool[rand(pool.length)]
         end
-        super p.join(" ")
+        return p.join(" ")
       end
     end
   
     # A good ol' fashioned incomprehensible string of alphanumeric characters.
     class Alphanum < String
-      def self.new(len=18)
-        super((0..(len-1)).collect {|x| ALPHANUM[rand(ALPHANUM.length)] }.join(""))
+      def self.gen(len=18)
+        return((0..(len-1)).collect {|x| ALPHANUM[rand(ALPHANUM.length)] }.join(""))
       end
     end
     

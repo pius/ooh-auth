@@ -10,10 +10,8 @@ module MerbAuthSliceFullfat
           property :name,                 String
           property :login,                String
           property :email,                String
-          property :password,             String
-
-          validates_is_unique         :login, :email
-          validates_is_confirmed      :password
+          
+          validates_is_unique         :login, :email        
        end
    end 
 end
