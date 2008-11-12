@@ -1,11 +1,11 @@
 class MerbAuthSliceFullfat::PasswordReset
   include DataMapper::Resource
   
-  property :id, Serial              # internal ID
-  property :identifier, String             # long alphanumeric identifier used to identify this object in urls
-  property :secret, String      # secret required to change the password, only present in the sent email
-  property :created_at, DateTime    # timestamp for validity checking
-  property :user_id, Integer        # probably need this to like, relate the object to a user or something. ymmv.
+  property :id,           Serial      # internal ID
+  property :identifier,   String      # long alphanumeric identifier used to identify this object in urls
+  property :secret,       String      # secret required to change the password, only present in the sent email
+  property :created_at,   DateTime    # timestamp for validity checking
+  property :user_id,      Integer     # probably need this to like, relate the object to a user or something. ymmv.
   
   validates_present :user_id
   
