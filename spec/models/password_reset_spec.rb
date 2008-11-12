@@ -5,7 +5,6 @@ describe MerbAuthSliceFullfat::PasswordReset do
   before(:each) do
     user_class.all.destroy!
     MerbAuthSliceFullfat::PasswordReset.all.destroy!
-    @password_resets = 10.of {MerbAuthSliceFullfat::PasswordReset.gen}
   end
   
   after(:each) do
@@ -36,8 +35,17 @@ describe MerbAuthSliceFullfat::PasswordReset do
     (pw_count + 1).should == MerbAuthSliceFullfat::PasswordReset.count
   end
   
+  it "should generate a passphrase and a key upon creation" do
+    password_resets = 20.of {MerbAuthSliceFullfat::PasswordReset.gen(:key=>nil, :passphrase=>nil)}
+    keys = password_resets.collect{|pw| pw.key}
+    keys.uniq.length.should == password_resets.length
+    
+    password_resets.first.passphrase.should match(/(\w+\s)+/)
+    password_resets.first.key.should match(/[a-zA-Z0-9]+/)
+  end
+  
   it "should not return results for nonexistant passphrases"
-  it "should generate a passphrase if none was given upon creation"
+  
   it "should destroy older results for the same user upon creation" do
     user = user_class.new
     user.save

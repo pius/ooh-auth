@@ -28,10 +28,7 @@ describe MerbAuthSliceFullfat::PasswordResets do
     @controller.status.should == 200
     @controller.action_name.should == "new"
   end
-  it "should fail with a message when an incorrect user identifier is used to create a new reset" do
-    reset_count = MerbAuthSliceFullfat::PasswordReset.count
-    
-  end
+  it "should fail with a message when an incorrect user identifier is used to create a new reset"
   it "should successfully create a new reset when given a correct identifier"
   
   it "should render the form with a notification when a bad reset key is entered"

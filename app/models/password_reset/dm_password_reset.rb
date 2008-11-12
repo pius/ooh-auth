@@ -42,5 +42,15 @@ class MerbAuthSliceFullfat::PasswordReset
   def clear_history_if_new
     self.class.all(:user_id=>user_id).destroy! if new_record?
   end
+  
+  before :save, :generate_keys_if_new
+  def generate_keys_if_new
+    if new_record?
+      while(key.nil? or passphrase.nil? or self.class.find_by_key(key)) do
+        self.key = MerbAuthSliceFullfat::KeyGenerators::Alphanum.new(30)
+        self.passphrase = MerbAuthSliceFullfat::KeyGenerators::Passphrase.new(4)
+      end
+    end
+  end
 
 end
