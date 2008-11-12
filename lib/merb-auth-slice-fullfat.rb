@@ -20,9 +20,12 @@ if defined?(Merb::Plugins)
   Merb::Slices::config[:merb_auth_slice_fullfat][:layout] ||= :merb_auth_slice_fullfat
   Merb::Slices::config[:merb_auth_slice_fullfat].merge!({
     :path_prefix=>"auth",
-    :password_reset_identifier_field=>:email,   # The attribute on User to use for purposes of identifying a user. This should be something approximately secret i.e. not the user's nickname.
-    :return_to_param  => :return_to,            # param key to use when pulling the return url from login and logout links.
-    :default_return_to => "/"                   # if the return_to param is not specified, where should login and logout go on success?
+    # The attribute on User to use for purposes of identifying a user. This should be something approximately secret i.e. not the user's nickname.
+    :password_reset_identifier_field=>:email,   
+    # param key to use when pulling the return url from login and logout links.
+    :return_to_param  => :return_to,            
+    # if the return_to param is not specified, where should login and logout go on success?
+    :default_return_to => "/"                   
   })
   # SliceRestful uses merb-auth-more's configuration options:
   # Merb::Plugins.config[:"merb-auth"][:new_session_param] => key to use when looking up the LOGIN in requests.
@@ -62,7 +65,7 @@ if defined?(Merb::Plugins)
     # end
     def self.setup_router(scope)
       scope.resources :sessions
-      scope.resources :password_resets, :key=>:passphrase   
+      scope.resources :password_resets, :key=>:key   
     end
     
   end

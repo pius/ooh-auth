@@ -3,30 +3,30 @@ class MerbAuthSliceFullfat::PasswordReset
   
   @@user_class = Merb::Authentication.user_class
   
-  property :id, Serial
-  property :passphrase, String
-  property :created_at, DateTime
-  property :user_id, Integer
+  property :id, Serial              # internal ID
+  property :key, String             # long alphanumeric key used to identify this object in urls
+  property :passphrase, String      # passphrase required to change the password, only present in the sent email
+  property :created_at, DateTime    # timestamp for validity checking
+  property :user_id, Integer        # probably need this to like, relate the object to a user or something. ymmv.
   
   # A password reset is a small token with a long alphanumeric passphrase associated with it.
   # An unauthenticated user may consume a PasswordReset in order to change their password.
   # Important behavioural details:
   # - Creating a new password reset for a user will destroy all prior resets for that user.
-    before :save, :"set_unique_passphrase!"
   # - Creation and consumption of these objects drives the generation of user password mail.
-    after :save,    :mail_link
-    after :destroy, :mail_new_password
     
   # Common Interface - MUST be provided by all versions of this class for all ORMs.
   # ------------------------------------------------------------------------------------------------
     
   # Finds the most recent valid PasswordReset for the given user.
-  def self.find_by_passphrase(p)
-    self.first(:passphrase => p)
+  def self.find_by_key(k)
+    first(:key => k)
   end
   
   # Creates a new reset for the given user.
-  def self.new_for_user(u)
+  # Returns a blank unsaved object if the given argument is nil.
+  def self.create_for_user(u)
+    return new unless u
     create :user_id=>u.id
   end
   

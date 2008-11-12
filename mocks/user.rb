@@ -16,9 +16,8 @@ module MerbAuthSliceFullfat
             attr_accessor :id            
             attr_accessor :password
             
-            def save
-              true
-            end
+            def save; true; end            
+            def id; GOOD_ID; end
                                  
        end
    end 

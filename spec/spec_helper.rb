@@ -46,6 +46,10 @@ module Merb
   	  def default_return_to
   	    Merb::Slices::config[:merb_auth_slice_fullfat][:default_return_to]
 	    end
+	    
+	    def user_class
+	      Merb::Authentication.user_class
+      end
   	  
 	    # Override for buggy freaking redirect_to assertion in merb 0.9.11.
       # duplicates syntax of old version, so can be safely removed once
