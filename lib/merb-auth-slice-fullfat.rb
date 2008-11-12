@@ -73,7 +73,6 @@ if defined?(Merb::Plugins)
   MerbAuthSliceFullfat.setup_default_structure!
   
   # Add dependencies for other MerbAuthSliceFullfat classes below. Example:
-  dependency "randexp"
   require "merb-auth-slice-fullfat/authentication_mixin"
   require "merb-auth-slice-fullfat/key_generators"
   
