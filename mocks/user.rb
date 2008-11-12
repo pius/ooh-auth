@@ -1,24 +1,19 @@
+require 'merb-auth-more/mixins/salted_user'
+
 module MerbAuthSliceFullfat
    module Mocks
        class User
+          include DataMapper::Resource
+          include Merb::Authentication::Mixins::SaltedUser
            
-            GOOD_ID = 1337
-            GOOD_LOGIN = "Dr. Kintobor".freeze
-            GOOD_PASSWORD = "betteronthegenesis".freeze
+          property :id,                   Serial
+          property :name,                 String
+          property :login,                String
+          property :email,                String
+          property :password,             String
 
-            def self.authenticate(login, pass)
-              o = new
-              o.id = GOOD_ID
-              return o if login == GOOD_LOGIN and pass == GOOD_PASSWORD
-              return nil
-            end
-            
-            attr_accessor :id            
-            attr_accessor :password
-            
-            def save; true; end            
-            def id; GOOD_ID; end
-                                 
+          validates_is_unique         :login, :email
+          validates_is_confirmed      :password
        end
    end 
 end

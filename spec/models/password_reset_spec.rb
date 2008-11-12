@@ -34,6 +34,7 @@ describe MerbAuthSliceFullfat::PasswordReset do
   it "should generate a passphrase if none was given upon creation"
   it "should destroy older results for the same user upon creation" do
     user = user_class.new
+    user.save
     5.of {MerbAuthSliceFullfat::PasswordReset.gen(:user_id=>user.id)}
     MerbAuthSliceFullfat::PasswordReset.all(:user_id=>user.id).size.should == 1
     5.of {MerbAuthSliceFullfat::PasswordReset.gen(:user_id=>user.id)}

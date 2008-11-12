@@ -26,7 +26,7 @@ class MerbAuthSliceFullfat::PasswordReset
   # Creates a new reset for the given user.
   # Returns a blank unsaved object if the given argument is nil.
   def self.create_for_user(u)
-    return new unless u
+    return new unless u and !u.new_record?
     create :user_id=>u.id
   end
   

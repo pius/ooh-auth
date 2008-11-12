@@ -44,26 +44,28 @@ describe MerbAuthSliceFullfat::Sessions do
   end
   
   it "should authenticate a valid user on POST" do
-    @controller = post(@controller.slice_url(:sessions), login_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, password_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_PASSWORD)
+    user = user_class.gen
+    @controller = post(@controller.slice_url(:sessions), login_param=>user.login, password_param=>"#{user.login}_goodpass")
     @controller.should be_kind_of(MerbAuthSliceFullfat::Sessions)
     @controller.action_name.should == 'create'
-    @controller.session[:user].should be_kind_of(MerbAuthSliceFullfat::Mocks::User)
-    @controller.session[:user].should == @controller.assigns(:user)
+    @controller.session[:user].should be_kind_of(Numeric)
+    user_class.get(@controller.session[:user]).should == @controller.assigns(:user)
   end
   
   it "should start a browser session when authenticated" do
     controllers = [Exceptions, MerbAuthSliceFullfat::Sessions]
+    user = user_class.gen
     with_cookies *controllers do |jar|
       # okay - secret page should cause an auth error.
       lambda { get("/secrets") }.should raise_error(Merb::Controller::Unauthenticated)
       @controller.session.user.should be_nil
       # so let's authenticate
-      @auth_controller = post(@controller.slice_url(:sessions), login_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, password_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_PASSWORD, return_to_param=>"/success")
+      @auth_controller = post(@controller.slice_url(:sessions), login_param=>user.login, password_param=>"#{user.login}_goodpass", return_to_param=>"/success")
       # assert that the auth happened
       @auth_controller.should redirect_to("/success")
       # load a new page and check the session
       @controller = get(@controller.slice_url(:new_session))
-      @controller.session.user.should be_kind_of(MerbAuthSliceFullfat::Mocks::User)
+      @controller.session.user.should be_kind_of(user_class)
     end
   end
 
@@ -74,7 +76,8 @@ describe MerbAuthSliceFullfat::Sessions do
   end
   
   it "should return a valid user to the return_to url if one was provided" do
-    @controller = post(@controller.slice_url(:sessions), login_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_LOGIN, password_param=>MerbAuthSliceFullfat::Mocks::User::GOOD_PASSWORD, return_to_param=>"/success")
+    user = user_class.gen
+    @controller = post(@controller.slice_url(:sessions),  login_param=>user.login, password_param=>"#{user.login}_goodpass", return_to_param=>"/success")
     @controller.status.should == 302
     @controller.should redirect_to("/success")
   end
