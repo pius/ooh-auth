@@ -2,9 +2,15 @@ require File.join( File.dirname(__FILE__), '..', "spec_helper" )
 
 describe MerbAuthSliceFullfat::PasswordReset do
   
-  
   before(:each) do
+    user_class.all.destroy!
+    MerbAuthSliceFullfat::PasswordReset.all.destroy!
     @password_resets = 10.of {MerbAuthSliceFullfat::PasswordReset.gen}
+  end
+  
+  after(:each) do
+    user_class.all.destroy!
+    MerbAuthSliceFullfat::PasswordReset.all.destroy!
   end
 
   it "should be able to find by key" do
@@ -23,7 +29,7 @@ describe MerbAuthSliceFullfat::PasswordReset do
   
   it "should return a saved object with a foreign key set when create_for_user is called with a user object" do
     pw_count = MerbAuthSliceFullfat::PasswordReset.count
-    user = user_class.new
+    user = user_class.gen
     pw = MerbAuthSliceFullfat::PasswordReset.create_for_user(user)
     pw.user_id.should == user.id
     pw.new_record?.should be_false
