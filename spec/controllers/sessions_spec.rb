@@ -20,7 +20,7 @@ describe MerbAuthSliceFullfat::Sessions do
   
   it "should have an index action" do
     @controller.status.should == 200
-    @controller.body.should contain('MerbAuthSliceFullfat')
+    @controller.body.should contain('Auth Slice')
   end
 
   it "should have a route to the login form" do

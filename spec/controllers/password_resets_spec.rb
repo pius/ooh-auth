@@ -14,6 +14,11 @@ describe MerbAuthSliceFullfat::PasswordResets do
   after :all do
     Merb::Router.reset! if standalone?
   end
+  
+  after(:each) do
+    user_class.all.destroy!
+    MerbAuthSliceFullfat::PasswordReset.all.destroy!
+  end
 
   it "should have resource-type routing" do
     @controller = dispatch_to(MerbAuthSliceFullfat::PasswordResets, :index)
@@ -28,8 +33,15 @@ describe MerbAuthSliceFullfat::PasswordResets do
     @controller.status.should == 200
     @controller.action_name.should == "new"
   end
-  it "should fail with a message when an incorrect user identifier is used to create a new reset"
+  it "should display the form with a message when given an incorrect identifier" do
+    @controller = dispatch_to(MerbAuthSliceFullfat::PasswordResets, :create, :login=>"DSFARGEG")
+    @controller.status.should == 404
+    @controller.should redirect_to(@controller.slice_url(:new_password_reset))
+  end
+
   it "should successfully create a new reset when given a correct identifier"
+  it "should redirect to the reset resource when given a correct identifier"
+
   
   it "should render the form with a notification when a bad reset key is entered"
   it "should have a link to claim a notification directly by key"

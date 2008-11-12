@@ -1,17 +1,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Fresh MerbAuthSliceFullfat Slice</title>
-  </head>
-  <!-- you can override this layout at slices/merb-auth-slice-fullfat/app/views/layout/merb-auth-slice-fullfat.html.erb -->
-  <body class="merb-auth-slice-fullfat-slice">
-  <div id="container">
-	  <h1>Full-fat Auth Slice</h1>
-		
-	<p>If you're reading this, you should be good to go.</p>
-	
-    <div id="main"><%= catch_content :for_layout %></div>
-  </div>
-  </body>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Full-fat Auth Slice</title>
+	</head>
+<!-- you can override this layout at slices/merb-auth-slice-fullfat/app/views/layout/merb-auth-slice-fullfat.html.erb -->
+	<body class="merb-auth-slice-fullfat-slice">
+		<div id="root">
+			<h1>Full-fat Auth Slice</h1>
+			
+			<% if message %>
+				<div id="_message">
+						<%= message %>
+				</div>
+			<% end %>
+			
+			<div id="main">
+				<%= catch_content :for_layout %>
+			</div>
+		</div>
+	</body>
 </html>

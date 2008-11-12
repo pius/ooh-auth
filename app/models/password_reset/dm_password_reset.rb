@@ -1,13 +1,13 @@
 class MerbAuthSliceFullfat::PasswordReset
   include DataMapper::Resource
   
-  def user_class; Merb::Authentication.user_class; end
-  
   property :id, Serial              # internal ID
   property :identifier, String             # long alphanumeric identifier used to identify this object in urls
   property :secret, String      # secret required to change the password, only present in the sent email
   property :created_at, DateTime    # timestamp for validity checking
   property :user_id, Integer        # probably need this to like, relate the object to a user or something. ymmv.
+  
+  validates_present :user_id
   
   # A password reset is a small token with a long alphanumeric secret associated with it.
   # An unauthenticated user may consume a PasswordReset in order to change their password.
@@ -26,8 +26,8 @@ class MerbAuthSliceFullfat::PasswordReset
   # Creates a new reset for the given user.
   # Returns a blank unsaved object if the given argument is nil.
   def self.create_for_user(u)
-    return new if !u or u.new_record?
-    create :user_id=>u.id
+    u = u.id if u.is_a?(user_class)
+    create :user_id=>u
   end
   
   # Consumes the reset given a new password and confirmation
@@ -57,5 +57,8 @@ class MerbAuthSliceFullfat::PasswordReset
       end
     end
   end
+  
+  def user_class; self.class.user_class; end
+  def self.user_class; Merb::Authentication.user_class; end
 
 end

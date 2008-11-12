@@ -65,7 +65,8 @@ if defined?(Merb::Plugins)
     # end
     def self.setup_router(scope)
       scope.resources :sessions
-      scope.resources :password_resets, :key=>:key   
+      scope.resources :password_resets, :key=>:key
+      scope.default_routes
     end
     
   end
@@ -73,6 +74,7 @@ if defined?(Merb::Plugins)
   MerbAuthSliceFullfat.setup_default_structure!
   
   # Add dependencies for other MerbAuthSliceFullfat classes below. Example:
+  dependency "merb-helpers"
   require "merb-auth-slice-fullfat/authentication_mixin"
   require "merb-auth-slice-fullfat/key_generators"
   

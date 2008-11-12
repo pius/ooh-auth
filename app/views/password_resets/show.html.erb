@@ -1,0 +1,26 @@
+<h1>Reset your password</h1>
+
+<p>
+	Check your email for a message from us. 
+	The message you're looking for contains a <strong>secret</strong>, which will be a short gibberish sentence made up of a few words. 
+	Enter the secret below, then choose and confirm your new password, and you'll be good to go.
+</p>
+
+<% form_for @password_reset do %>
+
+	<fieldset>
+		<legend>Finish resetting your password</legend>
+		
+		<dl>
+			<dt><label for="password_reset_secret" title="The Secret is contained in the password reset email we sent you.">Secret</label></dt>
+			<dd><input type="text" name="password_reset[secret]" id="password_reset_secret" /></dd>
+		</dl>
+		
+	</fieldset
+	
+	<fieldset class="buttons">
+		<input type="submit" value="Reset my password" />
+	</fieldset>>
+	
+
+<% end %>

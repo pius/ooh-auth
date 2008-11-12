@@ -1,34 +1,9 @@
-<%
-	@identifier_field = MerbAuthSliceFullfat[:password_reset_identifier_field]
-%>
+<h1>Forgot your password?</h1>
 
-<h1>General routes</h1>
+<p>
+	Enter your <%=h @identifier_field %> below to start the password reset process. 
+	You'll be sent an email containing a link and a passphrase. 
+	Click the link, enter the passphrase, and choose your new password. Easy peasy!
+</p>
 
-<ul>
-	<% Merb::Router.named_routes.each do |r| %>
-		<li><%= r.inspect %></li>
-	<% end %>
-</ul>
-
-<h1>Slice routes</h1>
-
-<ul>
-	<% Merb::Slices.named_routes[:merb_auth_slice_fullfat].each do |r| %>
-		<li><%= r.inspect %></li>
-	<% end %>
-</ul>
-
-<form method="POST" action="<%= slice_url(:password_resets) %>">
-
-	<fieldset>
-		<legend>
-			To reset your password please enter your email address below. A link to reset your password will be mailed to you.
-		</legend>
-		<label for="<%= @identifier_field %>_field"><%= @identifier_field.to_s.capitalize %></label>
-		<input type="text" name="<%= @identifier_field %>" id="<%= @identifier_field %>_field" />
-	</fieldset>
-	<fieldset class="buttons">
-		<input type="submit" value="Reset my password" />
-	</fieldset>
-	
-</form>
+<%= partial "create" %>
