@@ -37,7 +37,10 @@ class MerbAuthSliceFullfat::PasswordReset
   
   # Internal functionality
   # ------------------------------------------------------------------------------------------------
-
   
+  before :save, :clear_history_if_new
+  def clear_history_if_new
+    self.class.all(:user_id=>user_id).destroy! if new_record?
+  end
 
 end
