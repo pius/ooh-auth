@@ -44,9 +44,6 @@ end
 
 use_orm :datamapper
 
-dependency "merb-auth-core"
-dependency "merb-auth-more"
-
 Merb::BootLoader.after_app_loads do
   # This will get executed after your app's classes have been loaded.
   require MerbAuthSliceFullfat.root / "mocks" / "user"
@@ -57,8 +54,6 @@ Merb::BootLoader.after_app_loads do
   Merb::Authentication.activate!(:default_password_form)
   Merb::Authentication.default_strategy_order = [Merb::Authentication::Strategies::Basic::Form, Merb::Authentication::Strategies::Basic::BasicAuth]
 end
-
-
 
 dependency "dm-core", "0.9.6"         # The datamapper ORM
 dependency "dm-aggregates", "0.9.6"   # Provides your DM models with count, sum, avg, min, max, etc.

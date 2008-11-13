@@ -31,13 +31,13 @@ class MerbAuthSliceFullfat::PasswordResets < MerbAuthSliceFullfat::Application
   # Finds a specific password reset and displays a form allowing the user to set
   # a new password.
   def show
-    @password_reset = MerbAuthSliceFullfat::PasswordReset.find_by_identifier(params[:identifier])
+    raise NotFound unless @password_reset = MerbAuthSliceFullfat::PasswordReset.find_by_identifier(params[:identifier])
     render
   end
   
   # Consumes a password reset for a given user
   def update
-    @password_reset = MerbAuthSliceFullfat::PasswordReset.find_by_identifier(params[:identifier])
+    raise NotFound unless @password_reset = MerbAuthSliceFullfat::PasswordReset.find_by_identifier(params[:identifier])
     @for_user = user_class.get!(@password_reset.user_id)
     if params[:secret] == @password_reset.secret
       # Secret matched - attempt to set password on user model
@@ -61,9 +61,11 @@ class MerbAuthSliceFullfat::PasswordResets < MerbAuthSliceFullfat::Application
   
   # Destroys a password reset based on passphrase WITHOUT changing the user's password.
   # Effectively, cancels the password reset procedure.
-  def destroy
-    @password_reset = MerbAuthSliceFullfat::PasswordReset.find_by_identifier(params[:identifier])
+  def delete
+    raise NotFound unless @password_reset = MerbAuthSliceFullfat::PasswordReset.find_by_identifier(params[:identifier])
     @password_reset.destroy
+    return redirect(params[return_to_param]) if params[return_to_param]
+    render(:new, :status=>200)
   end
   
   private

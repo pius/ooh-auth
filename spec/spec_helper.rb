@@ -1,13 +1,12 @@
 require 'rubygems'
 require 'merb-core'
-require 'merb-auth-core'
-require 'merb-auth-more'
 require 'merb-slices'
 require 'spec'
 
 # Add merb-auth-slice-fullfat.rb to the search path
 Merb::Plugins.config[:merb_slices][:auto_register] = true
 Merb::Plugins.config[:merb_slices][:search_path]   = File.join(File.dirname(__FILE__), '..', 'lib', 'merb-auth-slice-fullfat.rb')
+require Merb::Plugins.config[:merb_slices][:search_path]
 
 # Using Merb.root below makes sure that the correct root is set for
 # - testing standalone, without being installed as a gem and no host application

@@ -5,6 +5,11 @@ if defined?(Merb::Plugins)
   load_dependency 'merb-auth-core'
   load_dependency 'merb-auth-more'
   load_dependency 'merb-slices'
+  load_dependency "merb-helpers"
+  load_dependency "merb-assets"
+  require "merb-auth-slice-fullfat/authentication_mixin"
+  require "merb-auth-slice-fullfat/key_generators"
+  
   Merb::Plugins.add_rakefiles "merb-auth-slice-fullfat/merbtasks", "merb-auth-slice-fullfat/slicetasks", "merb-auth-slice-fullfat/spectasks"
 
   # Register the Slice for the current host application
@@ -76,8 +81,6 @@ if defined?(Merb::Plugins)
   MerbAuthSliceFullfat.setup_default_structure!
   
   # Add dependencies for other MerbAuthSliceFullfat classes below. Example:
-  dependency "merb-helpers"
-  require "merb-auth-slice-fullfat/authentication_mixin"
-  require "merb-auth-slice-fullfat/key_generators"
+  
   
 end

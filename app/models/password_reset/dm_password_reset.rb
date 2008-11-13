@@ -20,7 +20,7 @@ class MerbAuthSliceFullfat::PasswordReset
     
   # Finds the most recent valid PasswordReset for the given user.
   def self.find_by_identifier(k)
-    first(:identifier => k)
+    o=first(:identifier => k)
   end
   
   # Creates a new reset for the given user.

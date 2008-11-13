@@ -55,6 +55,8 @@ describe MerbAuthSliceFullfat::PasswordReset do
     MerbAuthSliceFullfat::PasswordReset.all(:user_id=>user.id).size.should == 1
   end
   
+  it "should send an email containing access details on creation"
+  
   describe "created for a user" do
     before(:each) do
       @user = user_class.gen
