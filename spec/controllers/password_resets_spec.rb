@@ -43,16 +43,73 @@ describe MerbAuthSliceFullfat::PasswordResets do
 
   it "should successfully create a new reset when given a correct identifier" do
     user = user_class.gen
-    @controller = dispatch_to(MerbAuthSliceFullfat::PasswordResets, :create, password_reset_identifier_field=>user.send(password_reset_identifier_field))
+    @controller = dispatch_to(
+      MerbAuthSliceFullfat::PasswordResets, 
+      :create, 
+      password_reset_identifier_field=>user.send(password_reset_identifier_field)
+    )
     @controller.status.should == 201
     @controller.headers['Location'].should == @controller.slice_url(:password_reset, @controller.assigns(:password_reset))
   end
-  it "should redirect to the reset resource when given a correct identifier"
-
   
-  it "should render the form with a notification when a bad reset key is entered"
-  it "should have a link to claim a notification directly by key"
-  it "should successfully reset the user's pass when the correct key is posted to update"
+  it "should render the form with a message and make no changes when a bad secret is entered" do
+    user = user_class.gen
+    pwr = MerbAuthSliceFullfat::PasswordReset.create_for_user(user)
+    
+    @controller = dispatch_to(
+                    MerbAuthSliceFullfat::PasswordResets, 
+                    :update, 
+                    {
+                      :identifier=>pwr.identifier,
+                      :secret=>"blaaaaaaaah",
+                      :password=>"good_password",
+                      :password_confirmation=>"good_password"
+                    }
+                  )
+    @controller.status.should == 404
+    @controller.assigns(:secret).should be_nil
+    noko(@controller.body).css("#_message").length.should == 1
+    user_class.authenticate(user_class.login, "good_password").should be_nil
+  end
+  it "should render the form with a message and make no changes when a good secret is entered but the password and confirmation do not match" do
+    user = user_class.gen
+    pwr = MerbAuthSliceFullfat::PasswordReset.create_for_user(user)
+    
+    @controller = dispatch_to(
+                    MerbAuthSliceFullfat::PasswordResets, 
+                    :update, 
+                    {
+                      :identifier=>pwr.identifier,
+                      :secret=>pwr.secret,
+                      :password=>"good_password",
+                      :password_confirmation=>"good_password_but_not_that_good"
+                    }
+                  )
+    @controller.status.should == 404
+    @controller.assigns(:secret).should == pwr.secret
+    noko(@controller.body).css("#_message").length.should == 1
+    user_class.authenticate(user_class.login, "good_password").should be_nil
+    user_class.authenticate(user_class.login, "good_password_but_not_that_good").should be_nil
+  end
+  it "should successfully reset the user's pass when the correct key is posted to update and the password and confirmation both match" do
+    user = user_class.gen
+    pwr = MerbAuthSliceFullfat::PasswordReset.create_for_user(user)
+    
+    @controller = dispatch_to(
+                    MerbAuthSliceFullfat::PasswordResets, 
+                    :update, 
+                    {
+                      :identifier=>pwr.identifier,
+                      :secret=>pwr.secret,
+                      :password=>"changed_password_this_time",
+                      :password_confirmation=>"changed_password_this_time"
+                    }
+                  )
+    @controller.status.should == 200
+    user_class.authenticate(user_class.login, "changed_password_this_time").should be_kind_of(user_class)
+    noko(@controller.body).css("form.session").length.should == 1    
+  end
+  
   it "should return the user to the host application once a reset is claimed"
   it "should allow cancellation of a passwordreset using the destroy action"
   

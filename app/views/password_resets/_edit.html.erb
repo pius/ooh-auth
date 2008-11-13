@@ -1,0 +1,30 @@
+<%= form :action=>slice_url(:password_reset, @password_reset), :method=>:put, :class=>"password_reset" do %>
+
+	<fieldset>
+		<legend>Check your email for a message from us and locate the <strong>secret</strong> in the mail.</legend>
+		
+		<dl>
+			<dt><label for="secret" title="The Secret is contained in the password reset email we sent you.">Secret</label></dt>
+			<dd><%= text_field :secret, :id=>"secret", :value=>@secret %></dd>
+		</dl>
+		
+	</fieldset
+	
+	<fieldset>
+		<legend>Choose your new password</legend>
+		
+		<dl>
+			<dt><label for="password" title="Choose a new password.">New password</label></dt>
+			<dd><%= password_field :password, :id=>"password", :value=>"" %></dd>
+			
+			<dt><label for="password_confirmation" title="Choose a new password.">Confirm password</label></dt>
+			<dd><%= password_field :password_confirmation, :id=>"password_confirmation", :value=>"" %></dd>
+		</dl>
+		
+	</fieldset>
+	
+	<fieldset class="buttons">
+		<input type="submit" value="Reset my password" />
+	</fieldset>	
+
+<% end =%>

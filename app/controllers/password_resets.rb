@@ -37,7 +37,26 @@ class MerbAuthSliceFullfat::PasswordResets < MerbAuthSliceFullfat::Application
   
   # Consumes a password reset for a given user
   def update
-    
+    @password_reset = MerbAuthSliceFullfat::PasswordReset.find_by_identifier(params[:identifier])
+    @for_user = user_class.get!(@password_reset.user_id)
+    if params[:secret] == @password_reset.secret
+      # Secret matched - attempt to set password on user model
+      @for_user.password = params[:password]
+      @for_user.password_confirmation = params[:password_confirmation]
+      if @saved = @for_user.save
+        # Confirmation was good. Reset that shit.        
+        render(:update, :status=>200)
+      else
+        # Confirmation had fail. Display with a message.
+        @secret = @password_reset.secret
+        @_message = "The password you entered didn't match the confirmation."
+        render(:show, :status=>404)      
+      end
+    else
+      # Incorrect secret entered
+      @_message = "You didn't enter the correct secret. The secret is in clearly labelled in the email we sent you and is made up of several words."
+      render(:show, :status=>404)
+    end
   end
   
   # Destroys a password reset based on passphrase WITHOUT changing the user's password.

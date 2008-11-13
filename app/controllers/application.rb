@@ -5,6 +5,12 @@ class MerbAuthSliceFullfat::Application < Merb::Controller
   private
   def user_class
     Merb::Authentication.user_class
+  end  
+  def login_param
+    Merb::Authentication::Strategies::Basic::Base.login_param
+  end      
+	def password_param
+	  Merb::Authentication::Strategies::Basic::Base.password_param
   end
   
 end
