@@ -2,7 +2,7 @@
 	@identifier_field = MerbAuthSliceFullfat[:password_reset_identifier_field]
 %>
 
-<% form_for @password_reset do %>
+<%= form_for :merb_auth_slice_fullfat_password_resets do %>
 	
 	<fieldset>
 		<legend>
@@ -17,7 +17,6 @@
 	</fieldset>
 	<fieldset class="buttons">
 		<input type="submit" value="Reset my password" />
-	</fieldset>
-	
+	</fieldset>	
 
-<% end %>
+<% end =%>

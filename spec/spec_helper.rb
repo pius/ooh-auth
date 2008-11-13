@@ -40,6 +40,10 @@ module Merb
     	def password_param
     	  Merb::Authentication::Strategies::Basic::Base.password_param
   	  end
+  	  
+  	  def password_reset_identifier_field
+  	    Merb::Slices::config[:merb_auth_slice_fullfat][:password_reset_identifier_field]
+	    end
   	  def return_to_param
     	  Merb::Slices::config[:merb_auth_slice_fullfat][:return_to_param]
   	  end
@@ -51,6 +55,10 @@ module Merb
 	      Merb::Authentication.user_class
       end
   	  
+  	  def noko(document)
+        Nokogiri::HTML(document)
+      end
+  	
 	    # Override for buggy freaking redirect_to assertion in merb 0.9.11.
       # duplicates syntax of old version, so can be safely removed once
       # http://merb.lighthouseapp.com/projects/7433-merb/tickets/949-redirect_to-assertion-errors-on-success-under-some-setups

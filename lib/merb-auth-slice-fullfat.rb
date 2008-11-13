@@ -64,8 +64,10 @@ if defined?(Merb::Plugins)
     #   slice( :MerbAuthSliceFullfat, :name_prefix => nil, :path_prefix => "auth", :default_routes => false )
     # end
     def self.setup_router(scope)
-      scope.resources :sessions
-      scope.resources :password_resets, :key=>:key
+      scope.identify MerbAuthSliceFullfat::PasswordReset => :identifier do |identification|
+        identification.resources :sessions
+        identification.resources :password_resets, :keys=>[:identifier]
+      end
       scope.default_routes
     end
     

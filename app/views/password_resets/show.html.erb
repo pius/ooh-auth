@@ -6,7 +6,7 @@
 	Enter the secret below, then choose and confirm your new password, and you'll be good to go.
 </p>
 
-<% form_for @password_reset do %>
+<%= form :action=>slice_url(:password_reset, @password_reset) do %>
 
 	<fieldset>
 		<legend>Finish resetting your password</legend>
@@ -20,7 +20,7 @@
 	
 	<fieldset class="buttons">
 		<input type="submit" value="Reset my password" />
-	</fieldset>>
+	</fieldset>
 	
 
-<% end %>
+<% end =%>

@@ -20,11 +20,12 @@ describe MerbAuthSliceFullfat::PasswordResets do
     MerbAuthSliceFullfat::PasswordReset.all.destroy!
   end
 
-  it "should have resource-type routing" do
+  it "should have resource-type routing keyed by identifier" do
+    pwr = MerbAuthSliceFullfat::PasswordReset.gen    
     @controller = dispatch_to(MerbAuthSliceFullfat::PasswordResets, :index)
-    @controller.slice_url(:password_resets).should == "/#{@prefix}/password_resets"
-    @controller = get(@controller.slice_url(:password_resets))
-    @controller.status.should == 200
+    
+    @controller.slice_url(:password_resets).should      == "/#{@prefix}/password_resets"
+    @controller.slice_url(:password_reset, pwr).should  == "/#{@prefix}/password_resets/#{pwr.identifier}"
   end
   it "should use the key as identifer in all resource routes"
     
@@ -34,12 +35,18 @@ describe MerbAuthSliceFullfat::PasswordResets do
     @controller.action_name.should == "new"
   end
   it "should display the form with a message when given an incorrect identifier" do
-    @controller = dispatch_to(MerbAuthSliceFullfat::PasswordResets, :create, :login=>"DSFARGEG")
+    @controller = dispatch_to(MerbAuthSliceFullfat::PasswordResets, :create, password_reset_identifier_field=>"DSFARGEG")
     @controller.status.should == 404
-    @controller.should redirect_to(@controller.slice_url(:new_password_reset))
+    @controller.message.length.should > 10
+    noko(@controller.body).css("form").length.should == 1
   end
 
-  it "should successfully create a new reset when given a correct identifier"
+  it "should successfully create a new reset when given a correct identifier" do
+    user = user_class.gen
+    @controller = dispatch_to(MerbAuthSliceFullfat::PasswordResets, :create, password_reset_identifier_field=>user.send(password_reset_identifier_field))
+    @controller.status.should == 201
+    @controller.headers['Location'].should == @controller.slice_url(:password_reset, @controller.assigns(:password_reset))
+  end
   it "should redirect to the reset resource when given a correct identifier"
 
   
