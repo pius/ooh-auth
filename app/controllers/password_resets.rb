@@ -65,7 +65,7 @@ class MerbAuthSliceFullfat::PasswordResets < MerbAuthSliceFullfat::Application
     raise NotFound unless @password_reset = MerbAuthSliceFullfat::PasswordReset.find_by_identifier(params[:identifier])
     @password_reset.destroy
     return redirect(params[return_to_param]) if params[return_to_param]
-    render(:new, :status=>200)
+    new
   end
   
   private

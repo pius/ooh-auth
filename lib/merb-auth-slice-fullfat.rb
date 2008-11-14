@@ -72,6 +72,7 @@ if defined?(Merb::Plugins)
       scope.identify MerbAuthSliceFullfat::PasswordReset => :identifier do |identification|
         identification.resources :sessions
         identification.resources :password_resets, :keys=>[:identifier]
+        identification.resources :authenticating_clients
       end
       scope.default_routes
     end
