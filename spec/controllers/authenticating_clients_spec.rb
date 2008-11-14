@@ -14,7 +14,6 @@ describe MerbAuthSliceFullfat::AuthenticatingClients do
     Merb::Router.reset! if standalone?
   end
 
-
   it "should only be available to authenticated users, except for the index action"
   it "should show a list of registered applications to a user"
 
