@@ -2,11 +2,13 @@ if defined?(Merb::Plugins)
 
   $:.unshift File.dirname(__FILE__)
 
+  load_dependency "merb-action-args"
   load_dependency 'merb-auth-core'
   load_dependency 'merb-auth-more'
   load_dependency 'merb-slices'
   load_dependency "merb-helpers"
   load_dependency "merb-assets"
+
   require "merb-auth-slice-fullfat/authentication_mixin"
   require "merb-auth-slice-fullfat/key_generators"
   

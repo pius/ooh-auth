@@ -17,6 +17,7 @@ It depends on:
 ==============
 
 * merb-slices
+* merb-action-args
 * merb-auth-core
 * merb-auth-more
 * nokogiri (tests only)

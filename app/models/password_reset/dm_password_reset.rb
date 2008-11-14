@@ -32,12 +32,13 @@ class MerbAuthSliceFullfat::PasswordReset
   
   # Consumes the reset given a new password and confirmation
   # Returns the user with the changed password having attempted to save the user record.
-  # Deletes self if the save is successful
-  def consume!(password, password_confirmation=nil)
-    @user = user_class.get(user_id) unless @user
+  # Deletes self if the save is successful.
+  # Returns the true or false based on the success of the operation.
+  def consume!(secret, password, password_confirmation=nil)
+    return false unless secret == self.secret
+    return false unless @user = user_class.get(user_id)    
     @user.password = password; @user.password_confirmation = password_confirmation
-    self.destroy if @user.save
-    return @user
+    return (@user.save and self.destroy)
   end  
   
   # Internal functionality

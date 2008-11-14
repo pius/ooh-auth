@@ -76,52 +76,42 @@ describe MerbAuthSliceFullfat::PasswordResets do
     end
     it "should render the form with a message and make no changes when a bad secret is entered" do
       @controller = dispatch_to(
-                      MerbAuthSliceFullfat::PasswordResets, 
-                      :update, 
+                      MerbAuthSliceFullfat::PasswordResets, :update, 
                       {
-                        :identifier=>@pwr.identifier,
-                        :secret=>"blaaaaaaaah",
-                        :password=>"good_password",
-                        :password_confirmation=>"good_password"
+                        :identifier=>@pwr.identifier, :secret=>"blaaaaaaaah",
+                        :password=>"good_password", :password_confirmation=>"good_password"
                       }
                     )
-      @controller.status.should == 404
-      @controller.assigns(:secret).should be_nil
+      @controller.status.should == 406
       noko(@controller.body).css("#_message").length.should == 1
       user_class.authenticate(user_class.login, "good_password").should be_nil
     end
     it "should render the form with a message and make no changes when a good secret is entered but the password and confirmation do not match" do
       @controller = dispatch_to(
-                      MerbAuthSliceFullfat::PasswordResets, 
-                      :update, 
+                      MerbAuthSliceFullfat::PasswordResets, :update, 
                       {
-                        :identifier=>@pwr.identifier,
-                        :secret=>@pwr.secret,
-                        :password=>"good_password",
-                        :password_confirmation=>"good_password_but_not_that_good"
+                        :identifier=>@pwr.identifier, :secret=>@pwr.secret,
+                        :password=>"good_password", :password_confirmation=>"good_password_but_not_that_good"
                       }
                     )
-      @controller.status.should == 404
-      @controller.assigns(:secret).should == @pwr.secret
+      @controller.status.should == 406
       noko(@controller.body).css("#_message").length.should == 1
       user_class.authenticate(user_class.login, "good_password").should be_nil
       user_class.authenticate(user_class.login, "good_password_but_not_that_good").should be_nil
     end
     it "should successfully reset the user's pass when the correct key is posted to update and the password and confirmation both match" do
       @controller = dispatch_to(
-                      MerbAuthSliceFullfat::PasswordResets, 
-                      :update, 
+                      MerbAuthSliceFullfat::PasswordResets, :update, 
                       {
-                        :identifier=>@pwr.identifier,
-                        :secret=>@pwr.secret,
-                        :password=>"changed_password_this_time",
-                        :password_confirmation=>"changed_password_this_time"
+                        :identifier=>@pwr.identifier, :secret=>@pwr.secret,
+                        :password=>"changed_password_this_time", :password_confirmation=>"changed_password_this_time"
                       }
                     )
       @controller.status.should == 200
       user_class.authenticate(user_class.login, "changed_password_this_time").should be_kind_of(user_class)
       noko(@controller.body).css("form.session").length.should == 1    
     end
+    it "should destroy the password reset on successful consumption"
   end
   
   it "should return the user to the host application once a reset is claimed"

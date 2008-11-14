@@ -63,20 +63,18 @@ describe MerbAuthSliceFullfat::PasswordReset do
       @reset = MerbAuthSliceFullfat::PasswordReset.create_for_user(@user)
     end
       
-    it "should change the user's password when consumed" do
-      old_password = @user.password
-      @new_user = @reset.consume!("changed_password", "changed_password")
-      @new_user.password.should_not == old_password
+    it "should change the user's password and return true when consumed" do
+      @consumed = @reset.consume!(@reset.secret, "changed_password", "changed_password")
+      @consumed.should be_true
       @authenticated_user = user_class.authenticate(@user.login, "changed_password")
       @authenticated_user.should be_kind_of(user_class)
     end
   
-    it "should return the user with validation errors if the password confirmation does not match the given password" do
+    it "should return false if the password confirmation does not match the given password" do
       pw_count = MerbAuthSliceFullfat::PasswordReset.count
-      old_password = @user.password
-      @new_user = @reset.consume!("changed_password", "different_password")
+      @consumed = @reset.consume!(@reset.secret, "changed_password", "different_password")
       pw_count.should == MerbAuthSliceFullfat::PasswordReset.count
-      @new_user.should_not be_valid      
+      @consumed.should be_false
       @authenticated_user = user_class.authenticate(@user.login, "#{@user.login}_goodpass")
       @authenticated_user.should be_kind_of(user_class)
     end
@@ -84,7 +82,7 @@ describe MerbAuthSliceFullfat::PasswordReset do
     it "should destroy itself when consumed if the user was saved" do
       pw_count = MerbAuthSliceFullfat::PasswordReset.count
       user_count = user_class.count
-      @new_user = @reset.consume!("changed_password", "changed_password")
+      @new_user = @reset.consume!(@reset.secret, "changed_password", "changed_password")
       (pw_count - 1).should == MerbAuthSliceFullfat::PasswordReset.count
       user_count.should == user_class.count
     end

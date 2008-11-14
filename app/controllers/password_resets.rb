@@ -30,39 +30,30 @@ class MerbAuthSliceFullfat::PasswordResets < MerbAuthSliceFullfat::Application
   
   # Finds a specific password reset and displays a form allowing the user to set
   # a new password.
-  def show
-    raise NotFound unless @password_reset = MerbAuthSliceFullfat::PasswordReset.find_by_identifier(params[:identifier])
+  def show(identifier)
+    raise NotFound unless @password_reset = MerbAuthSliceFullfat::PasswordReset.find_by_identifier(identifier)
     render
   end
   
-  # Consumes a password reset for a given user
-  def update
-    raise NotFound unless @password_reset = MerbAuthSliceFullfat::PasswordReset.find_by_identifier(params[:identifier])
-    @for_user = user_class.get!(@password_reset.user_id)
-    if params[:secret] == @password_reset.secret
-      # Secret matched - attempt to set password on user model
-      @for_user.password = params[:password]
-      @for_user.password_confirmation = params[:password_confirmation]
-      if @saved = @for_user.save
-        # Confirmation was good. Reset that shit.        
-        render(:update, :status=>200)
-      else
-        # Confirmation had fail. Display with a message.
-        @secret = @password_reset.secret
-        @_message = "The password you entered didn't match the confirmation."
-        render(:show, :status=>404)      
-      end
+  # Consumes a password reset for a given user, destroying it in the process.
+  # Params MUST contain the identifier and secret for the password reset being consumed, 
+  # and the desired password and password_confirmation.
+  def update(identifier, secret, password, password_confirmation)
+    raise NotFound unless @password_reset = MerbAuthSliceFullfat::PasswordReset.find_by_identifier(identifier)
+    if @password_reset.consume!(secret, password, password_confirmation)
+      # Confirmation was good. Password was reset.       
+      render(:update, :status=>200)
     else
-      # Incorrect secret entered
-      @_message = "You didn't enter the correct secret. The secret is in clearly labelled in the email we sent you and is made up of several words."
-      render(:show, :status=>404)
+      # Confirmation had fail. Display with a message.
+      @_message = "You entered the secret incorrectly, or the password you entered didn't match the confirmation. Please try again."
+      render(:show, :status=>406)      
     end
   end
   
   # Destroys a password reset based on passphrase WITHOUT changing the user's password.
   # Effectively, cancels the password reset procedure.
-  def delete
-    raise NotFound unless @password_reset = MerbAuthSliceFullfat::PasswordReset.find_by_identifier(params[:identifier])
+  def delete(identifier)
+    raise NotFound unless @password_reset = MerbAuthSliceFullfat::PasswordReset.find_by_identifier(identifier)
     @password_reset.destroy
     return redirect(params[return_to_param]) if params[return_to_param]
     new
