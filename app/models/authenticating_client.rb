@@ -1,4 +1,4 @@
-path = File.expand_path(File.dirname(__FILE__)) / "password_reset"
+path = File.expand_path(File.dirname(__FILE__)) / "authenticating_client"
 if defined?(DataMapper)
   require path / "dm_authenticating_client"
 #elsif defined?(ActiveRecord)

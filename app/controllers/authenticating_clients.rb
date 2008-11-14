@@ -2,31 +2,31 @@ class MerbAuthSliceFullfat::AuthenticatingClients < MerbAuthSliceFullfat::Applic
   # provides :xml, :yaml, :js
 
   def index
-    @authenticating_clients = AuthenticatingClient.all
+    @authenticating_clients = MerbAuthSliceFullfat::AuthenticatingClient.all
     display @authenticating_clients
   end
 
   def show(id)
-    @authenticating_client = AuthenticatingClient.get(id)
+    @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.get(id)
     raise NotFound unless @authenticating_client
     display @authenticating_client
   end
 
   def new
     only_provides :html
-    @authenticating_client = AuthenticatingClient.new
+    @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.new
     display @authenticating_client
   end
 
   def edit(id)
     only_provides :html
-    @authenticating_client = AuthenticatingClient.get(id)
+    @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.get(id)
     raise NotFound unless @authenticating_client
     display @authenticating_client
   end
 
   def create(authenticating_client)
-    @authenticating_client = AuthenticatingClient.new(authenticating_client)
+    @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.new(authenticating_client)
     if @authenticating_client.save
       redirect resource(@authenticating_client), :message => {:notice => "AuthenticatingClient was successfully created"}
     else
@@ -36,7 +36,7 @@ class MerbAuthSliceFullfat::AuthenticatingClients < MerbAuthSliceFullfat::Applic
   end
 
   def update(id, authenticating_client)
-    @authenticating_client = AuthenticatingClient.get(id)
+    @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.get(id)
     raise NotFound unless @authenticating_client
     if @authenticating_client.update_attributes(authenticating_client)
        redirect resource(@authenticating_client)
@@ -46,7 +46,7 @@ class MerbAuthSliceFullfat::AuthenticatingClients < MerbAuthSliceFullfat::Applic
   end
 
   def destroy(id)
-    @authenticating_client = AuthenticatingClient.get(id)
+    @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.get(id)
     raise NotFound unless @authenticating_client
     if @authenticating_client.destroy
       redirect resource(:authenticating_clients)
@@ -55,4 +55,4 @@ class MerbAuthSliceFullfat::AuthenticatingClients < MerbAuthSliceFullfat::Applic
     end
   end
 
-end # AuthenticatingClients
+end # MerbAuthSliceFullfat::AuthenticatingClients
