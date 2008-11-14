@@ -17,5 +17,4 @@ class MerbAuthSliceFullfat::AuthenticatingClient
 
   validates_is_unique :name, :message=>"That application is already registered."
   validates_is_unique :api_key
-
-end
+end # MerbAuthSliceFullfat::AuthenticatingClient
