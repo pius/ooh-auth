@@ -75,6 +75,7 @@ describe MerbAuthSliceFullfat::PasswordResets do
       @pwr = MerbAuthSliceFullfat::PasswordReset.create_for_user(@user)
     end
     it "should render the form with a message and make no changes when a bad secret is entered" do
+      pw_count = MerbAuthSliceFullfat::PasswordReset.count
       @controller = dispatch_to(
                       MerbAuthSliceFullfat::PasswordResets, :update, 
                       {
@@ -85,8 +86,10 @@ describe MerbAuthSliceFullfat::PasswordResets do
       @controller.status.should == 406
       noko(@controller.body).css("#_message").length.should == 1
       user_class.authenticate(user_class.login, "good_password").should be_nil
+      pw_count.should == MerbAuthSliceFullfat::PasswordReset.count
     end
     it "should render the form with a message and make no changes when a good secret is entered but the password and confirmation do not match" do
+      pw_count = MerbAuthSliceFullfat::PasswordReset.count
       @controller = dispatch_to(
                       MerbAuthSliceFullfat::PasswordResets, :update, 
                       {
@@ -98,8 +101,10 @@ describe MerbAuthSliceFullfat::PasswordResets do
       noko(@controller.body).css("#_message").length.should == 1
       user_class.authenticate(user_class.login, "good_password").should be_nil
       user_class.authenticate(user_class.login, "good_password_but_not_that_good").should be_nil
+      pw_count.should == MerbAuthSliceFullfat::PasswordReset.count
     end
     it "should successfully reset the user's pass when the correct key is posted to update and the password and confirmation both match" do
+      pw_count = MerbAuthSliceFullfat::PasswordReset.count
       @controller = dispatch_to(
                       MerbAuthSliceFullfat::PasswordResets, :update, 
                       {
@@ -109,7 +114,8 @@ describe MerbAuthSliceFullfat::PasswordResets do
                     )
       @controller.status.should == 200
       user_class.authenticate(user_class.login, "changed_password_this_time").should be_kind_of(user_class)
-      noko(@controller.body).css("form.session").length.should == 1    
+      noko(@controller.body).css("form.session").length.should == 1 
+      (pw_count-1).should == MerbAuthSliceFullfat::PasswordReset.count
     end
     it "should destroy the password reset on successful consumption"
   end
