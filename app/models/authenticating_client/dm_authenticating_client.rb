@@ -7,8 +7,8 @@ An authenticating client is an external application which wants to use your appl
 class MerbAuthSliceFullfat::AuthenticatingClient
   include DataMapper::Resource
   
-  property :id,             Serial      # Non-controversial so far.
-  property :user_id,        Integer     # The registration will belong to a user, who will be able to edit the client properties.
+  property :id,             Serial                          # Non-controversial so far.
+  property :user_id,        Integer,  :private=>true        # The registration will belong to a user, who will be able to edit the client properties.
    
   # Used by all type of authenticating apps                         
   property :name,           String      # e.g. "Mobilator PRO"
@@ -23,7 +23,7 @@ class MerbAuthSliceFullfat::AuthenticatingClient
   validates_present     :name, :web_url, :icon_url, :api_key, :secret, :kind
   validates_present     :callback_url, :if=>:is_webapp?
   validates_is_unique   :name
-  validates_is_unique   :callback_url
+  validates_is_unique   :callback_url, :if=>:is_webapp?
   validates_is_unique   :api_key
   validates_with_method :kind, :valid_kind?
   
@@ -44,7 +44,7 @@ class MerbAuthSliceFullfat::AuthenticatingClient
       self.api_key = MerbAuthSliceFullfat::KeyGenerators::Alphanum.gen(api_key_length)
       api_key_length += 1
     end
-    self.secret ||= MerbAuthSliceFullfat::KeyGenerators::Alphanum.gen(80)
+    self.secret = MerbAuthSliceFullfat::KeyGenerators::Alphanum.gen(40) if secret.blank?
   end
   
   def valid_kind?

@@ -1,3 +1,24 @@
 <h1>Developer API</h1>
 
-<p>In order to use the Developer API, you'll need to register for an API key.</p>
+<% if session.user %>
+
+	<h2>Your Applications</h2>
+
+	<ul class="authenticating_clients">
+		<li class="new"><%= link_to "Register a new Application", slice_url(:new_authenticating_client), :class=>"new" %></li>
+		<% @authenticating_clients.each do |ac| %>
+			<li>
+				<%= link_to h(ac.name), slice_url(:authenticating_client, ac), :class=>"show" %>
+				<%= link_to "Edit", slice_url(:edit_authenticating_client, ac), :class=>"edit" %>
+				<%= link_to "Unregister", slice_url(:delete_authenticating_client, ac), :class=>"delete" %>
+			</li>
+		<% end %>
+	</ul>
+
+<% else %>
+	
+	<p>In order to use the Developer API, you'll need to register for an API key. Please <%= link_to "log in", slice_url(:new_session, :return_to=>request.uri) %> to begin the process.</p>
+	
+<% end %>
+
+<h2>Developer Documentation</h2>

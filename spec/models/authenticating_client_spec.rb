@@ -19,7 +19,7 @@ describe MerbAuthSliceFullfat::AuthenticatingClient do
       @authenticating_client.api_key.length.should >= 10
       keys << @authenticating_client.api_key
       keys.uniq.length.should == keys.length
-      @authenticating_client.secret.length.should >= 50
+      @authenticating_client.secret.length.should == 40
     end
   end
   
