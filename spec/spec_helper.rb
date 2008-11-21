@@ -58,6 +58,11 @@ module Merb
         Nokogiri::HTML(document)
       end
   	
+  	  # Authenticate a user using normal session auth, and then execute the block given
+  	  def with_session_in(*controllers, &block)
+  	    
+	    end
+  	
 	    # Override for buggy freaking redirect_to assertion in merb 0.9.11.
       # duplicates syntax of old version, so can be safely removed once
       # http://merb.lighthouseapp.com/projects/7433-merb/tickets/949-redirect_to-assertion-errors-on-success-under-some-setups

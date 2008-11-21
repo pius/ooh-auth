@@ -50,9 +50,11 @@ Merb::BootLoader.after_app_loads do
   require MerbAuthSliceFullfat.root / "mocks" / "secret_controller"
   require MerbAuthSliceFullfat.root / "app" / "controllers" / "exceptions"
   Merb::Authentication.user_class = MerbAuthSliceFullfat::Mocks::User
-  Merb::Authentication.activate!(:default_basic_auth)
   Merb::Authentication.activate!(:default_password_form)
-  Merb::Authentication.default_strategy_order = [Merb::Authentication::Strategies::Basic::Form, Merb::Authentication::Strategies::Basic::BasicAuth]
+end
+
+Merb::Router.prepare do
+  default_routes
 end
 
 dependency "dm-core", "0.9.6"         # The datamapper ORM

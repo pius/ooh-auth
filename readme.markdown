@@ -21,7 +21,8 @@ It depends on:
 * merb-auth-core
 * merb-auth-more
 * nokogiri (tests only)
-* datamapper (we need your help to become ORM-agnostic)
+* Erb **(we need your help to get started on HAML support)**
+* datamapper **(we need your help to become ORM-agnostic)**
 
 You should read:
 ================
@@ -29,5 +30,5 @@ You should read:
 * [Full-fat auth on github](http://github.com/danski/merb-auth-slice-fullfat)
 * [installing.markdown](http://github.com/danski/merb-auth-slice-fullfat/tree/master/installing.markdown), your guide to installing and configuring Full-fat Auth.
 * [authenticating.markdown](http://github.com/danski/merb-auth-slice-fullfat/tree/master/authenticating.markdown), a third-party developer's guide to authenticating using the stragies provided by this slice. This is written in a form suitable for parsing to HTML and including in your own application's public documentation.
-* [Full-fat auth's public bugtracker on Tails](http://www.bugtails.com/projects/171)
+* [Full-fat auth's bugtracker on Tails](http://www.bugtails.com/projects/171)
 

@@ -14,9 +14,13 @@ describe MerbAuthSliceFullfat::AuthenticatingClients do
     Merb::Router.reset! if standalone?
   end
 
-  it "should only be available to authenticated users, except for the index action"
-  it "should show a list of registered applications to a user"
-
+  describe "index action" do
+    it "should render successfully without authentication" do
+      @controller.should be_successful
+      lambda {@controller = dispatch_to(MerbAuthSliceFullfat::AuthenticatingClients, :new)}.should raise_error(Merb::Controller::Unauthenticated)
+    end
+    it "should show a list of clients when authenticated"
+  end
   
   describe "new/create action" do 
     it "should show validation messages when creation is attempted with bad data"
@@ -24,7 +28,9 @@ describe MerbAuthSliceFullfat::AuthenticatingClients do
   end
   
   describe "show action" do
-    it "should raise NotFound for the wrong user"
+    it "should raise NotFound for users other than the app's owning user" do
+      
+    end
     it "should successfully show the app data for the app's owning user"
   end
 

@@ -1,11 +1,16 @@
-class MerbAuthSliceFullfat::PasswordResets < MerbAuthSliceFullfat::Application
+class MerbAuthSliceFullfat::PasswordResets < MerbAuthSliceFullfat::Application  
 
-  def index; new; end
+  # Provides a web-based interface ONLY.
+  # The AuthenticatingClient model is there for API authentication. Passwords are for user access
+  # to the app and the decision to not provide a password-changing API is a deliberate one.
+  only_provides :html
+
+  def index; ""; end
 
   # Render a form allowing the user to start the password reset procedure.
   def new
     @password_reset = MerbAuthSliceFullfat::PasswordReset.new
-    render(:new)
+    display @password_reset
   end
   
   # Allow the user to create a password reset associated with their account.
@@ -23,7 +28,7 @@ class MerbAuthSliceFullfat::PasswordResets < MerbAuthSliceFullfat::Application
     else
       # Oh dear, incorrect login was entered.
       # Set a message and render the form again with a 'not found' response code
-      @_message = "Sorry, but we couldn't find you in our records. Are you sure you entered the correct details?"
+      self.message = "Sorry, but we couldn't find you in our records. Are you sure you entered the correct details?"
       render(:new, :status=>404)
     end
   end
@@ -45,7 +50,7 @@ class MerbAuthSliceFullfat::PasswordResets < MerbAuthSliceFullfat::Application
       render(:update, :status=>200)
     else
       # Confirmation had fail. Display with a message.
-      @_message = "You entered the secret incorrectly, or the password you entered didn't match the confirmation. Please try again."
+      self.message = "You entered the secret incorrectly, or the password you entered didn't match the confirmation. Please try again."
       render(:show, :status=>406)      
     end
   end

@@ -19,4 +19,10 @@ class MerbAuthSliceFullfat::Application < Merb::Controller
     Merb::Slices::config[:merb_auth_slice_fullfat][:default_return_to]
   end
   
+  # Can be removed once http://merb.lighthouseapp.com/projects/7433/tickets/956-patch-add-message-support
+  # is merged.
+  def message=(arg)
+    @_message = arg
+  end
+  
 end

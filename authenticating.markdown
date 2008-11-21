@@ -1,5 +1,5 @@
-What this slice provides
-========================
+Authenticating with the API
+===========================
 
 Lawyer's terms:
 * The "host" application is your application, which has the API and data being accessed.
@@ -16,14 +16,14 @@ A popular (notorious?) API antipattern is just giving clients your username and 
 So we don't use that pattern. Because it is crap. Instead, we build a more secure, flexible pattern that doesn't cause these problems.
 
 1. API Keys
-========================================================================================
+===========
 First up, every client application should be pre-register with the host application in order to receive an API key. This is an automated process and no, if you're distributing desktop software you don't need an API key for each individual installation of your app - you just need one for each app you develop.
 
 How to get an API key for your application
-----------------------------------------------------------------------------------------
+------------------------------------------
 #TODO
 
 2. Authenticating for a user
-========================================================================================
+============================
 Alright, so you've written an awesome mobile Portionator app called Mobilator. User 
 downloads it. You need to authenticate

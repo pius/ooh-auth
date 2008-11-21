@@ -9,12 +9,50 @@ class MerbAuthSliceFullfat::AuthenticatingClient
   
   property :id,             Serial      # Non-controversial so far.
   property :user_id,        Integer     # The registration will belong to a user, who will be able to edit the client properties.
-                            
+   
+  # Used by all type of authenticating apps                         
   property :name,           String      # e.g. "Mobilator PRO"
   property :web_url,        String      # e.g. "http://mobilator.portionator.net"
   property :icon_url,       String      # e.g. "http://mobilator.portionator.net.somecdn.com/images/icon_64.png"
   property :api_key,        String      # the unique key for this application.
+  property :secret,         String      # the secret which will NEVER be transmitted during the authentication procedure. Used only to sign requests.
+  property :kind,           String      # e.g  "desktop", "web", "mobile"
+  # Used by web applications
+  property :callback_url,   String      # the URL for web-based callbacks to this application
 
-  validates_is_unique :name, :message=>"That application is already registered."
-  validates_is_unique :api_key
+  validates_present     :name, :web_url, :icon_url, :api_key, :secret, :kind
+  validates_present     :callback_url, :if=>:is_webapp?
+  validates_is_unique   :name
+  validates_is_unique   :callback_url
+  validates_is_unique   :api_key
+  validates_with_method :kind, :valid_kind?
+  
+  before :valid?, :generate_keys_if_not_present
+  
+  def self.find_for_user(user)
+    return [] unless user
+    return all(:user_id=>user.id)
+  end
+  
+  def is_webapp?
+    self.kind == "web"
+  end
+  
+  def generate_keys_if_not_present
+    api_key_length = 15
+    while self.api_key.blank? or self.class.first(:id.not=>id, :api_key=>self.api_key) do
+      self.api_key = MerbAuthSliceFullfat::KeyGenerators::Alphanum.gen(api_key_length)
+      api_key_length += 1
+    end
+    self.secret ||= MerbAuthSliceFullfat::KeyGenerators::Alphanum.gen(80)
+  end
+  
+  def valid_kind?
+    if MerbAuthSliceFullfat[:client_kinds].include?(self.kind)
+      return true
+    else
+      return false, "illegal kind"
+    end
+  end
+  
 end # MerbAuthSliceFullfat::AuthenticatingClient

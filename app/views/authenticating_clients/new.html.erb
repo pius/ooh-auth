@@ -1,4 +1,59 @@
-<h1>AuthenticatingClients controller, new action</h1>
+<h1>Register for a new API Key</h1>
 
-<p>Edit this file in <tt>app/views/authenticating_clients/new.html.erb</tt></p>
-<p>For more information and examples of CRUD views read <a href="http://wiki.merbivore.com/howto/crud_view_example_with_merb_using_erb"> this wiki page</a>
+<p>
+	<strong>Important!</strong> Upon successfully adding your application, you will be shown two pieces of information. 
+	You'll be given your <strong>API Key</strong>, which will allow you to interact with the API, and you'll be given a
+	<strong>shared secret</strong> which will allow you to verify your requests to the API. <strong>Note both of these down.</strong>
+</p>
+
+<%= form_for @authenticating_client, :action=>resource(:merb_auth_slice_fullfat, :authenticating_clients), :class=>"authenticating_client" do %>
+	
+	<%= error_messages_for @authenticating_client %>
+	
+	<fieldset>
+		<legend>Some information about your application</legend>
+		
+		<dl>
+			<dt><label for="merb_auth_slice_fullfat_authenticating_clients_name">Application name</label></dt>
+			<dd><%= text_field :name, :name=>"authenticating_client[name]", :value=>h(@authenticating_client.name) %></dd>
+			
+			<dt><label for="merb_auth_slice_fullfat_authenticating_clients_name">Web URL</label></dt>
+			<dd><%= text_field :web_url, :name=>"authenticating_client[web_url]", :value=>h(@authenticating_client.web_url) %></dd>
+			
+			<dt><label for="merb_auth_slice_fullfat_authenticating_clients_name">Icon URL</label></dt>
+			<dd><%= text_field :icon_url, :name=>"authenticating_client[icon_url]", :value=>h(@authenticating_client.icon_url) %></dd>
+		</dl>
+		
+	</fieldset>
+	
+	<fieldset>
+		<legend>Application type</legend>
+		
+		<dl class="checkboxes">
+			<dt><label for="merb_auth_slice_fullfat_authenticating_clients_kind_web">This is a web-based application</label></dt>
+			<dd><%= radio_button :kind, :value=>"web", :name=>"authenticating_client[kind]", :id=>"merb_auth_slice_fullfat_authenticating_clients_kind_web", :checked=>@authenticating_client.is_webapp? %></dd>
+			
+			<dt><label for="merb_auth_slice_fullfat_authenticating_clients_kind_desktop">This is a desktop or mobile application</label></dt>
+			<dd><%= radio_button :kind, :value=>"desktop", :name=>"authenticating_client[kind]", :id=>"merb_auth_slice_fullfat_authenticating_clients_kind_desktop", :checked=>!@authenticating_client.is_webapp? %></dd>
+		</dl>
+	</fieldset>
+	
+	<fieldset id="web_only">
+		<legend>Web-based applications only</legend>
+		
+		<dl>
+			<dt><label for="merb_auth_slice_fullfat_authenticating_clients_callback_url">Callback URL</label></dt>
+			<dd><%= text_field :callback_url, :name=>"authenticating_client[callback_url]", :value=>@authenticating_client.callback_url %></dd>
+		</dl>
+	</fieldset>
+	
+	<fieldset class="buttons">
+		<p>
+			When you submit this form, we will generate both two pieces of information for you - an <strong>API Key</strong> and a <strong>Shared Secret</strong>. 
+			They will be shown on the next page. Be sure to record them.
+		</p>
+		
+		<%= submit "Get my API Key" %>
+	</fieldset>
+	
+<% end =%>

@@ -32,8 +32,13 @@ if defined?(Merb::Plugins)
     # param key to use when pulling the return url from login and logout links.
     :return_to_param  => :return_to,            
     # if the return_to param is not specified, where should login and logout go on success?
-    :default_return_to => "/"                   
+    :default_return_to => "/",
+    # Authenticating clients can ask for a certain level of permissions chosen from a list. You can alter that list below:
+    :client_permission_levels=>%w(read write delete),
+    # Reserved for now
+    :client_kinds=>%w(web desktop)
   })
+  
   # SliceRestful uses merb-auth-more's configuration options:
   # Merb::Plugins.config[:"merb-auth"][:new_session_param] => key to use when looking up the LOGIN in requests.
   # Merb::Plugins.config[:"merb-auth"][:password_param] => key to use when looking up the PASSWORD in requests.
@@ -71,7 +76,8 @@ if defined?(Merb::Plugins)
     #   slice( :MerbAuthSliceFullfat, :name_prefix => nil, :path_prefix => "auth", :default_routes => false )
     # end
     def self.setup_router(scope)
-      scope.identify MerbAuthSliceFullfat::PasswordReset => :identifier do |identification|
+      scope.identify  MerbAuthSliceFullfat::PasswordReset => :identifier,
+                      MerbAuthSliceFullfat::AuthenticatingClient => :id do |identification|
         identification.resources :sessions
         identification.resources :password_resets, :keys=>[:identifier]
         identification.resources :authenticating_clients

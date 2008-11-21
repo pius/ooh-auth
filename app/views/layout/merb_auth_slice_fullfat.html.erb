@@ -9,9 +9,9 @@
 		<div id="root">
 			<h1>Full-fat Auth Slice</h1>
 			
-			<% if message %>
+			<% unless message.blank? %>
 				<div id="_message">
-						<%= message %>
+						<%=h message %>
 				</div>
 			<% end %>
 			

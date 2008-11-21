@@ -1,25 +1,26 @@
 class MerbAuthSliceFullfat::AuthenticatingClients < MerbAuthSliceFullfat::Application
-  # provides :xml, :yaml, :js
+  
+  before :ensure_authenticated, :exclude=>[:index]
+  only_provides :html
 
   def index
-    @authenticating_clients = MerbAuthSliceFullfat::AuthenticatingClient.all
-    display @authenticating_clients
+    @authenticating_clients = MerbAuthSliceFullfat::AuthenticatingClient.find_for_user(session.user)
+    render :index
   end
 
   def show(id)
     @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.get(id)
     raise NotFound unless @authenticating_client
+    raise NotFound unless session.user.id == @authenticating_client.user_id
     display @authenticating_client
   end
 
   def new
-    only_provides :html
     @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.new
     display @authenticating_client
   end
 
   def edit(id)
-    only_provides :html
     @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.get(id)
     raise NotFound unless @authenticating_client
     display @authenticating_client
@@ -28,7 +29,7 @@ class MerbAuthSliceFullfat::AuthenticatingClients < MerbAuthSliceFullfat::Applic
   def create(authenticating_client)
     @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.new(authenticating_client)
     if @authenticating_client.save
-      redirect resource(@authenticating_client), :message => {:notice => "AuthenticatingClient was successfully created"}
+      render :show, :status=>201
     else
       message[:error] = "AuthenticatingClient failed to be created"
       render :new
