@@ -22,8 +22,6 @@ describe "MerbAuthSliceFullfat" do
     it "should raise unauthenticated for other requests" do
       lambda { @controller = dispatch_to(MerbAuthSliceFullfat::Secrets, :index, :format=>"xml") }.should raise_error(Merb::Controller::Unauthenticated)
     end
-    it "should display for authenticated users using session auth"    
-    it "should be displayable with a valid API authentication token"
     
   end
 

@@ -120,7 +120,7 @@ describe MerbAuthSliceFullfat::PasswordResets do
     it "should destroy the password reset on successful consumption"
   end
   
-  it "should return the user to the host application once a reset is claimed"
+  it "should return the user to the login screen once a reset is claimed"
   it "should allow cancellation of a passwordreset using the destroy action"
   
 end
