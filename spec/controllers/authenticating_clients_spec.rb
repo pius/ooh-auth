@@ -60,10 +60,21 @@ describe MerbAuthSliceFullfat::AuthenticatingClients do
   end
   
   describe "show action" do
-    it "should raise NotFound for users other than the app's owning user" do
-      
+    before :each do
+      @user = user_class.gen
+      @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.gen(:user_id=>@user.id)
+      @other_authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.gen(:user_id=>@user.id+1000)
+      @controller = MerbAuthSliceFullfat::AuthenticatingClients.new(Merb::Test::RequestHelper::FakeRequest.new)
+      @controller.request.session.user = @user
     end
-    it "should successfully show the app data for the app's owning user"
+    
+    it "should raise NotFound for users other than the app's owning user" do
+      lambda { @controller.show(@other_authenticating_client.id)}.should raise_error(Merb::Controller::NotFound)
+    end
+    it "should successfully show the app data for the app's owning user" do
+      @controller.show(@authenticating_client.id)
+      @controller.should be_successful
+    end
   end
 
   describe "edit/update action" do
@@ -96,7 +107,12 @@ describe MerbAuthSliceFullfat::AuthenticatingClients do
       @controller.should be_successful
       @controller.assigns(:authenticating_client).should_not be_valid
     end
-    it "should redirect to the resource on successful update"
+    it "should redirect to the resource on successful update" do
+      @controller.update(@authenticating_client.id, {:name=>"renamed renamed renamed"})
+      @controller.status.should == 302
+      @controller.should redirect_to(@controller.slice_url(:authenticating_client, @controller.assigns(:authenticating_client)))
+      @controller.assigns(:authenticating_client).should be_valid      
+    end
   end
   
   describe "delete action" do 

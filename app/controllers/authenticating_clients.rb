@@ -11,7 +11,7 @@ class MerbAuthSliceFullfat::AuthenticatingClients < MerbAuthSliceFullfat::Applic
   def show(id)
     @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.get(id)
     raise NotFound unless @authenticating_client and @authenticating_client.editable_by?(session.user)
-    display @authenticating_client
+    display @authenticating_client, :show
   end
 
   def new

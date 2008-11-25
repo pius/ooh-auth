@@ -11,11 +11,13 @@ class MerbAuthSliceFullfat::AuthenticatingClient
   property :id,             Serial
   # The registration will belong to a user, who will be able to edit the client properties.
   property :user_id,        Integer,  :writer => :protected
+  # Timestamp it
+  property :created_at,     DateTime
    
   # Used by all type of authenticating apps                         
   property :name,           String      # e.g. "Mobilator PRO"
-  property :web_url,        String      # e.g. "http://mobilator.portionator.net"
-  property :icon_url,       String      # e.g. "http://mobilator.portionator.net.somecdn.com/images/icon_64.png"
+  property :web_url,        URI         # e.g. "http://mobilator.portionator.net"
+  property :icon_url,       URI         # e.g. "http://mobilator.portionator.net.somecdn.com/images/icon_64.png"
   property :api_key,        String      # the unique key for this application.
   property :secret,         String      # the secret which will NEVER be transmitted during the authentication procedure. Used only to sign requests.
   property :kind,           String      # e.g  "desktop", "web", "mobile"

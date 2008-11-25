@@ -1,4 +1,40 @@
-<h1>AuthenticatingClients controller, show action</h1>
+<%
+	ac = @authenticating_client
+%>
 
-<p>Edit this file in <tt>app/views/authenticating_clients/show.html.erb</tt></p>
-<p>For more information and examples of CRUD views read <a href="http://wiki.merbivore.com/howto/crud_view_example_with_merb_using_erb"> this wiki page</a>
+<h1><%=h ac.name %></h1>
+
+<div id="facts">
+	<h2>About your application:</h2>
+	
+	<ul>
+		<li>This application was registered on <%= ac.created_at.strftime("%d/%b/%Y") %></li>
+	</ul>
+</div>
+
+<div id="api_secrets">
+	<h2>Your API key details for <em><%=h ac.name %></em></h2>
+	<p>
+		Your <strong>API key</strong> will for the most part be public, although it is useless without the <strong>shared secret</strong> that goes with it. 
+		You should under no circumstances make your shared secret known by another party, as it can be used to sign the authorization requests that your application
+		will send.
+	</p>
+	
+	<dl>
+		<dt>API Key</dt>
+		<dd>
+			<a href="#api_key" onclick="this.style.display = 'none'; document.getElementById('api_key').style.display = 'block'; return false;">Show my API Key</a> 
+			<span id="api_key" class="secret shared" style="display: none;"><%=h ac.api_key %></span>
+		</dd>
+		
+		<dt>Shared Secret</dt>
+		<dd>
+			<a href="#shared_secret" id="shared_secret_toggle" onclick="this.style.display = 'none'; document.getElementById('shared_secret').style.display = 'block'; return false;">
+				Nobody but myself can see. I have closed my doors, shuttered my windows and, just for today, shunned my loved ones. It is safe to show my Shared Secret.
+			</a> 
+			<span id="shared_secret" class="secret shared" style="display: none;"><%=h ac.secret %></span>
+		</dd>
+	</dl>
+</div>
+
+<%= partial "help" %>
