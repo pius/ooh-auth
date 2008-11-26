@@ -77,10 +77,12 @@ if defined?(Merb::Plugins)
     # end
     def self.setup_router(scope)
       scope.identify  MerbAuthSliceFullfat::PasswordReset => :identifier,
-                      MerbAuthSliceFullfat::AuthenticatingClient => :id do |identification|
+                      MerbAuthSliceFullfat::AuthenticatingClient => :id,
+                      MerbAuthSliceFullfat::Authentication => :id do |identification|
         identification.resources :sessions
         identification.resources :password_resets, :keys=>[:identifier]
         identification.resources :authenticating_clients
+        identification.resources :authentications
       end
       scope.default_routes
     end
