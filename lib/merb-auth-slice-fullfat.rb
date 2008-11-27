@@ -11,6 +11,7 @@ if defined?(Merb::Plugins)
 
   require "merb-auth-slice-fullfat/authentication_mixin"
   require "merb-auth-slice-fullfat/key_generators"
+  require "merb-auth-slice-fullfat/request_verification_mixin.rb"
   
   Merb::Plugins.add_rakefiles "merb-auth-slice-fullfat/merbtasks", "merb-auth-slice-fullfat/slicetasks", "merb-auth-slice-fullfat/spectasks"
 

@@ -15,7 +15,7 @@ class MerbAuthSliceFullfat::Application < Merb::Controller
 
   # Make common params available to controllers
   [:return_to_param, :default_return_to, :api_key_param, :api_token_param, :api_signature_param, :api_receipt_param].each do |key|
-    define_method key
+    define_method key do
 	    Merb::Slices::config[:merb_auth_slice_fullfat][key]
     end
   end

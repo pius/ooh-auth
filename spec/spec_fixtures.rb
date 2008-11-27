@@ -23,3 +23,7 @@ MerbAuthSliceFullfat::AuthenticatingClient.fixture{{
   :callback_url =>  "http://www.#{ /\w+/.gen }.com/auth_completed",
   :kind         =>  /desktop|web/.gen
 }}
+
+MerbAuthSliceFullfat::Authentication.fixture{{
+  
+}}
