@@ -2,6 +2,6 @@ require File.join( File.dirname(__FILE__), '..', "spec_helper" )
 
 describe MerbAuthSliceFullfat::Authentication do
 
-  it "should have specs"
+  it "should be creatable as a receipt for a user"
 
 end
