@@ -30,7 +30,12 @@ if defined?(Merb::Plugins)
     # The attribute on User to use for purposes of identifying a user. This should be something approximately secret i.e. not the user's nickname.
     :password_reset_identifier_field=>:email,   
     # param key to use when pulling the return url from login and logout links.
-    :return_to_param  => :return_to,            
+    :return_to_param  => :return_to,
+    # params for API token auth
+    :api_key_param        => :api_key,
+    :api_token_param      => :api_token,
+    :api_signature_param  => :api_signature,
+    :api_receipt_param    => :api_receipt,
     # if the return_to param is not specified, where should login and logout go on success?
     :default_return_to => "/",
     # Authenticating clients can ask for a certain level of permissions chosen from a list. You can alter that list below:

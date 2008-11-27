@@ -12,11 +12,12 @@ class MerbAuthSliceFullfat::Application < Merb::Controller
 	def password_param
 	  Merb::Authentication::Strategies::Basic::Base.password_param
   end
-  def return_to_param
-	  Merb::Slices::config[:merb_auth_slice_fullfat][:return_to_param]
-  end
-  def default_return_to
-    Merb::Slices::config[:merb_auth_slice_fullfat][:default_return_to]
+
+  # Make common params available to controllers
+  [:return_to_param, :default_return_to, :api_key_param, :api_token_param, :api_signature_param, :api_receipt_param].each do |key|
+    define_method key
+	    Merb::Slices::config[:merb_auth_slice_fullfat][key]
+    end
   end
   
   # Can be removed once http://merb.lighthouseapp.com/projects/7433/tickets/956-patch-add-message-support
