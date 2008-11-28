@@ -13,7 +13,7 @@ representations as they not only are intended for human interaction, but specifi
 
 class MerbAuthSliceFullfat::Authentications < MerbAuthSliceFullfat::Application
 
-  provides :xml, :yaml, :js
+  provides :xml, :yaml, :json
   
   def index
     @authentications = MerbAuthSliceFullfat::Authentication.all

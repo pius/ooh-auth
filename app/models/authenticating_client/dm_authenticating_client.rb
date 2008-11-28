@@ -18,7 +18,7 @@ class MerbAuthSliceFullfat::AuthenticatingClient
   property :name,           String      # e.g. "Mobilator PRO"
   property :web_url,        URI         # e.g. "http://mobilator.portionator.net"
   property :icon_url,       URI         # e.g. "http://mobilator.portionator.net.somecdn.com/images/icon_64.png"
-  property :api_key,        String      # the unique key for this application.
+  property :api_key,        String, :index=>true # the unique key for this application.
   property :secret,         String      # the secret which will NEVER be transmitted during the authentication procedure. Used only to sign requests.
   property :kind,           String      # e.g  "desktop", "web", "mobile"
   # Used by web applications

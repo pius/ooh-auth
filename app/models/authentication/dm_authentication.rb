@@ -49,6 +49,11 @@ class MerbAuthSliceFullfat::Authentication
     return (auth)? auth.user : false
   end
   
+  # FIXME the relationship helper should be sorting this. Something to do with the variable class.
+  def user
+    Merb::Authentication.user_class.get(user_id)
+  end
+  
   # Tentatively create a receipt for a given client, not yet tied to a user.
   def self.create_receipt(authenticating_client, expires=1.hour.since, user=nil)
     o = new(:authenticating_client=>authenticating_client, :expires=>expires, :user=>user)
