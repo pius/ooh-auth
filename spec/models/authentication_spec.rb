@@ -90,8 +90,28 @@ describe MerbAuthSliceFullfat::Authentication do
   end
   
   describe "transformations" do
-    it "should transform as a 'receipt' bundle when not activated"
-    it "should transform as a 'token' bundle when activated"
-  end
+    before :each do
+      @user = user_class.gen
+      @a = MerbAuthSliceFullfat::Authentication.create_receipt(@authenticating_clients.first, @date, @user)
+    end
+    
+    it "should transform as a 'receipt' bundle when not activated" do
+      @a.activated?.should be_false
+      @a.to_xml.should contain(@a.receipt)
+      @a.to_json.should contain(@a.receipt)
+      @a.to_json.should contain("receipt")
+      @a.to_yaml.should contain(@a.receipt)
+      @a.to_yaml.should contain("receipt")      
+    end
+    it "should transform as a 'token' bundle when activated" do
+      @a.activate!.should be_true
+      @a.token.should match(/[0-9A-Za-z]{10}/)
+      @a.to_xml.should contain(@a.token)
+      @a.to_json.should contain(@a.token)
+      @a.to_json.should contain("token")
+      @a.to_yaml.should contain(@a.token)
+      @a.to_yaml.should contain("token")
+    end
+  end 
   
 end

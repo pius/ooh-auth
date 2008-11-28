@@ -90,8 +90,26 @@ class MerbAuthSliceFullfat::Authentication
   
   # Transformations
   def to_hash
-    
+    if activated?
+      {
+        :authentication=>{
+          :token=>token,
+          :expires=>expires
+        }
+      }
+    else
+      {
+        :receipt=>{
+          :token=>receipt,
+          :expires=>expires
+        }
+      }      
+    end
   end
+  # FIXME why is to_xml not available?
+  def to_xml;   (activated?)? "<authentication><token>#{token}</token><expires>#{expires}</expires></authentication>" : "<receipt><token>#{receipt}</token><expires>#{expires}</expires></receipt>"; end
+  def to_json;  to_hash.to_json; end
+  def to_yaml;  to_hash.to_yaml; end
   
   
 end
