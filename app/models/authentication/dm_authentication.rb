@@ -88,5 +88,10 @@ class MerbAuthSliceFullfat::Authentication
     end
   end
   
+  # Transformations
+  def to_hash
+    
+  end
+  
   
 end

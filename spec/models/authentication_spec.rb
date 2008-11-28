@@ -66,10 +66,32 @@ describe MerbAuthSliceFullfat::Authentication do
     a.save
     a.token.should == t
   end
-  
-  it "should not authenticate a user when given an incorrect API key and a correct token"
-  it "should not authenticate a user when given a correct API key and the receipt as a token"
-  it "should not authenticate a user when given a correct API key but an incorrect token"
-  it "should authenticate a user when given a correct API key and a correct token"
 
+  describe "#authenticate!" do
+    before :each do
+      @user = user_class.gen
+      @a = MerbAuthSliceFullfat::Authentication.create_receipt(@authenticating_clients.first, @date, @user)
+      @a.activate!.should be_true
+    end
+    
+    it "should not authenticate a user when given an incorrect API key and a correct token" do      
+      MerbAuthSliceFullfat::Authentication.authenticate!("DSFARGEG", @a.token).should be_false
+    end
+    it "should not authenticate a user when given a correct API key and the receipt as a token" do
+      MerbAuthSliceFullfat::Authentication.authenticate!(@authenticating_clients.first.api_key, @a.receipt).should be_false
+    end
+    it "should not authenticate a user when given a correct API key but an incorrect token" do
+      MerbAuthSliceFullfat::Authentication.authenticate!(@authenticating_clients.first.api_key, "DSFARGEG").should be_false
+    end
+    it "should authenticate a user when given a correct API key and a correct token" do
+      #@a.user_id.should == ""
+      MerbAuthSliceFullfat::Authentication.authenticate!(@authenticating_clients.first.api_key, @a.token).should == @user
+    end
+  end
+  
+  describe "transformations" do
+    it "should transform as a 'receipt' bundle when not activated"
+    it "should transform as a 'token' bundle when activated"
+  end
+  
 end
