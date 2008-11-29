@@ -14,9 +14,17 @@ representations as they not only are intended for human interaction, but specifi
 class MerbAuthSliceFullfat::Authentications < MerbAuthSliceFullfat::Application
 
   provides :xml, :yaml, :json
+  before :ensure_authenticated, :exclude=>[:index]
   
   def index
-    @authentications = MerbAuthSliceFullfat::Authentication.all
+    if request.api_key and request.api_receipt
+      # Signed request with a receipt - let's dish up an auth token
+    elsif request.api_key
+      # Signed request with no receipt - let's dish up a receipt      
+    else
+      # Some kind of downright nasty fraudlent, mangled request.
+      # Probably sent by a circus clown who drinks too much.
+    end
     display @authentications
   end
 
