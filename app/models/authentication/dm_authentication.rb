@@ -60,6 +60,11 @@ class MerbAuthSliceFullfat::Authentication
     o.save; o
   end
   
+  # Fetch a receipt given the receipt code
+  def self.get_receipt(r)
+    first :receipt=>r
+  end
+  
   # Make this Authentication object active by generating a token against it.
   # You may optionally specify a new expiry date/time for the token.
   def activate!(expire_on=1.year.since)
@@ -93,7 +98,12 @@ class MerbAuthSliceFullfat::Authentication
     end
   end
   
-  # Transformations
+  # Returns true if the given user is the owner of this object.
+  def editable_by_user?(user)
+    return user.id == user_id
+  end
+  
+  # Transformation - returns a hash representing this object, ready to be converted to XML, JSON or YAML.
   def to_hash
     if activated?
       {

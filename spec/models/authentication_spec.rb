@@ -66,6 +66,12 @@ describe MerbAuthSliceFullfat::Authentication do
     a.save
     a.token.should == t
   end
+  
+  it "should determine if the object is editable by a given user" do
+    a = MerbAuthSliceFullfat::Authentication.create_receipt(@authenticating_clients.first, @date, @users.first)
+    a.editable_by_user?(@users.first).should be_true
+    a.editable_by_user?(user_class.gen).should be_false
+  end
 
   describe "#authenticate!" do
     before :each do

@@ -27,7 +27,7 @@ module MerbAuthSliceFullfat
       # Returns a true on success, false on fail.
       def signed?
         # Fail immediately if the request is not signed at all
-        return false unless api_request and authenticating_client
+        return false unless api_request? and authenticating_client
         # Prepare the verification string for comparison
         correct_sig = "#{authenticating_client.secret}#{protocol}#{host}#{uri}"
         # pop signature off the parameter list and serialize params
@@ -35,6 +35,7 @@ module MerbAuthSliceFullfat
         p.delete(MerbAuthSliceFullfat[:api_signature_param])
         correct_sig += "#{p.keys.sort}#{p.values.sort}"
         # mash and compare with given signature
+        #raise RuntimeError, "wanted #{correct_sig.inspect} but was signed with #{api_signature.inspect}"
         Digest::SHA1.hexdigest(correct_sig) == api_signature
       end
       

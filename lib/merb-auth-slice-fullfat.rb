@@ -8,10 +8,6 @@ if defined?(Merb::Plugins)
   load_dependency 'merb-slices'
   load_dependency "merb-helpers"
   load_dependency "merb-assets"
-
-  require "merb-auth-slice-fullfat/authentication_mixin"
-  require "merb-auth-slice-fullfat/key_generators"
-  require "merb-auth-slice-fullfat/request_verification_mixin.rb"
   
   Merb::Plugins.add_rakefiles "merb-auth-slice-fullfat/merbtasks", "merb-auth-slice-fullfat/slicetasks", "merb-auth-slice-fullfat/spectasks"
 
@@ -67,6 +63,10 @@ if defined?(Merb::Plugins)
     
     # Initialization hook - runs before AfterAppLoads BootLoader
     def self.init
+      require "merb-auth-slice-fullfat/authentication_mixin"
+      require "merb-auth-slice-fullfat/key_generators"
+      require "merb-auth-slice-fullfat/request_verification_mixin.rb"
+      Merb::Request.send(:include, MerbAuthSliceFullfat::Request::VerificationMixin)
     end
     
     # Activation hook - runs after AfterAppLoads BootLoader

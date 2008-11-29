@@ -19,17 +19,21 @@ class MerbAuthSliceFullfat::Authentications < MerbAuthSliceFullfat::Application
   def index
     if request.api_key and request.api_receipt
       # Signed request with a receipt - let's dish up an auth token
-    elsif request.api_key
-      # Signed request with no receipt - let's dish up a receipt      
+      raise NotFound unless @authentication = ::Authentication.get_receipt(request.api_receipt)
+      @authentication.activate!
+    elsif client = request.authenticating_client
+      # Signed request with no receipt - let's dish up a receipt
+      @authentication = ::Authentication.create_receipt(client) 
     else
       # Some kind of downright nasty fraudlent, mangled request.
       # Probably sent by a circus clown who drinks too much.
+      raise NotAcceptable
     end
     display @authentications
   end
 
   def show(id)
-    @authentication = MerbAuthSliceFullfat::Authentication.get(id)
+    @authentication = ::Authentication.get(id)
     raise NotFound unless @authentication
     display @authentication
   end
