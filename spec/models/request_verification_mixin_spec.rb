@@ -6,6 +6,13 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
   before :all do
     # set the api key to a known value for the purposes of this test suite
     @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.gen(:api_key=>"fishsticks")
+    Merb::Router.prepare do 
+      add_slice(:MerbAuthSliceFullfat)
+    end if standalone?
+  end
+  
+  after :all do
+    Merb::Router.reset! if standalone?
   end
   
   it "should be included in the Merb::Request and FakeRequest classes on slice initialisation" do

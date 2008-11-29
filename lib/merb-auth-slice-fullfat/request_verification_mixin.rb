@@ -32,12 +32,21 @@ module MerbAuthSliceFullfat
         # Prepare the verification string for comparison
         correct_sig = "#{authenticating_client.secret}#{method}#{protocol}#{host}#{uri}"
         # pop signature off the parameter list and serialize params
-        p = params.dup
-        p.delete(MerbAuthSliceFullfat[:api_signature_param])
+        p = signature_params
         correct_sig += "#{p.keys.sort}#{p.values.sort}"
         # mash and compare with given signature
         #raise RuntimeError, "wanted #{correct_sig.inspect} but was signed with #{api_signature.inspect}"
-        Digest::SHA1.hexdigest(correct_sig) == api_signature
+        match = Digest::SHA1.hexdigest(correct_sig) == api_signature
+        #match or raise(RuntimeError, "failed to match signature, expected #{correct_sig.inspect} for parameters #{p.inspect} and uri #{full_uri.inspect}")
+      end
+      
+      # Scrubs route parameters from the known params, returning a hash of known GET and POST parameters.
+      # Basically, this returns the parameters needed in the signature key/value gibberish.
+      def signature_params
+        p = params.dup
+        route, route_params = Merb::Router.route_for(self)
+        #raise RuntimeError, route_params.inspect
+        return p.delete_if {|k,v| route_params.keys.map{|s|s.to_s}.include?(k.to_s) or k.to_s == MerbAuthSliceFullfat[:api_signature_param].to_s}
       end
       
       # Returns the value of the api_key parameter from the request parameters.

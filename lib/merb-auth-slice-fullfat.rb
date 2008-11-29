@@ -66,7 +66,9 @@ if defined?(Merb::Plugins)
       require "merb-auth-slice-fullfat/authentication_mixin"
       require "merb-auth-slice-fullfat/key_generators"
       require "merb-auth-slice-fullfat/request_verification_mixin.rb"
+      require "merb-auth-slice-fullfat/controller_mixin.rb"
       Merb::Request.send(:include, MerbAuthSliceFullfat::Request::VerificationMixin)
+      Merb::Controller.send(:include, MerbAuthSliceFullfat::ControllerMixin)
     end
     
     # Activation hook - runs after AfterAppLoads BootLoader

@@ -13,31 +13,32 @@ representations as they not only are intended for human interaction, but specifi
 
 class MerbAuthSliceFullfat::Authentications < MerbAuthSliceFullfat::Application
 
-  provides :xml, :yaml, :json
-  before :ensure_authenticated, :exclude=>[:index]
+  before :ensure_signed,        :only=>[:index, :new]
+  before :ensure_authenticated, :exclude=>[:index]  
   
   def index
+    only_provides :js, :xml, :yaml
     if request.api_key and request.api_receipt
       # Signed request with a receipt - let's dish up an auth token
-      raise NotFound unless @authentication = ::Authentication.get_receipt(request.api_receipt)
+      raise NotFound unless @authentication = MerbAuthSliceFullfat::Authentication.get_receipt(request.api_receipt)
+      raise NotFound unless @authentication.authenticating_client == request.authenticating_client
       @authentication.activate!
-      display @authentication
     elsif client = request.authenticating_client
       # Signed request with no receipt - let's dish up a receipt
-      @authentication = ::Authentication.create_receipt(client) 
-      display @authentication
-    else
-      # Some kind of downright nasty fraudlent, mangled request.
-      # Probably sent by a circus clown who drinks too much.
-      raise NotAcceptable
+      @authentication = MerbAuthSliceFullfat::Authentication.create_receipt(client) 
     end
+    # Some kind of downright nasty fraudlent, mangled request.
+    # Probably sent by a circus clown who drinks too much.
+    raise NotAcceptable unless @authentication
+    # Okay, no error raised. Gogo render.
+    display @authentication, :index
   end
 
-  def show(id)
-    @authentication = ::Authentication.get(id)
-    raise NotFound unless @authentication
-    display @authentication
-  end
+  #def show(id)
+  #  @authentication = ::Authentication.get(id)
+  #  raise NotFound unless @authentication
+  #  display @authentication
+  #end
 
   def new
     only_provides :html

@@ -83,6 +83,22 @@ module Merb
         
         fake_request(env, opts)
       end
+      
+      # Signs a URL like "/controller/action" with the correct signature to avoid triggering the
+      # ensure_signed filter method.
+      def sign_url_with(client, url, params={})
+        defaults = Merb::Test::RequestHelper::FakeRequest.new
+        params = {
+          "api_key"=>client.api_key
+        }.merge(params)
+        params[:api_signature] ||= Digest::SHA1.hexdigest(sig = "#{client.secret}#{defaults.method}http#{defaults.host}#{url}#{params.keys.sort.join("")}#{params.values.sort.join("")}")
+        param_string = params.collect{|k,v| "#{k}=#{v}"}.join("&")
+        url = "#{url}?#{param_string}"
+        #raise RuntimeError, {:plain_sig=>sig, :url=>url}.inspect
+        return url
+      end
+      
+      # Signs a URL
   	
 	    # Override for buggy freaking redirect_to assertion in merb 0.9.11.
       # duplicates syntax of old version, so can be safely removed once
