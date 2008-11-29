@@ -62,6 +62,27 @@ module Merb
   	  def with_session_in(*controllers, &block)
   	    
 	    end
+	    
+	    # Produces a signed FakeRequest ready to be used when testing any action that requires signing.
+	    def request_signed_by(client, get_params={}, post_params={}, env={}, opts={})
+	      get_params = {
+	        "api_key"=>client.api_key
+	      }.merge(get_params)
+        env = {
+          :request_method => "GET",
+          :http_host => "test.fullfat.com", 
+          :request_uri=>"/secret/"
+	      }.merge(env)
+	      opts = {
+	        :post_body=>post_params.collect{|k,v| "#{k}=#{v}"}.join("&")
+	      }.merge(opts)
+        
+        all_params = get_params.merge(post_params)
+        get_params[:api_signature] = Digest::SHA1.hexdigest("#{client.secret}#{env[:request_method].downcase}http#{env[:http_host]}#{env[:request_uri]}#{all_params.keys.sort.join("")}#{all_params.values.sort.join("")}")
+	      env[:query_string] = get_params.collect{|k,v| "#{k}=#{v}"}.join("&")
+        
+        fake_request(env, opts)
+      end
   	
 	    # Override for buggy freaking redirect_to assertion in merb 0.9.11.
       # duplicates syntax of old version, so can be safely removed once

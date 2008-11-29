@@ -19,6 +19,7 @@ module MerbAuthSliceFullfat
       # Returns the client referenced by the API token in the given request, or nil if
       # no api key was given or if the given api key was invalid.
       def authenticating_client
+        #return false unless signed?
         @authenticating_client ||= MerbAuthSliceFullfat::AuthenticatingClient.first(:api_key=>api_key)
       end
       
@@ -29,7 +30,7 @@ module MerbAuthSliceFullfat
         # Fail immediately if the request is not signed at all
         return false unless api_request? and authenticating_client
         # Prepare the verification string for comparison
-        correct_sig = "#{authenticating_client.secret}#{protocol}#{host}#{uri}"
+        correct_sig = "#{authenticating_client.secret}#{method}#{protocol}#{host}#{uri}"
         # pop signature off the parameter list and serialize params
         p = params.dup
         p.delete(MerbAuthSliceFullfat[:api_signature_param])

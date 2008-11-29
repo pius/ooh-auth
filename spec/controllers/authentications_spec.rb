@@ -2,6 +2,10 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 describe MerbAuthSliceFullfat::Authentications do
 
+  before :all do
+    @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.gen(:api_key=>"fishsticks")
+  end
+
   describe "index action" do
     it "should generate an anonymous receipt when sent GET with an api key and no other information."
     it "should generate nothing and return a 406 not acceptable when the request contains only an incorrect API key"
