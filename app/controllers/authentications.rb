@@ -14,7 +14,7 @@ representations as they not only are intended for human interaction, but specifi
 class MerbAuthSliceFullfat::Authentications < MerbAuthSliceFullfat::Application
 
   before :ensure_signed,        :only=>[:index, :new]
-  before :ensure_authenticated, :exclude=>[:index]  
+  before :ensure_authenticated_personally, :exclude=>[:index]  
   
   def index
     only_provides :js, :xml, :yaml

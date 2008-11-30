@@ -20,7 +20,6 @@
 # application, which in turn can override or finetune the slice implementation
 # code and views.
 #
-
 Merb::Config.use do |c|
 
   # Sets up a custom session id key which is used for the session persistence
@@ -50,7 +49,6 @@ Merb::BootLoader.after_app_loads do
   require MerbAuthSliceFullfat.root / "mocks" / "secret_controller"
   require MerbAuthSliceFullfat.root / "app" / "controllers" / "exceptions"
   Merb::Authentication.user_class = MerbAuthSliceFullfat::Mocks::User
-  Merb::Authentication.activate!(:default_password_form)
 end
 
 Merb::Router.prepare do

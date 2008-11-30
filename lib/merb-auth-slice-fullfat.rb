@@ -2,6 +2,10 @@ if defined?(Merb::Plugins)
 
   $:.unshift File.dirname(__FILE__)
 
+  require 'merb-slices'
+  require 'merb-auth-core'
+  require 'merb-auth-more'
+  
   load_dependency "merb-action-args"
   load_dependency 'merb-auth-core'
   load_dependency 'merb-auth-more'
@@ -76,6 +80,9 @@ if defined?(Merb::Plugins)
       require "merb-auth-slice-fullfat/controller_mixin.rb"
       Merb::Request.send(:include, MerbAuthSliceFullfat::Request::VerificationMixin)
       Merb::Controller.send(:include, MerbAuthSliceFullfat::ControllerMixin)
+      
+      Merb::Authentication.activate!(:default_password_form)
+#      raise Merb::Authentication::Strategies::Basic::Form.inspect
     end
     
     # Activation hook - runs after AfterAppLoads BootLoader
