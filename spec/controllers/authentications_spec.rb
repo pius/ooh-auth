@@ -7,6 +7,8 @@ describe MerbAuthSliceFullfat::Authentications do
     @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.gen
     @other_authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.gen
     @receipt = MerbAuthSliceFullfat::Authentication.create_receipt(@authenticating_client, 1.hour.since, @user)
+    @token = MerbAuthSliceFullfat::Authentication.create_receipt(@other_authenticating_client, 1.hour.since, @user)
+    @token.activate!
     @bad_receipt = MerbAuthSliceFullfat::Authentication.create_receipt(@other_authenticating_client, 1.hour.since, @user)
     @controller = dispatch_to(MerbAuthSliceFullfat::Sessions, :index)
     Merb::Router.prepare do 
@@ -56,9 +58,12 @@ describe MerbAuthSliceFullfat::Authentications do
   end
   
   describe "new/create action (desktop process)" do
-    it "should display a form to the user and locate the correct receipt from the database on GET" do
+    before :all  do
       @desktop_app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
-      @desktop_receipt = MerbAuthSliceFullfat::Authentication.create_receipt(@desktop_app, 1.hour.since, @user)
+      @desktop_receipt = MerbAuthSliceFullfat::Authentication.create_receipt(@desktop_app, 1.hour.since, @user)      
+    end
+    
+    it "should display a form to the user and locate the correct receipt from the database on GET" do
       @controller = MerbAuthSliceFullfat::Authentications.new(
         request_signed_by(@desktop_app, {:api_receipt=>@desktop_receipt.receipt}, {}, {:request_uri=>"/authentications/new"})
       )
@@ -72,21 +77,31 @@ describe MerbAuthSliceFullfat::Authentications do
       end.should raise_error(Merb::Controller::NotAcceptable)
     end
     it "should return a 406 when the given api key belongs to a desktop app and no receipt is given" do
-      @desktop_app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
       @controller = MerbAuthSliceFullfat::Authentications.new(
         request_signed_by(@desktop_app, {}, {}, {:request_uri=>"/authentications/new"})
       )
       lambda {@controller.new}.should raise_error(Merb::Controller::NotAcceptable)
     end
     it "should display nothing and return a 406 not acceptable when the request contains an invalid api receipt" do
-      @desktop_app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
       @controller = MerbAuthSliceFullfat::Authentications.new(
         request_signed_by(@desktop_app, {:api_receipt=>@bad_receipt.receipt}, {}, {:request_uri=>"/authentications/new"})
       )
       lambda {@controller.new}.should raise_error(Merb::Controller::NotAcceptable)
     end
     
-    it "should activate a receipt on POST when given an api_receipt and assign the token to the authenticated user if the authenticating client is a desktop app"
+    it "should activate a receipt on POST when given an api_receipt and assign the token to the authenticated user if the authenticating client is a desktop app" do
+      app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
+      auth = MerbAuthSliceFullfat::Authentication.create_receipt(app, 1.hour.since, @user)
+      request = request_signed_by(app, {:api_receipt=>auth.receipt}, {}, {:request_method=>"POST", :request_uri=>"/authentications"})
+      request.session.user = @user
+      @controller = MerbAuthSliceFullfat::Authentications.new(request)
+      @controller.create
+      @controller.session.user.should == @user
+      auth = @controller.assigns(:authentication)
+      auth.should == auth
+      auth.user.should == @user
+      auth.activated?.should be_true
+    end
   end
   
   describe "new/create action (web-based process)" do
@@ -99,7 +114,20 @@ describe MerbAuthSliceFullfat::Authentications do
       @controller.should be_successful
       @controller.assigns(:authenticating_client).should == @web_app
     end
-    it "should GET the callback_url with ?api_receipt=receipt on POST if the authenticating client is a web app" 
+    it "should GET the callback_url with ?api_receipt=receipt on POST if the authenticating client is a web app" do
+      app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"web")
+      auth = MerbAuthSliceFullfat::Authentication.create_receipt(app, 1.hour.since, @user)
+      request = request_signed_by(app, {}, {:api_permissions=>"delete"}, {:request_method=>"POST", :request_uri=>"/authentications"})
+      request.session.user = @user
+      @controller = MerbAuthSliceFullfat::Authentications.new(request)
+      @controller.create
+      @controller.session.user.should == @user
+      auth = @controller.assigns(:authentication)
+      auth.should == auth
+      auth.user.should == @user
+      auth.activated?.should be_true
+      auth.permissions.should == "delete"
+    end
   end
   
   describe "new/create action (common to all processes)" do
@@ -108,7 +136,13 @@ describe MerbAuthSliceFullfat::Authentications do
         @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:new_authentication)))
       end.should raise_error(Merb::Controller::Unauthenticated)
     end
-    it "should only be createable through session authentication"
+    it "should only be createable through session authentication" do
+      lambda do 
+        app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
+        auth = MerbAuthSliceFullfat::Authentication.create_receipt(app, 1.hour.since, @user)
+        @controller = post(sign_url_with(app, @controller.slice_url(:authentications)), :api_receipt=>auth.receipt)
+      end.should raise_error(Merb::Controller::Unauthenticated)
+    end
     it "should display nothing and return a 406 not acceptable when the request contains an invalid permission level"
   end
   

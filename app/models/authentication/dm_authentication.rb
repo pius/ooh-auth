@@ -69,9 +69,10 @@ class MerbAuthSliceFullfat::Authentication
   
   # Make this Authentication object active by generating a token against it.
   # You may optionally specify a new expiry date/time for the token.
-  def activate!(expire_on=1.year.since)
+  def activate!(expire_on=1.year.since, permissions=MerbAuthSliceFullfat[:default_permissions])
     if authenticating_client and user
       self.expires = expire_on
+      self.permissions = attribute_get(:permissions) || permissions
       apply_token!
       return save
     else

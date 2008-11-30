@@ -78,7 +78,7 @@ module Merb
 	      }.merge(opts)
         
         all_params = get_params.merge(post_params)
-        get_params[:api_signature] = Digest::SHA1.hexdigest("#{client.secret}#{env[:request_method].downcase}http#{env[:http_host]}#{env[:request_uri]}#{all_params.keys.sort{|a,b|a.to_s<=>b.to_s}.join("")}#{all_params.values.sort{|a,b|a.to_s<=>b.to_s}.join("")}")
+        get_params[:api_signature] ||= Digest::SHA1.hexdigest("#{client.secret}#{env[:request_method].downcase}http#{env[:http_host]}#{env[:request_uri]}#{all_params.keys.sort{|a,b|a.to_s<=>b.to_s}.join("")}#{all_params.values.sort{|a,b|a.to_s<=>b.to_s}.join("")}")
 	      env[:query_string] = get_params.collect{|k,v| "#{k}=#{v}"}.join("&")
         
         fake_request(env, opts)

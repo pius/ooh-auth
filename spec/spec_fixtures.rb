@@ -17,10 +17,9 @@ MerbAuthSliceFullfat::AuthenticatingClient.fixture{{
   :user_id      =>  /\d{1,3}/.gen,
   :name         =>  /\w+/.gen,
   :web_url      =>  "http://www.#{ /\w+/.gen }.com/client/",
-  :icon_url     =>  "http://www.#{ /\w+/.gen }.com/client.jpg",
   :api_key      =>  /\w+/.gen,
   :secret       =>  /\w+/.gen,
-  :callback_url =>  "http://www.#{ /\w+/.gen }.com/auth_completed",
+  :callback_url =>  "http://localhost:4000/#{ /\w+/.gen }",
   :kind         =>  /desktop|web/.gen
 }}
 
