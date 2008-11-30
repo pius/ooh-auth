@@ -33,15 +33,14 @@ module MerbAuthSliceFullfat
         correct_sig = "#{authenticating_client.secret}#{method}#{protocol}#{host}#{uri}"
         # pop signature off the parameter list and serialize params
         p = signature_params
-        correct_sig += "#{p.keys.sort}#{p.values.sort}"
+        correct_sig += "#{p.keys.sort{|a,b|a.to_s<=>b.to_s}}#{p.values.sort{|a,b|a.to_s<=>b.to_s}}"
         # mash and compare with given signature
-        #raise RuntimeError, "wanted #{correct_sig.inspect} but was signed with #{api_signature.inspect}"
         match = Digest::SHA1.hexdigest(correct_sig) == api_signature
-        #match or raise(RuntimeError, "failed to match signature, expected #{correct_sig.inspect} for parameters #{p.inspect} and uri #{full_uri.inspect}")
       end
       
       # Scrubs route parameters from the known params, returning a hash of known GET and POST parameters.
       # Basically, this returns the parameters needed in the signature key/value gibberish.
+      # FIXME unidentified request gremlins seeding params with mix of symbol and string keys, requiring to_s filth all over the match block.
       def signature_params
         p = params.dup
         route, route_params = Merb::Router.route_for(self)
@@ -71,6 +70,12 @@ module MerbAuthSliceFullfat
       # The key used for this is defined by MerbAuthSliceFullfat's :api_receipt_param option.
       def api_receipt
         params[MerbAuthSliceFullfat[:api_receipt_param]]
+      end
+      
+      # Returns the value of the api_permissions parameter from the request parameters.
+      # The key used for this is defined by MerbAuthSliceFullfat's :api_permissions_param option.
+      def api_permissions
+        params[MerbAuthSliceFullfat[:api_permissions_param]] || MerbAuthSliceFullfat[:default_permissions]
       end
       
     end

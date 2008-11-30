@@ -22,7 +22,7 @@ describe MerbAuthSliceFullfat::Authentications do
     describe "index action (#{format} format)" do
       it "should generate an anonymous receipt when sent GET with an api key and no other information." do
         @controller = MerbAuthSliceFullfat::Authentications.new(
-          request_signed_by(@authenticating_client, {"format"=>format}, {}, {:request_uri=>"/authentications"})
+          request_signed_by(@authenticating_client, {:format=>format}, {}, {:request_uri=>"/authentications"})
         )
         @controller.index
         @controller.should be_successful
@@ -32,13 +32,13 @@ describe MerbAuthSliceFullfat::Authentications do
       end
       it "should generate nothing and return a 406 not acceptable when the request contains only an incorrect API key" do
         @controller = MerbAuthSliceFullfat::Authentications.new(
-          request_signed_by(@authenticating_client, {"format"=>format, "api_key"=>"GREAT FAIL UNTO THEE"}, {}, {:request_uri=>"/authentications"})
+          request_signed_by(@authenticating_client, {:format=>format, :api_key=>"GREAT FAIL UNTO THEE"}, {}, {:request_uri=>"/authentications"})
         )
         lambda {@controller.index}.should raise_error(Merb::Controller::NotAcceptable)
       end
       it "should generate an auth token when sent GET with an api token and api receipt code." do
         @controller = MerbAuthSliceFullfat::Authentications.new(
-          request_signed_by(@authenticating_client, {"format"=>format, "api_receipt"=>@receipt.receipt}, {}, {:request_uri=>"/authentications"})
+          request_signed_by(@authenticating_client, {:format=>format, :api_receipt=>@receipt.receipt}, {}, {:request_uri=>"/authentications"})
         )
         @controller.index
         @controller.should be_successful
@@ -48,7 +48,7 @@ describe MerbAuthSliceFullfat::Authentications do
       end
       it "should not generate an auth token if the receipt referenced by the given receipt code does not belong to the application referenced by the given api key" do
         @controller = MerbAuthSliceFullfat::Authentications.new(
-          request_signed_by(@authenticating_client, {"format"=>format, "api_receipt"=>@bad_receipt.receipt}, {}, {:request_uri=>"/authentications"})
+          request_signed_by(@authenticating_client, {:format=>format, :api_receipt=>@bad_receipt.receipt}, {}, {:request_uri=>"/authentications"})
         )
         lambda {@controller.index}.should raise_error(Merb::Controller::NotFound)
       end
@@ -56,19 +56,41 @@ describe MerbAuthSliceFullfat::Authentications do
   end
   
   describe "new/create action (desktop process)" do
-    it "should display a form to the user and locate the correct receipt from the database on GET"
+    it "should display a form to the user and locate the correct receipt from the database on GET" do
+      @desktop_app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
+      @desktop_receipt = MerbAuthSliceFullfat::Authentication.create_receipt(@desktop_app, 1.hour.since, @user)
+      @controller = MerbAuthSliceFullfat::Authentications.new(
+        request_signed_by(@desktop_app, {:api_receipt=>@desktop_receipt.receipt}, {}, {:request_uri=>"/authentications/new"})
+      )
+      @controller.new
+      @controller.should be_successful
+      @controller.assigns(:authenticating_client).should == @desktop_app
+    end
     it "should require a user to be logged in via session" do
       lambda do 
         @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:new_authentication)))
       end.should raise_error(Merb::Controller::Unauthenticated)
     end
+    it "should default to read/write permissions if none are specifically requested"
     it "should display nothing and return a 406 when the params contain an api key which is invalid" do
       lambda do 
-        @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:new_authentication), "api_key"=>"DIDDLYSQUAT"))
+        @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:new_authentication), :api_key=>"DIDDLYSQUAT"))
       end.should raise_error(Merb::Controller::NotAcceptable)
     end
-    it "should return a 406 when the given api key belongs to a desktop app and no receipt is given"
-    it "should display nothing and return a 406 not acceptable when the request contains an invalid api receipt"
+    it "should return a 406 when the given api key belongs to a desktop app and no receipt is given" do
+      @desktop_app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
+      @controller = MerbAuthSliceFullfat::Authentications.new(
+        request_signed_by(@desktop_app, {}, {}, {:request_uri=>"/authentications/new"})
+      )
+      lambda {@controller.new}.should raise_error(Merb::Controller::NotAcceptable)
+    end
+    it "should display nothing and return a 406 not acceptable when the request contains an invalid api receipt" do
+      @desktop_app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
+      @controller = MerbAuthSliceFullfat::Authentications.new(
+        request_signed_by(@desktop_app, {:api_receipt=>@bad_receipt.receipt}, {}, {:request_uri=>"/authentications/new"})
+      )
+      lambda {@controller.new}.should raise_error(Merb::Controller::NotAcceptable)
+    end
   end
   
   describe "new/create action (web-based process)" do

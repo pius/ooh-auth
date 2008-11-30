@@ -33,10 +33,17 @@ if defined?(Merb::Plugins)
     :api_token_param      => :api_token,
     :api_signature_param  => :api_signature,
     :api_receipt_param    => :api_receipt,
+    :api_permissions_param=> :api_permissions,
     # if the return_to param is not specified, where should login and logout go on success?
     :default_return_to => "/",
     # Authenticating clients can ask for a certain level of permissions chosen from a list. You can alter that list below:
-    :client_permission_levels=>%w(read write delete),
+    :client_permission_levels =>  {
+      :read=>   {:description=>"This application will be able to read your content, but not to alter it or create new information in your content."},
+      :write=>  {:description=>"This application will be able to both read and make changes to your content, but not to delete it."},
+      :delete=> {:description=>"This application will have full access to your content, including the ability to delete it."}
+    },
+    # If no permission level is specifically requested during the auth process, the client will be granted:
+    :default_permissions      =>"write".freeze,
     # Reserved for now
     :client_kinds=>%w(web desktop)
   })

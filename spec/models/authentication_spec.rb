@@ -72,6 +72,15 @@ describe MerbAuthSliceFullfat::Authentication do
     a.editable_by_user?(@users.first).should be_true
     a.editable_by_user?(user_class.gen).should be_false
   end
+  
+  it "should return default permissions if permissions are not set" do
+    a = MerbAuthSliceFullfat::Authentication.create_receipt(@authenticating_clients.first, @date, @users.first)
+    MerbAuthSliceFullfat[:default_permissions].should_not be_nil
+    a.permissions = nil
+    a.permissions.should == MerbAuthSliceFullfat[:default_permissions]
+    a.permissions = "delete"
+    a.permissions.should == "delete"
+  end
 
   describe "#authenticate!" do
     before :each do

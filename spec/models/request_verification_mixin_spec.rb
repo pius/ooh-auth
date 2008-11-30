@@ -23,7 +23,7 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
   it "should verify that a correctly-signed GET request is signed using GET parameters" do
     req = request_signed_by(
       @authenticating_client, 
-      { "a"=>"1", "b"=>"3", "c"=>"2"}
+      { :a=>"1", :b=>"3", :c=>"2"}
     )
     req.method.should == :get
     req.authenticating_client.should == @authenticating_client
@@ -33,8 +33,8 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
   it "should include POST parameters when signing POST requests" do
     req = request_signed_by(
       @authenticating_client, 
-      { "a"=>"1", "b"=>"3", "c"=>"2"},
-      { "post_me" => "a_var" },
+      { :a=>"1", :b=>"3", :c=>"2"},
+      { :post_me => "a_var" },
       {:request_method=>"POST"}
     )
     req.method.should == :post
@@ -44,9 +44,9 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
   end
   it "should fail to verify that a request is signed if the signature is in any way wrong" do
     get_params = {
-      "a"=>"1", 
-      "api_key"=>"fishsticks",
-      "api_signature"=>"I R HACKIN YOO LOL"
+      :a=>"1", 
+      :api_key=>"fishsticks",
+      :api_signature=>"I R HACKIN YOO LOL"
     }
     param_string = get_params.collect{|k,v| "#{k}=#{v}"}.join("&")
     req = fake_request(
@@ -58,7 +58,7 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
     req.signed?.should be_false
   end
   
-  [:api_key, :api_token, :api_signature, :api_receipt].each do |prop|
+  [:api_key, :api_token, :api_signature, :api_receipt, :api_permissions].each do |prop|
     it "should make #{prop} accessible as a method when set as a parameter" do
       req = fake_request(:query_string=>"#{MerbAuthSliceFullfat[:"#{prop}_param"]}=value_for_#{prop}")
       req.send(prop).should == "value_for_#{prop}"

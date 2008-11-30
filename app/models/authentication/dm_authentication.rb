@@ -27,6 +27,7 @@ class MerbAuthSliceFullfat::Authentication
   # convert an expired receipt into a token.
   property  :expires, DateTime
   property  :created_at, DateTime
+  property  :permissions, String
   
   property  :receipt, String, :writer=>:private, :index=>true
   property  :token,   String, :writer=>:private, :index=>true
@@ -34,6 +35,7 @@ class MerbAuthSliceFullfat::Authentication
   validates_is_unique :receipt
   validates_is_unique :token, :if=>:token
   validates_present   :authenticating_client
+  validates_with_method :permissions, :permissions_valid?
   
   belongs_to :authenticating_client, :class_name=>"MerbAuthSliceFullfat::AuthenticatingClient", :child_key=>[:authenticating_client_id]
   belongs_to :user, :class_name=>Merb::Authentication.user_class.to_s, :child_key=>[:user_id]
@@ -61,8 +63,8 @@ class MerbAuthSliceFullfat::Authentication
   end
   
   # Fetch a receipt given the receipt code
-  def self.get_receipt(r)
-    first :receipt=>r
+  def self.get_receipt_for_client(client, r)
+    first :receipt=>r, :authenticating_client_id=>client.id
   end
   
   # Make this Authentication object active by generating a token against it.
@@ -101,6 +103,16 @@ class MerbAuthSliceFullfat::Authentication
   # Returns true if the given user is the owner of this object.
   def editable_by_user?(user)
     return user.id == user_id
+  end
+  
+  # Returns the permissions for this particular token, or the :default_permissions if not set.
+  def permissions
+    attribute_get(:permissions) or MerbAuthSliceFullfat[:default_permissions]
+  end
+  
+  # Returns true if the set permissions are a valid value according to the keys of the slice's :client_permission_levels hash.
+  def permissions_valid?
+    MerbAuthSliceFullfat[:client_permission_levels].keys.include?(permissions.to_sym)
   end
   
   # Transformation - returns a hash representing this object, ready to be converted to XML, JSON or YAML.

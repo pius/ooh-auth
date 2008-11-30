@@ -20,8 +20,7 @@ class MerbAuthSliceFullfat::Authentications < MerbAuthSliceFullfat::Application
     only_provides :js, :xml, :yaml
     if request.api_key and request.api_receipt
       # Signed request with a receipt - let's dish up an auth token
-      raise NotFound unless @authentication = MerbAuthSliceFullfat::Authentication.get_receipt(request.api_receipt)
-      raise NotFound unless @authentication.authenticating_client == request.authenticating_client
+      raise NotFound unless @authentication = MerbAuthSliceFullfat::Authentication.get_receipt_for_client(request.authenticating_client, request.api_receipt)
       @authentication.activate!
     elsif client = request.authenticating_client
       # Signed request with no receipt - let's dish up a receipt
@@ -42,8 +41,11 @@ class MerbAuthSliceFullfat::Authentications < MerbAuthSliceFullfat::Application
 
   def new
     only_provides :html
-    @authentication = MerbAuthSliceFullfat::Authentication.new
-    display @authentication
+    raise NotFound unless @authenticating_client = request.authenticating_client
+    unless @authenticating_client.is_webapp?
+      raise NotAcceptable unless @authentication = MerbAuthSliceFullfat::Authentication.get_receipt_for_client(@authenticating_client, request.api_receipt)
+    end    
+    display @authentication, :new
   end
 
   def edit(id)

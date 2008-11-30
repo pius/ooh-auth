@@ -66,7 +66,7 @@ module Merb
 	    # Produces a signed FakeRequest ready to be used when testing any action that requires signing.
 	    def request_signed_by(client, get_params={}, post_params={}, env={}, opts={})
 	      get_params = {
-	        "api_key"=>client.api_key
+	        :api_key=>client.api_key
 	      }.merge(get_params)
         env = {
           :request_method => "GET",
@@ -78,7 +78,7 @@ module Merb
 	      }.merge(opts)
         
         all_params = get_params.merge(post_params)
-        get_params[:api_signature] = Digest::SHA1.hexdigest("#{client.secret}#{env[:request_method].downcase}http#{env[:http_host]}#{env[:request_uri]}#{all_params.keys.sort.join("")}#{all_params.values.sort.join("")}")
+        get_params[:api_signature] = Digest::SHA1.hexdigest("#{client.secret}#{env[:request_method].downcase}http#{env[:http_host]}#{env[:request_uri]}#{all_params.keys.sort{|a,b|a.to_s<=>b.to_s}.join("")}#{all_params.values.sort{|a,b|a.to_s<=>b.to_s}.join("")}")
 	      env[:query_string] = get_params.collect{|k,v| "#{k}=#{v}"}.join("&")
         
         fake_request(env, opts)
@@ -89,9 +89,9 @@ module Merb
       def sign_url_with(client, url, params={})
         defaults = Merb::Test::RequestHelper::FakeRequest.new
         params = {
-          "api_key"=>client.api_key
+          :api_key=>client.api_key
         }.merge(params)
-        params[:api_signature] ||= Digest::SHA1.hexdigest(sig = "#{client.secret}#{defaults.method}http#{defaults.host}#{url}#{params.keys.sort.join("")}#{params.values.sort.join("")}")
+        params[:api_signature] ||= Digest::SHA1.hexdigest(sig = "#{client.secret}#{defaults.method}http#{defaults.host}#{url}#{params.keys.sort{|a,b|a.to_s<=>b.to_s}.join("")}#{params.values.sort{|a,b|a.to_s<=>b.to_s}.join("")}")
         param_string = params.collect{|k,v| "#{k}=#{v}"}.join("&")
         url = "#{url}?#{param_string}"
         #raise RuntimeError, {:plain_sig=>sig, :url=>url}.inspect
