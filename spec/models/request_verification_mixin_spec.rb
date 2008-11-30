@@ -39,8 +39,7 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
     )
     req.method.should == :post
     req.authenticating_client.should == @authenticating_client
-    req.signed?.should be_true
-    
+    req.signed?.should be_true    
   end
   it "should fail to verify that a request is signed if the signature is in any way wrong" do
     get_params = {
