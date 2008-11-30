@@ -66,12 +66,6 @@ describe MerbAuthSliceFullfat::Authentications do
       @controller.should be_successful
       @controller.assigns(:authenticating_client).should == @desktop_app
     end
-    it "should require a user to be logged in via session" do
-      lambda do 
-        @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:new_authentication)))
-      end.should raise_error(Merb::Controller::Unauthenticated)
-    end
-    it "should default to read/write permissions if none are specifically requested"
     it "should display nothing and return a 406 when the params contain an api key which is invalid" do
       lambda do 
         @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:new_authentication), :api_key=>"DIDDLYSQUAT"))
@@ -92,16 +86,29 @@ describe MerbAuthSliceFullfat::Authentications do
       lambda {@controller.new}.should raise_error(Merb::Controller::NotAcceptable)
     end
     
-    it "should only be createable through session authentication"
+    it "should activate a receipt on POST when given an api_receipt and assign the token to the authenticated user if the authenticating client is a desktop app"
   end
   
   describe "new/create action (web-based process)" do
-    it "should display a form to the user on GET"
-    it "should display successfully when no receipt is given"
+    it "should display a form to the user on GET with no api_receipt given" do
+      @web_app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"web")
+      @controller = MerbAuthSliceFullfat::Authentications.new(
+        request_signed_by(@web_app, {}, {}, {:request_uri=>"/authentications/new"})
+      )
+      @controller.new
+      @controller.should be_successful
+      @controller.assigns(:authenticating_client).should == @web_app
+    end
+    it "should GET the callback_url with ?api_receipt=receipt on POST if the authenticating client is a web app" 
   end
   
   describe "new/create action (common to all processes)" do
-    it "should require a logged-in user"
+    it "should require a user to be logged in via session" do
+      lambda do 
+        @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:new_authentication)))
+      end.should raise_error(Merb::Controller::Unauthenticated)
+    end
+    it "should only be createable through session authentication"
     it "should display nothing and return a 406 not acceptable when the request contains an invalid permission level"
   end
   
