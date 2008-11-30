@@ -91,6 +91,8 @@ describe MerbAuthSliceFullfat::Authentications do
       )
       lambda {@controller.new}.should raise_error(Merb::Controller::NotAcceptable)
     end
+    
+    it "should only be createable through session authentication"
   end
   
   describe "new/create action (web-based process)" do

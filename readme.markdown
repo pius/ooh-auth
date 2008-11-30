@@ -30,5 +30,6 @@ You should read:
 * [Full-fat auth on github](http://github.com/danski/merb-auth-slice-fullfat)
 * [installing.markdown](http://github.com/danski/merb-auth-slice-fullfat/tree/master/installing.markdown), your guide to installing and configuring Full-fat Auth.
 * [authenticating.markdown](http://github.com/danski/merb-auth-slice-fullfat/tree/master/authenticating.markdown), a third-party developer's guide to authenticating using the stragies provided by this slice. This is written in a form suitable for parsing to HTML and including in your own application's public documentation.
+* [securing.markdown](http://github.com/danski/merb-auth-slice-fullfat/tree/master/securing.markdown), your guide to properly securing an application using Full-fat Auth.
 * [Full-fat auth's bugtracker on Tails](http://www.bugtails.com/projects/171)
 
