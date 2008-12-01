@@ -49,9 +49,10 @@ class MerbAuthSliceFullfat::Authentications < MerbAuthSliceFullfat::Application
   def new
     only_provides :html
     raise NotFound unless @authenticating_client = request.authenticating_client
+    # Get receipt if given for a desktop client (web clients create the receipt at a different moment in the process)
     unless @authenticating_client.is_webapp?
       raise NotAcceptable unless @authentication = MerbAuthSliceFullfat::Authentication.get_receipt_for_client(@authenticating_client, request.api_receipt)
-    end    
+    end
     display @authentication, :new
   end
 
@@ -63,9 +64,8 @@ class MerbAuthSliceFullfat::Authentications < MerbAuthSliceFullfat::Application
       # If the client is a web app, then no receipt currently exists. We'll create one and activate it in place.
       @authentication = @authentication = MerbAuthSliceFullfat::Authentication.create_receipt(@authenticating_client, 1.hour.since, session.user)
       # Trigger the callback URL
-      Net::HTTP.get_response(
-        URI.parse("#{@authenticating_client.callback_url}?api_receipt=#{@authentication.receipt}")
-      )
+      callback_uri = URI.parse("#{@authenticating_client.callback_url}?api_receipt=#{@authentication.receipt}")
+      Net::HTTP.get_response(callback_uri) rescue @callback_failed = true
       # Fall over to render
     else
       # If the client is a desktop or mobile app, then we need to locate the current receipt from the params and activate it.
@@ -76,6 +76,8 @@ class MerbAuthSliceFullfat::Authentications < MerbAuthSliceFullfat::Application
     @authentication.activate!(1.year.since, request.api_permissions)
     display @authentication, :show
   end
+  
+  
 
   def edit(id)
     only_provides :html
@@ -83,9 +85,7 @@ class MerbAuthSliceFullfat::Authentications < MerbAuthSliceFullfat::Application
     raise NotFound unless @authentication
     display @authentication
   end
-
-
-
+  
   def update(id, authentication)
     @authentication = MerbAuthSliceFullfat::Authentication.get(id)
     raise NotFound unless @authentication

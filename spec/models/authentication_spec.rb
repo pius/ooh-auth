@@ -24,7 +24,6 @@ describe MerbAuthSliceFullfat::Authentication do
     a.receipt.should match(/[a-zA-Z0-9]{10}/)
     a.should be_valid
   end
-  it "should only allow access to the token attribute once the application and user and receipt are set"
 
   it "should generate a unique receipt upon creation" do
     a = MerbAuthSliceFullfat::Authentication.create_receipt(@authenticating_clients.first, @date)
@@ -81,7 +80,7 @@ describe MerbAuthSliceFullfat::Authentication do
     a.permissions = "delete"
     a.permissions.should == "delete"
   end
-
+  
   describe "#authenticate!" do
     before :each do
       @user = user_class.gen
