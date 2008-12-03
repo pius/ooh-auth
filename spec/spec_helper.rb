@@ -33,23 +33,6 @@ module Merb
         File.join(Merb.root, "") == File.join(::MerbAuthSliceFullfat.root, "")
       end
       
-      def login_param
-        Merb::Authentication::Strategies::Basic::Base.login_param
-      end      
-    	def password_param
-    	  Merb::Authentication::Strategies::Basic::Base.password_param
-  	  end
-  	  
-  	  def password_reset_identifier_field
-  	    Merb::Slices::config[:merb_auth_slice_fullfat][:password_reset_identifier_field]
-	    end
-  	  def return_to_param
-    	  Merb::Slices::config[:merb_auth_slice_fullfat][:return_to_param]
-  	  end
-  	  def default_return_to
-  	    Merb::Slices::config[:merb_auth_slice_fullfat][:default_return_to]
-	    end
-	    
 	    def user_class
 	      Merb::Authentication.user_class
       end
@@ -57,11 +40,6 @@ module Merb
   	  def noko(document)
         Nokogiri::HTML(document)
       end
-  	
-  	  # Authenticate a user using normal session auth, and then execute the block given
-  	  def with_session_in(*controllers, &block)
-  	    
-	    end
 	    
 	    # Produces a signed FakeRequest ready to be used when testing any action that requires signing.
 	    def request_signed_by(client, get_params={}, post_params={}, env={}, opts={})
@@ -98,8 +76,6 @@ module Merb
         return url
       end
       
-      # Signs a URL
-  	
 	    # Override for buggy freaking redirect_to assertion in merb 0.9.11.
       # duplicates syntax of old version, so can be safely removed once
       # http://merb.lighthouseapp.com/projects/7433-merb/tickets/949-redirect_to-assertion-errors-on-success-under-some-setups
