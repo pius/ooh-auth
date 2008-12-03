@@ -47,7 +47,7 @@ class MerbAuthSliceFullfat::Authentication
   # the event of a failure to authenticate. If the user was since deleted, NIL will be
   # returned.
   def self.authenticate!(api_key, api_token)
-    auth = first('authenticating_client.api_key'=>api_key, :token=>api_token)
+    auth = first('authenticating_client.api_key'=>api_key, :token=>api_token, :expires.gt=>DateTime.now)
     return (auth)? auth.user : false
   end
   
@@ -64,7 +64,7 @@ class MerbAuthSliceFullfat::Authentication
   
   # Fetch a receipt given the receipt code
   def self.get_receipt_for_client(client, r)
-    first :receipt=>r, :authenticating_client_id=>client.id
+    first :receipt=>r, :authenticating_client_id=>client.id, :expires.gt=>DateTime.now
   end
   
   # Make this Authentication object active by generating a token against it.
@@ -83,7 +83,7 @@ class MerbAuthSliceFullfat::Authentication
   # Checks to see if this Authentication is activated - if there is a token defined, then
   # true is returned.
   def activated?
-    (token)? true : false
+    (token and expires >= DateTime.now)? true : false
   end
   
   # Assigns a valid, unique receipt to the object if one is not already defined.  
