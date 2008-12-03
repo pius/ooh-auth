@@ -1,5 +1,7 @@
 require File.join( File.dirname(__FILE__), '..', "spec_helper" )
-require 'digest/sha1'
+
+require 'digest'
+require 'openssl'
 
 describe MerbAuthSliceFullfat::Request::VerificationMixin do
   
@@ -85,6 +87,11 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
     req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
     req.authenticating_client.should == @authenticating_client
     req.signed?.should be_false
+    # make signature and dupe old request
+    crypt = OpenSSL::HMAC.new(@authenticating_client.secret,Digest::SHA1.new)
+    crypt.update req.signature_base_string    
+    req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_signature=\"#{crypt.to_s}\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
+    req.signed?.should be_true
   end
   it "should merge OAuth HTTP headers into the available params"  
   it "should recognise OAuth requests by the inclusion of the OAuth header"
