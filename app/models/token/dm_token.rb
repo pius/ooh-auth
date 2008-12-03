@@ -16,7 +16,7 @@
  with a specially-crafted API request.
 =end
 
-class MerbAuthSliceFullfat::Authentication
+class MerbAuthSliceFullfat::Token
   include DataMapper::Resource
   
   property  :id,                        Serial

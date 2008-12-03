@@ -6,8 +6,8 @@ describe Merb::Authentication::Strategies::Basic::APIToken do
     # Create a client and a user, and authorise the client against the user by creating a token
     @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.gen
     @user = user_class.gen
-    @authentication = MerbAuthSliceFullfat::Authentication.create_receipt(@authenticating_client, 1.hour.since, @user)
-    @authentication.activate!.should be_true
+    @token = MerbAuthSliceFullfat::Token.create_receipt(@authenticating_client, 1.hour.since, @user)
+    @token.activate!.should be_true
     
     Merb::Router.prepare do 
       add_slice(:MerbAuthSliceFullfat)
@@ -20,24 +20,24 @@ describe Merb::Authentication::Strategies::Basic::APIToken do
   end
   
   it "should not authenticate with an unsigned request even if the given token is correct" do
-    request = fake_request(:request_uri=>"/secret", :query_string=>"api_token=#{@authentication.token}&api_key=#{@authenticating_client.api_key}")
-    request.api_token.should == @authentication.token
+    request = fake_request(:request_uri=>"/secret", :query_string=>"api_token=#{@token.token}&api_key=#{@authenticating_client.api_key}")
+    request.api_token.should == @token.token
     request.api_key.should == @authenticating_client.api_key
     strat = Merb::Authentication::Strategies::Basic::APIToken.new(request, {})
     strat.run!.should be_nil
   end
   it "should authenticate a signed request with a valid token" do
-    request = request_signed_by(@authenticating_client, {:api_token=>@authentication.token, :api_key=>@authenticating_client.api_key, :other_param=>"CHEEESE"})
-    request.api_token.should == @authentication.token
+    request = request_signed_by(@authenticating_client, {:api_token=>@token.token, :api_key=>@authenticating_client.api_key, :other_param=>"CHEEESE"})
+    request.api_token.should == @token.token
     request.api_key.should == @authenticating_client.api_key
     strat = Merb::Authentication::Strategies::Basic::APIToken.new(request, {})
     strat.run!.should == @user
   end
   it "should not authenticate a signed request with an expired token"
   it "should not authenticate a signed request with a receipt but no token" do
-    request = request_signed_by(@authenticating_client, {:api_receipt=>@authentication.receipt, :api_key=>@authenticating_client.api_key})
+    request = request_signed_by(@authenticating_client, {:api_receipt=>@token.receipt, :api_key=>@authenticating_client.api_key})
     request.api_token.should be_nil
-    request.api_receipt.should == @authentication.receipt
+    request.api_receipt.should == @token.receipt
     request.api_key.should == @authenticating_client.api_key
     strat = Merb::Authentication::Strategies::Basic::APIToken.new(request, {})
     strat.run!.should be_nil

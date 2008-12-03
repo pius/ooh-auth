@@ -10,7 +10,7 @@
 </p>
 
 <h2>Grant this application access to your account</h2>
-<%= form_for @authenticating_client, :action=>slice_url(:authentications), :class=>"authentication" do %>
+<%= form_for @authenticating_client, :action=>slice_url(:tokens), :class=>"authentication" do %>
 	<fieldset>
 		<p class="confirmation">
 			<%=h @authenticating_client.name %> will be granted <%=h request.api_permissions %> to your data. 
@@ -25,7 +25,7 @@
 		<input type="hidden" name="<%=h MerbAuthSliceFullfat[:api_key_param] %>" value="<%=h @authenticating_client.api_key %>" />
 		<input type="hidden" name="<%=h MerbAuthSliceFullfat[:api_permissions_param] %>" value="<%=h request.api_permissions %>" />
 		<% unless @authenticating_client.is_webapp? %>
-			<input type="hidden" name="<%=h MerbAuthSliceFullfat[:api_receipt_param] %>" value="<%=h @authentication.receipt %>" />
+			<input type="hidden" name="<%=h MerbAuthSliceFullfat[:api_receipt_param] %>" value="<%=h @token.receipt %>" />
 		<% end %>
 	</fieldset>
 

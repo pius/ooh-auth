@@ -1,6 +1,6 @@
-path = File.expand_path(File.dirname(__FILE__)) / "authentication"
+path = File.expand_path(File.dirname(__FILE__)) / "token"
 if defined?(DataMapper)
-  require path / "dm_authentication"
+  require path / "dm_token"
 #elsif defined?(ActiveRecord)
 #  require path / "ar_password_reset"
 #elsif defined?(Sequel)

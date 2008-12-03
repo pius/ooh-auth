@@ -16,6 +16,6 @@ MerbAuthSliceFullfat::AuthenticatingClient.fixture{{
   :kind         =>  /desktop|web/.gen
 }}
 
-MerbAuthSliceFullfat::Authentication.fixture{{
+MerbAuthSliceFullfat::Token.fixture{{
   
 }}

@@ -7,7 +7,7 @@ class Merb::Authentication
         
         def run!
           if request.signed? and token_param and api_key_param
-            return MerbAuthSliceFullfat::Authentication.authenticate!(api_key_param, token_param)
+            return MerbAuthSliceFullfat::Token.authenticate!(api_key_param, token_param)
           end
           return nil
         end
