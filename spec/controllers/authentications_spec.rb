@@ -10,7 +10,7 @@ describe MerbAuthSliceFullfat::Authentications do
     @token = MerbAuthSliceFullfat::Authentication.create_receipt(@other_authenticating_client, 1.hour.since, @user)
     @token.activate!
     @bad_receipt = MerbAuthSliceFullfat::Authentication.create_receipt(@other_authenticating_client, 1.hour.since, @user)
-    @controller = dispatch_to(MerbAuthSliceFullfat::Sessions, :index)
+    @controller = dispatch_to(MerbAuthSliceFullfat::Public, :index)
     Merb::Router.prepare do 
       add_slice(:MerbAuthSliceFullfat)
     end if standalone?

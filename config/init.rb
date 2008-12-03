@@ -47,7 +47,7 @@ Merb::BootLoader.after_app_loads do
   # This will get executed after your app's classes have been loaded.
   require MerbAuthSliceFullfat.root / "mocks" / "user"
   require MerbAuthSliceFullfat.root / "mocks" / "secret_controller"
-  require MerbAuthSliceFullfat.root / "app" / "controllers" / "exceptions"
+  require MerbAuthSliceFullfat.root / "mocks" / "public_controller"
   Merb::Authentication.user_class = MerbAuthSliceFullfat::Mocks::User
 end
 

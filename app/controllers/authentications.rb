@@ -40,12 +40,6 @@ class MerbAuthSliceFullfat::Authentications < MerbAuthSliceFullfat::Application
     display @authentication, :index
   end
 
-  #def show(id)
-  #  @authentication = ::Authentication.get(id)
-  #  raise NotFound unless @authentication
-  #  display @authentication
-  #end
-
   def new
     only_provides :html
     raise NotFound unless @authenticating_client = request.authenticating_client
@@ -77,7 +71,11 @@ class MerbAuthSliceFullfat::Authentications < MerbAuthSliceFullfat::Application
     display @authentication, :show
   end
   
-  
+  def show(id)
+    @authentication = ::Authentication.get(id)
+    raise NotFound unless @authentication
+    display @authentication
+  end
 
   def edit(id)
     only_provides :html

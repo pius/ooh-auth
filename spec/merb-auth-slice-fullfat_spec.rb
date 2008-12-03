@@ -2,29 +2,6 @@ require File.dirname(__FILE__) + '/spec_helper'
 
 describe "MerbAuthSliceFullfat" do
 
-  describe "::Secrets (mock controller)" do
-    
-    before :all do
-      Merb::Router.reset!
-      Merb::Router.prepare do 
-        add_slice(:MerbAuthSliceFullfat, :name_prefix => nil, :path_prefix => nil) 
-        match('/secrets').to(:controller => 'merb_auth_slice_fullfat/secrets', :action =>'index')
-      end if standalone?
-    end
-    
-    after :all do
-      Merb::Router.reset!
-    end
-    
-    it "should raise unauthenticated and direct to the login page for HTML requests if the user is not authenticated" do
-      lambda { @controller = dispatch_to(MerbAuthSliceFullfat::Secrets, :index, :format=>"html") }.should raise_error(Merb::Controller::Unauthenticated)
-    end
-    it "should raise unauthenticated for other requests" do
-      lambda { @controller = dispatch_to(MerbAuthSliceFullfat::Secrets, :index, :format=>"xml") }.should raise_error(Merb::Controller::Unauthenticated)
-    end
-    
-  end
-
   describe "::KeyGenerators" do
     
     before(:each) { @module = MerbAuthSliceFullfat::KeyGenerators }

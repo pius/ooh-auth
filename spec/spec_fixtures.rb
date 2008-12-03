@@ -6,13 +6,6 @@ MerbAuthSliceFullfat::Mocks::User.fixture{{
   :password_confirmation => password
 }}
 
-MerbAuthSliceFullfat::PasswordReset.fixture{{
-  :secret       =>  /\w+/.gen,
-  :identifier   =>  /\w+/.gen,
-  :user_id      =>  /\d{1,3}/.gen,
-  :created_at   =>  Time.now - (60*60*24)
-}}
-
 MerbAuthSliceFullfat::AuthenticatingClient.fixture{{
   :user_id      =>  /\d{1,3}/.gen,
   :name         =>  /\w+/.gen,

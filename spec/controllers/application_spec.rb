@@ -4,7 +4,7 @@ describe MerbAuthSliceFullfat::Application do
   
   before :all do
     Merb::Router.prepare { add_slice(:MerbAuthSliceFullfat) } if standalone?
-    @controller = dispatch_to(MerbAuthSliceFullfat::Sessions, :index)
+    @controller = dispatch_to(MerbAuthSliceFullfat::Public, :index)
   end
   
   after :all do
@@ -13,7 +13,7 @@ describe MerbAuthSliceFullfat::Application do
   
   it "should have access to the slice module" do
     @controller.slice.should == MerbAuthSliceFullfat
-    @controller.slice.should == MerbAuthSliceFullfat::Sessions.slice
+    @controller.slice.should == MerbAuthSliceFullfat::Public.slice
   end
 
   it "should have helper methods for dealing with public paths" do
@@ -27,8 +27,8 @@ describe MerbAuthSliceFullfat::Application do
   end
 
   it "should have a slice-specific _template_root" do
-    MerbAuthSliceFullfat::Sessions._template_root.should == MerbAuthSliceFullfat.dir_for(:view)
-    MerbAuthSliceFullfat::Sessions._template_root.should == MerbAuthSliceFullfat::Application._template_root
+    MerbAuthSliceFullfat::Public._template_root.should == MerbAuthSliceFullfat.dir_for(:view)
+    MerbAuthSliceFullfat::Public._template_root.should == MerbAuthSliceFullfat::Application._template_root
   end
   
   

@@ -8,6 +8,7 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
     @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.gen(:api_key=>"fishsticks")
     Merb::Router.prepare do 
       add_slice(:MerbAuthSliceFullfat)
+      match("/secrets").to(:controller=>"merb_auth_slice_fullfat/secrets", :action=>"index").name(:secrets)
     end if standalone?
   end
   
@@ -51,7 +52,7 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
     req = fake_request(
       :query_string => param_string, 
       :http_host => "test.fullfat.com", 
-      :request_uri=>"/secret/"
+      :request_uri=>"/secrets/"
     )
     req.authenticating_client.should == @authenticating_client
     req.signed?.should be_false

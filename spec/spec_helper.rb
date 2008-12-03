@@ -71,7 +71,7 @@ module Merb
         env = {
           :request_method => "GET",
           :http_host => "test.fullfat.com", 
-          :request_uri=>"/secret/"
+          :request_uri=>"/secrets/"
 	      }.merge(env)
 	      opts = {
 	        :post_body=>post_params.collect{|k,v| "#{k}=#{v}"}.join("&")
