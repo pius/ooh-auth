@@ -95,20 +95,22 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
       crypt = Base64.encode64(HMAC::SHA1.digest(@authenticating_client.secret, @req.signature_base_string)).chomp.gsub(/\n/,'')
       req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_signature=\"#{crypt.to_s}\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
       req.signed?.should be_true
-    end
-  
+    end  
     it "should properly compare the encrypted HMAC-MD5 signature strings when a valid consumer key is given" do
       @req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_signature_method=\"HMAC-MD5\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
       crypt = Base64.encode64(HMAC::MD5.digest(@authenticating_client.secret, @req.signature_base_string)).chomp.gsub(/\n/,'')
       req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_signature_method=\"HMAC-MD5\", oauth_signature=\"#{crypt.to_s}\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
       req.signature_method.should == "HMAC-MD5"
       req.signed?.should be_true
-    end
-  
+    end  
   end
   
-  it "should merge OAuth HTTP headers into the available params"  
-  it "should recognise OAuth requests by the inclusion of the OAuth header"
+  it "should recognise OAuth requests" do
+    req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_consumer_key=\"DSFARGEG\"", :query_string=>"get=yes&overridden=yes")
+    req.oauth_request?.should be_true
+    req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\"", :query_string=>"get=yes&overridden=yes")
+    req.oauth_request?.should be_false
+  end
   
   
 end
