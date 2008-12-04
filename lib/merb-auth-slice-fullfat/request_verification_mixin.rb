@@ -29,18 +29,8 @@ module MerbAuthSliceFullfat
       def signed?
         # Fail immediately if the request is not signed at all
         return false unless oauth_request? and authenticating_client
-        
-        given_sig = self.signature
-        wanted_sig = signature_base_string
         # mash and compare with given signature
-        case signature_method
-        when "HMAC-SHA1"
-          given_sig == Base64.encode64(HMAC::SHA1.digest(authenticating_client.secret, wanted_sig)).chomp.gsub(/\n/,'')
-        when "HMAC-MD5"
-          given_sig == Base64.encode64(HMAC::MD5.digest(authenticating_client.secret, wanted_sig)).chomp.gsub(/\n/,'')
-        else
-          raise Merb::Controller::NotAcceptable
-        end
+        self.signature == build_signature
       end
       
       # Creates a plaintext version of the signature base string ready to be run through any#
@@ -48,6 +38,17 @@ module MerbAuthSliceFullfat
       # See http://oauth.net/core/1.0#signing_process for more information.
       def signature_base_string
         "#{method.to_s.upcase}&#{full_uri}&#{normalise_signature_params}"
+      end
+      
+      def build_signature
+        case signature_method
+        when "HMAC-SHA1"
+          Base64.encode64(HMAC::SHA1.digest(authenticating_client.secret, signature_base_string)).chomp.gsub(/\n/,'')
+        when "HMAC-MD5"
+          Base64.encode64(HMAC::MD5.digest(authenticating_client.secret, signature_base_string)).chomp.gsub(/\n/,'')
+        else
+          false
+        end
       end
       
       # Returns the params properly merged with the oauth headers if they were given.

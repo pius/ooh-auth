@@ -23,44 +23,44 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
     Merb::Test::RequestHelper::FakeRequest.include?(MerbAuthSliceFullfat::Request::VerificationMixin).should be_true
   end
   
-  #it "should verify that a correctly-signed GET request is signed using GET parameters" do
-  #  req = request_signed_by(
-  #    @authenticating_client, 
-  #    { :a=>"1", :b=>"3", :c=>"2"}
-  #  )
-  #  req.method.should == :get
-  #  req.authenticating_client.should == @authenticating_client
-  #  req.signed?.should be_true
-  #end
-  #
-  #it "should include POST parameters when signing POST requests" do
-  #  req = request_signed_by(
-  #    @authenticating_client, 
-  #    { :a=>"1", :b=>"3", :c=>"2"},
-  #    { :post_me => "a_var" },
-  #    {:request_method=>"POST"}
-  #  )
-  #  req.method.should == :post
-  #  req.authenticating_client.should == @authenticating_client
-  #  req.signed?.should be_true    
-  #end
-  #it "should fail to verify that a request is signed if the signature is in any way wrong" do
-  #  get_params = {
-  #    :a=>"1", 
-  #    :api_key=>"fishsticks",
-  #    :api_signature=>"I R HACKIN YOO LOL"
-  #  }
-  #  param_string = get_params.collect{|k,v| "#{k}=#{v}"}.join("&")
-  #  req = fake_request(
-  #    :query_string => param_string, 
-  #    :http_host => "test.fullfat.com", 
-  #    :request_uri=>"/secrets/"
-  #  )
-  #  req.authenticating_client.should == @authenticating_client
-  #  req.signed?.should be_false
-  #end
+  it "should verify that a correctly-signed GET request is signed using GET parameters" do
+    req = request_signed_by(
+      @authenticating_client, 
+      { :a=>"1", :b=>"3", :c=>"2"}
+    )
+    req.method.should == :get
+    req.authenticating_client.should == @authenticating_client
+    req.signed?.should be_true
+  end
   
-  it "should include OAuth HTTP headers in the signature"
+  it "should include POST parameters when signing POST requests" do
+    req = request_signed_by(
+      @authenticating_client, 
+      { :a=>"1", :b=>"3", :c=>"2"},
+      { :post_me => "a_var" },
+      {:request_method=>"POST"}
+    )
+    req.method.should == :post
+    req.authenticating_client.should == @authenticating_client
+    req.signature_base_string.should match(/a_var/)
+    req.signed?.should be_true    
+  end
+  it "should fail to verify that a request is signed if the signature is in any way wrong" do
+    get_params = {
+      :a=>"1", 
+      :oauth_consumer_key=>"fishsticks",
+      :oauth_signature=>"I R HACKIN YOO LOL"
+    }
+    param_string = get_params.collect{|k,v| "#{k}=#{v}"}.join("&")
+    req = fake_request(
+      :query_string => param_string, 
+      :http_host => "test.fullfat.com", 
+      :request_uri=>"/secrets/"
+    )
+    req.authenticating_client.should == @authenticating_client
+    req.signed?.should be_false
+  end
+  
   it "should successfully parse OAuth HTTP headers" do
     # Make a real nasty header example with carriage returns and other gremlins
     oauth_headers = "OAuth realm=\"FOO\", foo=\"bar\",
@@ -92,14 +92,12 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
     end
   
     it "should properly compare the encrypted HMAC-SHA1 signature strings when a valid consumer key is given" do
-      crypt = Base64.encode64(HMAC::SHA1.digest(@authenticating_client.secret, @req.signature_base_string)).chomp.gsub(/\n/,'')
-      req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_signature=\"#{crypt.to_s}\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
+      req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_signature=\"#{@req.build_signature}\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
       req.signed?.should be_true
     end  
     it "should properly compare the encrypted HMAC-MD5 signature strings when a valid consumer key is given" do
       @req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_signature_method=\"HMAC-MD5\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
-      crypt = Base64.encode64(HMAC::MD5.digest(@authenticating_client.secret, @req.signature_base_string)).chomp.gsub(/\n/,'')
-      req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_signature_method=\"HMAC-MD5\", oauth_signature=\"#{crypt.to_s}\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
+      req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_signature_method=\"HMAC-MD5\", oauth_signature=\"#{@req.build_signature}\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
       req.signature_method.should == "HMAC-MD5"
       req.signed?.should be_true
     end  

@@ -44,22 +44,27 @@ module Merb
 	    # Produces a signed FakeRequest ready to be used when testing any action that requires signing.
 	    def request_signed_by(client, get_params={}, post_params={}, env={}, opts={})
 	      get_params = {
-	        :api_key=>client.api_key
+	        :oauth_consumer_key=>client.api_key
 	      }.merge(get_params)
+	      # Prepare headers
         env = {
           :request_method => "GET",
           :http_host => "test.fullfat.com", 
           :request_uri=>"/secrets/"
 	      }.merge(env)
+	      env[:query_string] = get_params.collect{|k,v| "#{k}=#{v}"}.join("&")
+	      # Extras
 	      opts = {
 	        :post_body=>post_params.collect{|k,v| "#{k}=#{v}"}.join("&")
 	      }.merge(opts)
         
-        all_params = get_params.merge(post_params)
-        get_params[:api_signature] ||= Digest::SHA1.hexdigest("#{client.secret}#{env[:request_method].downcase}http#{env[:http_host]}#{env[:request_uri]}#{all_params.keys.sort{|a,b|a.to_s<=>b.to_s}.join("")}#{all_params.values.sort{|a,b|a.to_s<=>b.to_s}.join("")}")
-	      env[:query_string] = get_params.collect{|k,v| "#{k}=#{v}"}.join("&")
+        unsigned = fake_request(env, opts)        
+        get_params[:oauth_signature] ||= unsigned.build_signature	      
+        env[:query_string] = get_params.collect{|k,v| "#{k}=#{v}"}.join("&")
         
-        fake_request(env, opts)
+        signed = fake_request(env, opts)
+        signed.signed?.should be_true
+        signed
       end
       
       # Signs a URL like "/controller/action" with the correct signature to avoid triggering the
