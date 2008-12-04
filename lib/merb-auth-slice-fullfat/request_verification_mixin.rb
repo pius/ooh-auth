@@ -4,16 +4,12 @@ MerbAuthSliceFullfat::Request::VerificationMixin is a mixin module for Merb's in
 It provides
 =end
 
-require 'digest'
-require 'openssl'
-
+require 'hmac-sha1'
+require 'hmac-md5'
 
 module MerbAuthSliceFullfat
   module Request
     module VerificationMixin
-      
-      include OpenSSL
-      include Digest
             
       # Returns TRUE if the request contains api-flavour parameters. At least an api_token and an api_signature must be present
       def oauth_request?
@@ -39,10 +35,9 @@ module MerbAuthSliceFullfat
         # mash and compare with given signature
         case signature_method
         when "HMAC-SHA1"
-          crypt = HMAC.new(authenticating_client.secret, SHA1.new)
-          crypt.update wanted_sig
-          given_sig == crypt.to_s
-          
+          given_sig == Base64.encode64(HMAC::SHA1.digest(authenticating_client.secret, wanted_sig)).chomp.gsub(/\n/,'')
+        else
+          raise Merb::Controller::NotAcceptable
         end
       end
       

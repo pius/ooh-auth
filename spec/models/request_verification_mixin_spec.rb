@@ -1,7 +1,7 @@
 require File.join( File.dirname(__FILE__), '..', "spec_helper" )
 
-require 'digest'
-require 'openssl'
+require 'hmac-sha1'
+require 'hmac-md5'
 
 describe MerbAuthSliceFullfat::Request::VerificationMixin do
   
@@ -83,13 +83,12 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
     req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
     req.signature_base_string.should == "GET&http://test.fullfat.com/secrets&bar=baz&foo=bar&get=yes&overridden=no"
   end
-  it "should properly compare the encrypted signature strings when a valid consumer key is given" do
+  it "should properly compare the encrypted HMAC-SHA1 signature strings when a valid consumer key is given" do
     req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
     req.authenticating_client.should == @authenticating_client
     req.signed?.should be_false
-    # make signature and dupe old request
-    crypt = OpenSSL::HMAC.new(@authenticating_client.secret,Digest::SHA1.new)
-    crypt.update req.signature_base_string    
+
+    crypt = Base64.encode64(HMAC::SHA1.digest(@authenticating_client.secret, req.signature_base_string)).chomp.gsub(/\n/,'')
     req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_signature=\"#{crypt.to_s}\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
     req.signed?.should be_true
   end
