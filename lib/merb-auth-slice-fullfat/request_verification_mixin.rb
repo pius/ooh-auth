@@ -36,6 +36,8 @@ module MerbAuthSliceFullfat
         case signature_method
         when "HMAC-SHA1"
           given_sig == Base64.encode64(HMAC::SHA1.digest(authenticating_client.secret, wanted_sig)).chomp.gsub(/\n/,'')
+        when "HMAC-MD5"
+          given_sig == Base64.encode64(HMAC::MD5.digest(authenticating_client.secret, wanted_sig)).chomp.gsub(/\n/,'')
         else
           raise Merb::Controller::NotAcceptable
         end
@@ -108,7 +110,7 @@ module MerbAuthSliceFullfat
 
       # Returns the requested signature signing mechanism from the auth headers, defaulting to HMAC-SHA1
       def signature_method
-        params[:oauth_signature_method] || "HMAC-SHA1"
+        oauth_merged_params[:oauth_signature_method] || "HMAC-SHA1"
       end
       
       # Returns the oauth_consumer_key from the Authorization header or the GET/POST params, or nil if not present.

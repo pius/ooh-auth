@@ -83,15 +83,30 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
     req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
     req.signature_base_string.should == "GET&http://test.fullfat.com/secrets&bar=baz&foo=bar&get=yes&overridden=no"
   end
-  it "should properly compare the encrypted HMAC-SHA1 signature strings when a valid consumer key is given" do
-    req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
-    req.authenticating_client.should == @authenticating_client
-    req.signed?.should be_false
-
-    crypt = Base64.encode64(HMAC::SHA1.digest(@authenticating_client.secret, req.signature_base_string)).chomp.gsub(/\n/,'')
-    req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_signature=\"#{crypt.to_s}\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
-    req.signed?.should be_true
+  
+  describe "signature encryption" do
+    before :each do
+      @req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
+      @req.authenticating_client.should == @authenticating_client
+      @req.signed?.should be_false
+    end
+  
+    it "should properly compare the encrypted HMAC-SHA1 signature strings when a valid consumer key is given" do
+      crypt = Base64.encode64(HMAC::SHA1.digest(@authenticating_client.secret, @req.signature_base_string)).chomp.gsub(/\n/,'')
+      req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_signature=\"#{crypt.to_s}\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
+      req.signed?.should be_true
+    end
+  
+    it "should properly compare the encrypted HMAC-MD5 signature strings when a valid consumer key is given" do
+      @req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_signature_method=\"HMAC-MD5\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
+      crypt = Base64.encode64(HMAC::MD5.digest(@authenticating_client.secret, @req.signature_base_string)).chomp.gsub(/\n/,'')
+      req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_signature_method=\"HMAC-MD5\", oauth_signature=\"#{crypt.to_s}\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
+      req.signature_method.should == "HMAC-MD5"
+      req.signed?.should be_true
+    end
+  
   end
+  
   it "should merge OAuth HTTP headers into the available params"  
   it "should recognise OAuth requests by the inclusion of the OAuth header"
   
