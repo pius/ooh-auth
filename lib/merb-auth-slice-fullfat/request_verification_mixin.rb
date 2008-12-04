@@ -42,6 +42,7 @@ module MerbAuthSliceFullfat
           crypt = HMAC.new(authenticating_client.secret, SHA1.new)
           crypt.update wanted_sig
           given_sig == crypt.to_s
+          
         end
       end
       
