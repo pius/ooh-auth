@@ -22,10 +22,10 @@
 			button to cancel without giving access to this application.
 		</p>
 
-		<input type="hidden" name="<%=h MerbAuthSliceFullfat[:api_key_param] %>" value="<%=h @authenticating_client.api_key %>" />
-		<input type="hidden" name="<%=h MerbAuthSliceFullfat[:api_permissions_param] %>" value="<%=h request.api_permissions %>" />
+		<input type="hidden" name="oauth_consumer_key" value="<%=h @authenticating_client.api_key %>" />
+		<input type="hidden" name="permissions" value="<%=h request.api_permissions %>" />
 		<% unless @authenticating_client.is_webapp? %>
-			<input type="hidden" name="<%=h MerbAuthSliceFullfat[:api_receipt_param] %>" value="<%=h @token.receipt %>" />
+			<input type="hidden" name="oauth_token" value="<%=h @token.receipt %>" />
 		<% end %>
 	</fieldset>
 

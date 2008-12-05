@@ -16,37 +16,32 @@ require 'net/http'
 class MerbAuthSliceFullfat::Tokens < MerbAuthSliceFullfat::Application
 
   # The index and new actions require a signed request.
-  before :ensure_signed,        :only=>[:index, :new]
+  before :ensure_signed,        :only=>[:index]
   # All other actions require that the user be authenticated directly, rather than through the api.
   before :ensure_authenticated_personally, :exclude=>[:index]  
   
   # Main action used for starting the authorisation process (desktop clients) and finishing it (web clients)
   def index
     only_provides :js, :xml, :yaml
-    if request.api_key and request.api_receipt
-      # Signed request with a receipt - let's dish up an auth token
-      # This is the end point for web-based authorisation
-      raise NotFound unless @token = MerbAuthSliceFullfat::Token.get_receipt_for_client(request.authenticating_client, request.api_receipt)
-      @token.activate!
-    elsif client = request.authenticating_client
-      # Signed request with no receipt - let's dish up a receipt
-      # This is the start point for desktop authorisation.
-      @token = MerbAuthSliceFullfat::Token.create_receipt(client) 
+    raise NotFound unless @authenticating_client = request.authenticating_client
+    if request.token
+      # If client and request key, give the activated token if it was activated.
+      @token = MerbAuthSliceFullfat::Token.get_request_key_for_client(@authenticating_client, request.token)
+    else
+      # Generate a request key
+      @token = MerbAuthSliceFullfat::Token.create_request_key(@authenticating_client)
     end
-    # Some kind of downright nasty fraudlent, mangled request.
-    # Probably sent by a circus clown who drinks too much.
+    # # Some kind of downright nasty fraudlent, mangled request.
+    # # Probably sent by a circus clown who drinks too much.
     raise NotAcceptable unless @token
-    # Okay, no error raised. Gogo render.
+    # # Okay, no error raised. Gogo render.
     display @token, :index
   end
 
   def new
     only_provides :html
     raise NotFound unless @authenticating_client = request.authenticating_client
-    # Get receipt if given for a desktop client (web clients create the receipt at a different moment in the process)
-    unless @authenticating_client.is_webapp?
-      raise NotAcceptable unless @token = MerbAuthSliceFullfat::Token.get_receipt_for_client(@authenticating_client, request.api_receipt)
-    end
+    raise NotAcceptable unless @token = MerbAuthSliceFullfat::Token.get_receipt_for_client(@authenticating_client, request.token)
     display @token, :new
   end
 

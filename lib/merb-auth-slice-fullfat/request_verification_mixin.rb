@@ -10,18 +10,23 @@ require 'hmac-md5'
 module MerbAuthSliceFullfat
   module Request
     module VerificationMixin
-            
+      
       # Returns TRUE if the request contains api-flavour parameters. At least an api_token and an api_signature must be present
       def oauth_request?
         (consumer_key)? true : false
       end
       
-      # Returns the authenticating client referenced by the consumer key in the given request, or nil if
-      # no consumer key was given or if the given consumer key was invalid.
-      def authenticating_client
-        #return false unless signed?
-        @authenticating_client ||= MerbAuthSliceFullfat::AuthenticatingClient.first(:api_key=>consumer_key)
-      end
+          # Returns the authenticating client referenced by the consumer key in the given request, or nil if
+          # no consumer key was given or if the given consumer key was invalid.
+          def authenticating_client
+            #return false unless signed?
+            @authenticating_client ||= MerbAuthSliceFullfat::AuthenticatingClient.first(:api_key=>consumer_key)
+          end
+      
+          # Returns the stored token referenced by the oauth_token header or parameter, or nil if none was found.
+          def authentication_token
+            @authentication_token ||= MerbAuthSliceFullfat::Token.first(:token_key=>token)
+          end
       
       # Attempts to verify the request's signature using the strategy covered in signing.markdown.
       # Takes one argument, which is the authenticating client you wish to check the signature against.
@@ -33,29 +38,30 @@ module MerbAuthSliceFullfat
         self.signature == build_signature
       end
       
-      # Creates a plaintext version of the signature base string ready to be run through any#
-      # of the support OAuth signature methods.
-      # See http://oauth.net/core/1.0#signing_process for more information.
-      def signature_base_string
-        "#{method.to_s.upcase}&#{full_uri}&#{normalise_signature_params}"
-      end
+          # Creates a signature for this request, returning the final hash required for insertion in a signed URL.
+          def build_signature
+            case signature_method
+            when "HMAC-SHA1"
+              Base64.encode64(HMAC::SHA1.digest(signature_secret, signature_base_string)).chomp.gsub(/\n/,'')
+            when "HMAC-MD5"
+              Base64.encode64(HMAC::MD5.digest(signature_secret, signature_base_string)).chomp.gsub(/\n/,'')
+            else
+              false
+            end
+          end
       
-      def build_signature
-        case signature_method
-        when "HMAC-SHA1"
-          Base64.encode64(HMAC::SHA1.digest(authenticating_client.secret, signature_base_string)).chomp.gsub(/\n/,'')
-        when "HMAC-MD5"
-          Base64.encode64(HMAC::MD5.digest(authenticating_client.secret, signature_base_string)).chomp.gsub(/\n/,'')
-        else
-          false
-        end
-      end
+          # Creates a plaintext version of the signature base string ready to be run through any#
+          # of the support OAuth signature methods.
+          # See http://oauth.net/core/1.0#signing_process for more information.
+          def signature_base_string
+            "#{method.to_s.upcase}&#{full_uri}&#{normalise_signature_params}"
+          end
       
-      # Returns the params properly merged with the oauth headers if they were given.
-      # OAuth headers take priority if a GET/POST parameter with the same name exists.
-      def oauth_merged_params
-        params.merge(signature_oauth_headers)
-      end
+          # Returns the signature secret, which is expected to be the HMAC encryption key for signed requests.
+          # If the request refers to a token, the token will be retrieved
+          def signature_secret
+            "#{authenticating_client.secret}&#{authentication_token ? authentication_token.secret : nil}"
+          end
       
       # Scrubs route parameters from the known params, returning a hash of known GET and POST parameters.
       # Basically, this returns the parameters needed in the signature key/value gibberish.
@@ -70,6 +76,12 @@ module MerbAuthSliceFullfat
           # http://oauth.net/core/1.0#signing_process
           def normalise_signature_params
             signature_params.sort.collect{|key, value| "#{key}=#{value}"}.join("&")
+          end
+          
+          # Returns the params properly merged with the oauth headers if they were given.
+          # OAuth headers take priority if a GET/POST parameter with the same name exists.
+          def oauth_merged_params
+            params.merge(signature_oauth_headers)
           end
       
       # Returns any given OAuth headers as specified in http://oauth.net/core/1.0#auth_header as a hash.
@@ -101,13 +113,6 @@ module MerbAuthSliceFullfat
 
       # OAuth variable accessors
       # --------------------------------------------------------------------------------------------
-      # oauth_consumer_key="0685bd9184jfhq22",
-      # oauth_token="ad180jjd733klru7",
-      # oauth_signature_method="HMAC-SHA1",
-      # oauth_signature="wOJIO9A2W5mFwDgiDvZbTSMK%2FPY%3D",
-      # oauth_timestamp="137131200",
-      # oauth_nonce="4572616e48616d6d65724c61686176",
-      # oauth_version="1.0"
 
       # Returns the requested signature signing mechanism from the auth headers, defaulting to HMAC-SHA1
       def signature_method

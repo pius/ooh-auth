@@ -63,22 +63,15 @@ module Merb
         env[:query_string] = get_params.collect{|k,v| "#{k}=#{v}"}.join("&")
         
         signed = fake_request(env, opts)
-        signed.signed?.should be_true
+        raise RuntimeError, "Request not properly signed. Got: #{signed.uri}?#{signed.params.collect{|k,v|"#{k}=#{v}"}.join("&")}, expected: #{signed.signature_base_string} / #{signed.signature_secret}" unless signed.signed?
         signed
       end
       
       # Signs a URL like "/controller/action" with the correct signature to avoid triggering the
       # ensure_signed filter method.
       def sign_url_with(client, url, params={})
-        defaults = Merb::Test::RequestHelper::FakeRequest.new
-        params = {
-          :api_key=>client.api_key
-        }.merge(params)
-        params[:api_signature] ||= Digest::SHA1.hexdigest(sig = "#{client.secret}#{defaults.method}http#{defaults.host}#{url}#{params.keys.sort{|a,b|a.to_s<=>b.to_s}.join("")}#{params.values.sort{|a,b|a.to_s<=>b.to_s}.join("")}")
-        param_string = params.collect{|k,v| "#{k}=#{v}"}.join("&")
-        url = "#{url}?#{param_string}"
-        #raise RuntimeError, {:plain_sig=>sig, :url=>url}.inspect
-        return url
+        signed = request_signed_by(client, params, {}, {:request_uri=>url})
+        return "#{signed.uri}?#{signed.query_string}"
       end
       
 	    # Override for buggy freaking redirect_to assertion in merb 0.9.11.

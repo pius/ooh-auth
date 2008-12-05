@@ -1,19 +1,13 @@
 =begin
- Authentication model
+ Token model
  
- An Authentication is a single example of permissions given by a user to an authenticating application
- to act on his or her behalf. Each Authentication must relate to a user, and an authenticating application.
- There will be only one Authentication per application per user.
+ A token is a stored authorisation allowing an authenticating client to:
  
- The authorisation process follows roughly the same pattern for both web and desktop clients:
- 1. A *receipt* is created and tied to a user and an authenticating client.
-    - For web-based clients, the user is run through the authorisation screen and a receipt is sent to the client on acceptance.
-    - For desktop clients, a receipt is requested ahead of time and tied to the authenticating client, and then the user is run
-      through the authorisation screen to tie that receipt to a user.
- 2. The authenticating client uses the receipt key to request the token used in future requests.
- 
- In each case the end result is a receipt created for a client and a user, which may be converted into a token
- with a specially-crafted API request.
+  1. Get a *request key*. This is done by creating an unactivated token belonging to the authenticating client which has a _request key_.
+  2. *Request access*. This is done by directing the user to a URL unique to the given request key, presenting them with a form.
+     The user must be logged in through direct means in order to grant access.
+  3. Getting an *access key* which is a property of the now-activated token.
+  
 =end
 
 class MerbAuthSliceFullfat::Token
@@ -24,30 +18,32 @@ class MerbAuthSliceFullfat::Token
   property  :authenticating_client_id,  Integer,  :writer=>:protected
   
   # Expiry date will always be respected. You cannot authenticate using an expired token, and nor can you
-  # convert an expired receipt into a token.
+  # convert an expired request key into an access key.
   property  :expires, DateTime
   property  :created_at, DateTime
   property  :permissions, String
   
-  property  :receipt, String, :writer=>:private, :index=>true
-  property  :token,   String, :writer=>:private, :index=>true
+  property  :token_key,     String,   :writer=>:private, :index=>true
+  property  :activated,     Boolean,  :writer=>:private, :index=>true, :default=>false
+  property  :secret,        String,   :writer=>:private
   
-  validates_is_unique :receipt
-  validates_is_unique :token, :if=>:token
-  validates_present   :authenticating_client
-  validates_with_method :permissions, :permissions_valid?
+  validates_is_unique     :token_key
+  validates_present       :secret
+  validates_present       :authenticating_client
+  validates_with_method   :permissions, :permissions_valid?
   
   belongs_to :authenticating_client, :class_name=>"MerbAuthSliceFullfat::AuthenticatingClient", :child_key=>[:authenticating_client_id]
   belongs_to :user, :class_name=>Merb::Authentication.user_class.to_s, :child_key=>[:user_id]
   
-  before :valid?, :create_receipt_if_not_present
+  before :valid?, :create_token_key_if_not_present
+  before :valid?, :create_secret_if_not_present
   
   # Authenticates a client on behalf of a user given the API parameters sent by the client
   # in the given API request. Returns the user on successful authentication, or false in
   # the event of a failure to authenticate. If the user was since deleted, NIL will be
   # returned.
-  def self.authenticate!(api_key, api_token)
-    auth = first('authenticating_client.api_key'=>api_key, :token=>api_token, :expires.gt=>DateTime.now)
+  def self.authenticate!(consumer_key, access_key)
+    auth = first('authenticating_client.api_key'=>consumer_key, :token_key=>access_key, :activated=>true, :expires.gt=>DateTime.now)
     return (auth)? auth.user : false
   end
   
@@ -56,48 +52,53 @@ class MerbAuthSliceFullfat::Token
     Merb::Authentication.user_class.get(user_id)
   end
   
-  # Tentatively create a receipt for a given client, not yet tied to a user.
-  def self.create_receipt(authenticating_client, expires=1.hour.since, user=nil)
-    o = new(:authenticating_client=>authenticating_client, :expires=>expires, :user=>user)
-    o.save; o
+  # Tentatively create a request_key for a given client, not yet tied to a user.
+  def self.create_request_key(authenticating_client, expires=1.hour.since)
+    o = new(:authenticating_client=>authenticating_client, :expires=>expires)
+    o.save or raise RuntimeError, "OAuth request key failed to save with errors: #{o.errors.inspect}"
+    o
   end
   
-  # Fetch a receipt given the receipt code
-  def self.get_receipt_for_client(client, r)
-    first :receipt=>r, :authenticating_client_id=>client.id, :expires.gt=>DateTime.now
+  # Fetch a request_key given the request_key code
+  def self.get_request_key_for_client(client, r)
+    first :token_key=>r, :authenticating_client_id=>client.id, :expires.gt=>DateTime.now, :activated=>false
   end
   
-  # Make this Authentication object active by generating a token against it.
-  # You may optionally specify a new expiry date/time for the token.
-  def activate!(expire_on=1.year.since, permissions=MerbAuthSliceFullfat[:default_permissions])
-    if authenticating_client and user
+  # Make this Authentication object active by generating an access key against it.
+  # You may optionally specify a new expiry date/time for the access key.
+  def activate!(with_user, expire_on=1.year.since, permissions=MerbAuthSliceFullfat[:default_permissions])
+    if authenticating_client and with_user
+      self.activated = true
       self.expires = expire_on
       self.permissions = attribute_get(:permissions) || permissions
-      apply_token!
+      self.user_id = with_user.id
+      generate_token_key!
       return save
     else
       return false
     end
   end
   
-  # Checks to see if this Authentication is activated - if there is a token defined, then
+  # Checks to see if this Authentication is activated - if there is an access key defined, then
   # true is returned.
-  def activated?
-    (token and expires >= DateTime.now)? true : false
+  #def activated?
+  #  ac
+  #end
+  
+  # Assigns a valid, unique request_key to the object if one is not already defined.  
+  def create_token_key_if_not_present
+    generate_token_key! if token_key.blank?
   end
   
-  # Assigns a valid, unique receipt to the object if one is not already defined.  
-  def create_receipt_if_not_present
-    while (new_record? and (receipt.blank? or self.class.first(:receipt=>receipt))) do
-      self.receipt = MerbAuthSliceFullfat::KeyGenerators::Alphanum.gen(30)
-    end
+  def create_secret_if_not_present
+    self.secret ||= MerbAuthSliceFullfat::KeyGenerators::Alphanum.gen(30)
   end
-  
-  # Generates a valid, unique token which the client can use to authenticate with in future,
+    
+  # Generates a valid, unique access_key which the client can use to authenticate with in future,
   # and applies it to the object.
-  def apply_token!
-    while (token.blank? or self.class.first(:token=>token)) do
-      self.token = MerbAuthSliceFullfat::KeyGenerators::Alphanum.gen(30)
+  def generate_token_key!
+    while (token_key.blank? or self.class.first(:token_key=>token_key)) do
+      self.token_key = MerbAuthSliceFullfat::KeyGenerators::Alphanum.gen(30)
     end
   end
   
@@ -120,22 +121,22 @@ class MerbAuthSliceFullfat::Token
   def to_hash
     if activated?
       {
-        :authentication=>{
-          :token=>token,
+        :access_key=>{
+          :token=>token_key,
           :expires=>expires
         }
       }
     else
       {
-        :receipt=>{
-          :token=>receipt,
+        :request_key=>{
+          :token=>token_key,
           :expires=>expires
         }
       }      
     end
   end
   # FIXME why is to_xml not available?
-  def to_xml;   (activated?)? "<authentication><token>#{token}</token><expires>#{expires}</expires></authentication>" : "<receipt><token>#{receipt}</token><expires>#{expires}</expires></receipt>"; end
+  def to_xml;   (activated?)? "<access-key><token>#{token_key}</token><expires>#{expires}</expires></access-key>" : "<request-key><token>#{token_key}</token><expires>#{expires}</expires></request-key>"; end
   def to_json;  to_hash.to_json; end
   def to_yaml;  to_hash.to_yaml; end
   
