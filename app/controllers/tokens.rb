@@ -15,27 +15,29 @@ require 'net/http'
 
 class MerbAuthSliceFullfat::Tokens < MerbAuthSliceFullfat::Application
 
+  # Define other formats
+  provides :js, :xml, :yaml
+
   # The index and new actions require a signed request.
-  before :ensure_signed,        :only=>[:index]
+  before :ensure_signed,                    :only=>[:index]
   # All other actions require that the user be authenticated directly, rather than through the api.
-  before :ensure_authenticated_personally, :exclude=>[:index]  
+  before :ensure_authenticated_personally,  :exclude=>[:index]  
   
   # Main action used for starting the authorisation process (desktop clients) and finishing it (web clients)
   def index
-    only_provides :js, :xml, :yaml
-    raise NotFound unless @authenticating_client = request.authenticating_client
-    if request.token
+    raise NotAcceptable unless @authenticating_client = request.authenticating_client
+    if @token = request.authentication_token
       # If client and request key, give the activated token if it was activated.
-      @token = MerbAuthSliceFullfat::Token.get_request_key_for_client(@authenticating_client, request.token)
+      raise NotAcceptable unless @token.authenticating_client == @authenticating_client
     else
       # Generate a request key
       @token = MerbAuthSliceFullfat::Token.create_request_key(@authenticating_client)
     end
     # # Some kind of downright nasty fraudlent, mangled request.
     # # Probably sent by a circus clown who drinks too much.
-    raise NotAcceptable unless @token
+    
     # # Okay, no error raised. Gogo render.
-    display @token, :index
+    display @token, :show, :layout=>nil
   end
 
   def new
@@ -49,54 +51,47 @@ class MerbAuthSliceFullfat::Tokens < MerbAuthSliceFullfat::Application
   def create
     only_provides :html
     raise NotFound unless @authenticating_client = request.authenticating_client
+    @token = MerbAuthSliceFullfat::Token.get_receipt_for_client(@authenticating_client, request.token)
+    @token.activate!(session.user, 1.year.since, request.api_permissions)
+    # Fall over to the render
     if @authenticating_client.is_webapp?
-      # If the client is a web app, then no receipt currently exists. We'll create one and activate it in place.
-      @token = @token = MerbAuthSliceFullfat::Token.create_receipt(@authenticating_client, 1.hour.since, session.user)
-      # Trigger the callback URL
-      callback_uri = URI.parse("#{@authenticating_client.callback_url}?api_receipt=#{@token.receipt}")
-      Net::HTTP.get_response(callback_uri) rescue @callback_failed = true
-      # Fall over to render
+      redirect_to callback_uri
     else
-      # If the client is a desktop or mobile app, then we need to locate the current receipt from the params and activate it.
-      @token = MerbAuthSliceFullfat::Token.get_receipt_for_client(@authenticating_client, request.api_receipt)
-      @token.user = session.user
-      # Fall over to the render
+      display @token, :create
     end
-    @token.activate!(1.year.since, request.api_permissions)
-    display @token, :show
   end
   
-  def show(id)
-    @token = ::Authentication.get(id)
-    raise NotFound unless @token
-    display @token
-  end
-
-  def edit(id)
-    only_provides :html
-    @token = MerbAuthSliceFullfat::Token.get(id)
-    raise NotFound unless @token
-    display @token
-  end
-  
-  def update(id, token)
-    @token = MerbAuthSliceFullfat::Token.get(id)
-    raise NotFound unless @token
-    if @token.update_attributes(authentication)
-       redirect slice_url(:tokens, @token)
-    else
-      display @token, :edit
-    end
-  end
-
-  def destroy(id)
-    @token = MerbAuthSliceFullfat::Token.get(id)
-    raise NotFound unless @token
-    if @token.destroy
-      redirect slice_url(:tokens)
-    else
-      raise InternalServerError
-    end
-  end
+  #def show(id)
+  #  @token = ::Authentication.get(id)
+  #  raise NotFound unless @token
+  #  display @token
+  #end
+  #
+  #def edit(id)
+  #  only_provides :html
+  #  @token = MerbAuthSliceFullfat::Token.get(id)
+  #  raise NotFound unless @token
+  #  display @token
+  #end
+  #
+  #def update(id, token)
+  #  @token = MerbAuthSliceFullfat::Token.get(id)
+  #  raise NotFound unless @token
+  #  if @token.update_attributes(authentication)
+  #     redirect slice_url(:tokens, @token)
+  #  else
+  #    display @token, :edit
+  #  end
+  #end
+  #
+  #def destroy(id)
+  #  @token = MerbAuthSliceFullfat::Token.get(id)
+  #  raise NotFound unless @token
+  #  if @token.destroy
+  #    redirect slice_url(:tokens)
+  #  else
+  #    raise InternalServerError
+  #  end
+  #end
 
 end # MerbAuthSliceFullfat::Tokens

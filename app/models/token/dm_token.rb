@@ -60,8 +60,8 @@ class MerbAuthSliceFullfat::Token
   end
   
   # Fetch a request_key given the request_key code
-  def self.get_request_key_for_client(client, r)
-    first :token_key=>r, :authenticating_client_id=>client.id, :expires.gt=>DateTime.now, :activated=>false
+  def self.get_request_key_for_client(client, request_key)
+    first :token_key=>request_key, :authenticating_client_id=>client.id, :expires.gt=>DateTime.now
   end
   
   # Make this Authentication object active by generating an access key against it.
@@ -123,6 +123,7 @@ class MerbAuthSliceFullfat::Token
       {
         :access_key=>{
           :token=>token_key,
+          :secret=>secret,
           :expires=>expires
         }
       }
@@ -130,13 +131,14 @@ class MerbAuthSliceFullfat::Token
       {
         :request_key=>{
           :token=>token_key,
+          :secret=>secret,
           :expires=>expires
         }
       }      
     end
   end
   # FIXME why is to_xml not available?
-  def to_xml;   (activated?)? "<access-key><token>#{token_key}</token><expires>#{expires}</expires></access-key>" : "<request-key><token>#{token_key}</token><expires>#{expires}</expires></request-key>"; end
+  def to_xml;   (activated?)? "<access-key><token>#{token_key}</token><secret>#{secret}</secret><expires>#{expires}</expires></access-key>" : "<request-key><token>#{token_key}</token><secret>#{secret}</secret><expires>#{expires}</expires></request-key>"; end
   def to_json;  to_hash.to_json; end
   def to_yaml;  to_hash.to_yaml; end
   

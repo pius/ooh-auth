@@ -62,13 +62,13 @@ if defined?(Merb::Plugins)
       require "merb-auth-slice-fullfat/key_generators"
       require "merb-auth-slice-fullfat/request_verification_mixin.rb"
       require "merb-auth-slice-fullfat/controller_mixin.rb"
-      require "merb-auth-slice-fullfat/strategies/api_token.rb"
+      require "merb-auth-slice-fullfat/strategies/oauth.rb"
       Merb::Request.send(:include, MerbAuthSliceFullfat::Request::VerificationMixin)
       Merb::Controller.send(:include, MerbAuthSliceFullfat::ControllerMixin)
       
       # Register strategies
-      Merb::Authentication.register :api_token, "merb-auth-slice-fullfat/strategies/api_token.rb"
-      Merb::Authentication.activate! :api_token
+      Merb::Authentication.register :oauth, "merb-auth-slice-fullfat/strategies/oauth.rb"
+      Merb::Authentication.activate! :oauth
       
       unless MerbAuthSliceFullfat[:no_default_strategies]
         ::Merb::Authentication.activate!(:default_password_form)

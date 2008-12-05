@@ -2,15 +2,18 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper.rb')
 
 describe MerbAuthSliceFullfat::Tokens do
 
-  before :all do
+  before :each do
     @user = user_class.gen
     @authenticating_client =        MerbAuthSliceFullfat::AuthenticatingClient.gen
     @other_authenticating_client =  MerbAuthSliceFullfat::AuthenticatingClient.gen
-    @receipt =                      MerbAuthSliceFullfat::Token.create_request_key(@authenticating_client, 1.hour.since, @user)
-    @token =                        MerbAuthSliceFullfat::Token.create_request_key(@other_authenticating_client, 1.hour.since, @user)
-    @token.activate!
-    @bad_receipt =                  MerbAuthSliceFullfat::Token.create_request_key(@other_authenticating_client, 1.hour.since, @user)
+    @receipt =                      MerbAuthSliceFullfat::Token.create_request_key(@authenticating_client, 1.hour.since)
+    @token =                        MerbAuthSliceFullfat::Token.create_request_key(@authenticating_client, 1.hour.since)
+    @token.activate!(@user)
+    @bad_receipt =                  MerbAuthSliceFullfat::Token.create_request_key(@other_authenticating_client, 1.hour.since)
     @controller =                   dispatch_to(MerbAuthSliceFullfat::Public, :index)
+  end
+  
+  before :all do
     Merb::Router.prepare do 
       add_slice(:MerbAuthSliceFullfat)
     end if standalone?
@@ -23,47 +26,41 @@ describe MerbAuthSliceFullfat::Tokens do
   it "should return OAuth-format request key strings if no format is specified"
   it "should return OAuth-format access key strings if no format is specified"
   
-  %w(js yaml xml).each do |format|
-    
-    describe "index action (#{format} format)" do
-      it "should generate an anonymous receipt when sent GET with an api key and no other information." do
-        count = MerbAuthSliceFullfat::Token.count
-        @controller = MerbAuthSliceFullfat::Tokens.new(
-          request_signed_by(@authenticating_client, {:format=>format}, {}, {:request_uri=>@controller.slice_url(:tokens)})
-        )
+  describe "index action" do
+    %w(js yaml xml html).each do |format|
+      it "#{format} requests should generate an anonymous receipt when sent GET with a consumer and no other information." do
+        @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:tokens), :format=>format))
         @controller.index
         @controller.should be_successful
         auth = @controller.assigns(:token)
         auth.should be_kind_of(MerbAuthSliceFullfat::Token)
         auth.activated?.should be_false
-        (count+1).should == MerbAuthSliceFullfat::Token.count
+        auth.new_record?.should be_false
       end
-      
-      it "should generate nothing and return a 406 not acceptable when the request is not signed or contains an incorrect API key" do
-        @controller = MerbAuthSliceFullfat::Tokens.new(
-          fake_request({:request_uri=>@controller.slice_url(:tokens), :query_string=>"oauth_consumer_key=DSFARGEG"})
-        )
-        lambda {@controller.index}.should raise_error(Merb::Controller::NotAcceptable)
-      end
+    end
   
-  #    it "should generate an auth token when sent GET with an api token and api receipt code." do
-  #      @controller = MerbAuthSliceFullfat::Tokens.new(
-  #        request_signed_by(@authenticating_client, {:format=>format, :api_receipt=>@receipt.receipt}, {}, {:request_uri=>"/tokens"})
-  #      )
-  #      @controller.index
-  #      @controller.should be_successful
-  #      auth = @controller.assigns(:token)
-  #      auth.should be_kind_of(MerbAuthSliceFullfat::Token)
-  #      auth.activated?.should be_true
-  #    end
-  #    it "should not generate an auth token if the receipt referenced by the given receipt code does not belong to the application referenced by the given api key" do
-  #      @controller = MerbAuthSliceFullfat::Tokens.new(
-  #        request_signed_by(@authenticating_client, {:format=>format, :api_receipt=>@bad_receipt.receipt}, {}, {:request_uri=>"/tokens"})
-  #      )
-  #      lambda {@controller.index}.should raise_error(Merb::Controller::NotFound)
-  #    end
+    it "should generate nothing and return a 406 not acceptable when the request is not signed or contains an incorrect API key" do
+      lambda {get(@controller.slice_url(:tokens, :oauth_consumer_key=>@authenticating_client.api_key))}.should raise_error(Merb::Controller::NotAcceptable)
+    end
+
+    it "should generate an authorised access key when sent GET with a consumer key and unauthorized request key when the request key is activated." do
+      @controller = MerbAuthSliceFullfat::Tokens.new(
+        request_signed_by(@authenticating_client, {:oauth_token=>@token.token_key}, {}, {:request_uri=>@controller.slice_url(:tokens)})
+      )
+      @controller.index
+      @controller.should be_successful
+      auth = @controller.assigns(:token)
+      auth.should be_kind_of(MerbAuthSliceFullfat::Token)
+      auth.activated?.should be_true
+    end
+    it "should not generate an auth token if the given token does not belong to the given application" do
+      @controller = MerbAuthSliceFullfat::Tokens.new(
+        request_signed_by(@authenticating_client, {:oauth_token=>@bad_receipt.token_key}, {}, {:request_uri=>@controller.slice_url(:tokens)})
+      )
+      lambda {@controller.index}.should raise_error(Merb::Controller::NotAcceptable)
     end
   end
+
   #
   #describe "new/create action (desktop process)" do
   #  before :all  do

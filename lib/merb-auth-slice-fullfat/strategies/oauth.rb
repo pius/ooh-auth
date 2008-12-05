@@ -2,17 +2,15 @@
 
 class Merb::Authentication
   module Strategies
-    module Basic
-      class APIToken < Merb::Authentication::Strategy
+    class OAuth < Merb::Authentication::Strategy
         
         def run!
-          if request.signed? and token_param and api_key_param
+          if request.signed? and request.token and request.consumer_key
             return MerbAuthSliceFullfat::Token.authenticate!(request.consumer_key, request.token)
           end
           return nil
         end
               
       end # APIToken      
-    end # Basic
   end # Strategies
 end # MAuth
