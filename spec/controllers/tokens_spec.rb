@@ -30,13 +30,18 @@ describe MerbAuthSliceFullfat::Tokens do
     %w(js yaml xml html).each do |format|
       it "#{format} requests should generate an anonymous receipt when sent GET with a consumer and no other information." do
         @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:tokens), :format=>format))
-        @controller.index
         @controller.should be_successful
-        auth = @controller.assigns(:token)
-        auth.should be_kind_of(MerbAuthSliceFullfat::Token)
-        auth.activated?.should be_false
-        auth.new_record?.should be_false
+        request_token = @controller.assigns(:token)
+        request_token.should be_kind_of(MerbAuthSliceFullfat::Token)
+        request_token.activated?.should be_false
+        request_token.new_record?.should be_false
       end
+    end
+    
+    it "should return OAuth-format key responses if no format is specified" do
+      @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:tokens)))
+      request_token = @controller.assigns(:token)
+      @controller.body.should == "oauth_token=#{request_token.token_key}&oauth_token_secret=#{request_token.secret}"
     end
   
     it "should generate nothing and return a 406 not acceptable when the request is not signed or contains an incorrect API key" do
