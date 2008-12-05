@@ -42,7 +42,7 @@ describe Merb::Authentication::Strategies::OAuth do
     request = request_signed_by(@authenticating_client, {:oauth_token=>@request.token_key})
     request.authentication_token.activated?.should be_false
     strat = Merb::Authentication::Strategies::OAuth.new(request, {})
-    strat.run!.should be_false
+    strat.run!.should be_nil
   end
   
 end

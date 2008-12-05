@@ -44,7 +44,7 @@ class MerbAuthSliceFullfat::Token
   # returned.
   def self.authenticate!(consumer_key, access_key)
     auth = first('authenticating_client.api_key'=>consumer_key, :token_key=>access_key, :activated=>true, :expires.gt=>DateTime.now)
-    return (auth)? auth.user : false
+    return (auth)? auth.user : nil
   end
   
   # FIXME the relationship helper should be sorting this. Something to do with the variable class.

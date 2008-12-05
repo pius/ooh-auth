@@ -91,13 +91,13 @@ describe MerbAuthSliceFullfat::Token do
     end
     
     it "should not authenticate a user when given an incorrect API key and an activated token_key" do      
-      MerbAuthSliceFullfat::Token.authenticate!("DSFARGEG", @activated.token_key).should be_false
+      MerbAuthSliceFullfat::Token.authenticate!("DSFARGEG", @activated.token_key).should be_nil
     end
     it "should not authenticate a user when given a correct API key and an unactivated key token_key" do
-      MerbAuthSliceFullfat::Token.authenticate!(@authenticating_clients.first.api_key, @unactivated.token_key).should be_false
+      MerbAuthSliceFullfat::Token.authenticate!(@authenticating_clients.first.api_key, @unactivated.token_key).should be_nil
     end
     it "should not authenticate a user when given a correct API key but an incorrect token_key" do
-      MerbAuthSliceFullfat::Token.authenticate!(@authenticating_clients.first.api_key, "DSFARGEG").should be_false
+      MerbAuthSliceFullfat::Token.authenticate!(@authenticating_clients.first.api_key, "DSFARGEG").should be_nil
     end
     it "should authenticate a user when given a correct API key and a correct, activated token_key" do
       #@a.user_id.should == ""

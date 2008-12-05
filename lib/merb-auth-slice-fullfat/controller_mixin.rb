@@ -4,7 +4,10 @@ module MerbAuthSliceFullfat
     # Raises a NotAcceptable (HTTP 406) unless the request is satisfactorily signed by
     # an authenticating client.
     def ensure_signed
-      raise Merb::Controller::NotAcceptable unless request.signed?
+      unless request.signed?
+        raise Merb::Controller::NotAcceptable, 
+        "request improperly signed. Given request: #{request.inspect}, expected signature base string #{request.signature_base_string.inspect} to be encryped with key #{request.signature_secret} resulting in #{request.build_signature}"
+      end
     end
     
     # Shortcut for ensure_authenticated :with=>[LongPasswordFormClassName].

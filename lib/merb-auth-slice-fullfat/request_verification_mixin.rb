@@ -131,6 +131,7 @@ module MerbAuthSliceFullfat
       
       # Returns the oauth_signature from the Authorization header or the GET/POST params, or nil if not present.
       def signature
+        # FIXME merb keeps mangling this by replacing "+" with "\s" 
         oauth_merged_params[:oauth_signature]
       end
       

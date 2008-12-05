@@ -43,6 +43,7 @@ module Merb
 	    
 	    # Produces a signed FakeRequest ready to be used when testing any action that requires signing.
 	    def request_signed_by(client, get_params={}, post_params={}, env={}, opts={})
+	      raise RuntimeError, "client #{client.inspect} is not a saved record, has errors #{client.errors.inspect}" if client.new_record?
 	      get_params = {
 	        :oauth_consumer_key=>client.api_key
 	      }.merge(get_params)
@@ -59,7 +60,7 @@ module Merb
 	      }.merge(opts)
         
         unsigned = fake_request(env, opts)        
-        get_params[:oauth_signature] ||= unsigned.build_signature	      
+        get_params[:oauth_signature] ||= Merb::Parse.escape(unsigned.build_signature)
         env[:query_string] = get_params.collect{|k,v| "#{k}=#{v}"}.join("&")
         
         signed = fake_request(env, opts)
