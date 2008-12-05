@@ -40,14 +40,15 @@ module MerbAuthSliceFullfat
       
           # Creates a signature for this request, returning the final hash required for insertion in a signed URL.
           def build_signature
-            case signature_method
-            when "HMAC-SHA1"
-              Base64.encode64(HMAC::SHA1.digest(signature_secret, signature_base_string)).chomp.gsub(/\n/,'')
-            when "HMAC-MD5"
-              Base64.encode64(HMAC::MD5.digest(signature_secret, signature_base_string)).chomp.gsub(/\n/,'')
-            else
-              false
-            end
+            sig = case signature_method
+                  when "HMAC-SHA1"
+                    Base64.encode64(HMAC::SHA1.digest(signature_secret, signature_base_string)).chomp.gsub(/\n/,'')
+                  when "HMAC-MD5"
+                    Base64.encode64(HMAC::MD5.digest(signature_secret, signature_base_string)).chomp.gsub(/\n/,'')
+                  else
+                    false
+                  end
+            Merb::Parse.escape(sig)
           end
       
           # Creates a plaintext version of the signature base string ready to be run through any#
@@ -60,7 +61,7 @@ module MerbAuthSliceFullfat
           # Returns the signature secret, which is expected to be the HMAC encryption key for signed requests.
           # If the request refers to a token, the token will be retrieved
           def signature_secret
-            "#{authenticating_client.secret}&#{authentication_token ? authentication_token.secret : nil}"
+            "#{authenticating_client.secret}&#{authentication_token ? authentication_token.secret : nil}" rescue raise Merb::ControllerExceptions::NotAcceptable
           end
       
       # Scrubs route parameters from the known params, returning a hash of known GET and POST parameters.

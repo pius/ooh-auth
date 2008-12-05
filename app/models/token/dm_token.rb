@@ -70,7 +70,7 @@ class MerbAuthSliceFullfat::Token
     if authenticating_client and with_user
       self.activated = true
       self.expires = expire_on
-      self.permissions = attribute_get(:permissions) || permissions
+      self.permissions = permissions
       self.user_id = with_user.id
       generate_token_key!
       return save

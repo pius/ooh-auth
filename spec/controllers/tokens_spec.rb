@@ -66,38 +66,46 @@ describe MerbAuthSliceFullfat::Tokens do
     end
   end
 
-  #
-  #describe "new/create action (desktop process)" do
-  #  before :all  do
-  #    @desktop_app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
-  #    @desktop_receipt = MerbAuthSliceFullfat::Token.create_request_key(@desktop_app, 1.hour.since, @user)      
-  #  end
-  #  
-  #  it "should display a form to the user and locate the correct receipt from the database on GET" do
-  #    @controller = MerbAuthSliceFullfat::Tokens.new(
-  #      request_signed_by(@desktop_app, {:api_receipt=>@desktop_receipt.receipt}, {}, {:request_uri=>"/tokens/new"})
-  #    )
-  #    @controller.new
-  #    @controller.should be_successful
-  #    @controller.assigns(:authenticating_client).should == @desktop_app
-  #  end
-  #  it "should display nothing and return a 406 when the params contain an api key which is invalid" do
-  #    lambda do 
-  #      @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:new_token), :api_key=>"DIDDLYSQUAT"))
-  #    end.should raise_error(Merb::Controller::NotAcceptable)
-  #  end
-  #  it "should return a 406 when the given api key belongs to a desktop app and no receipt is given" do
-  #    @controller = MerbAuthSliceFullfat::Tokens.new(
-  #      request_signed_by(@desktop_app, {}, {}, {:request_uri=>"/tokens/new"})
-  #    )
-  #    lambda {@controller.new}.should raise_error(Merb::Controller::NotAcceptable)
-  #  end
-  #  it "should display nothing and return a 406 not acceptable when the request contains an invalid api receipt" do
-  #    @controller = MerbAuthSliceFullfat::Tokens.new(
-  #      request_signed_by(@desktop_app, {:api_receipt=>@bad_receipt.receipt}, {}, {:request_uri=>"/tokens/new"})
-  #    )
-  #    lambda {@controller.new}.should raise_error(Merb::Controller::NotAcceptable)
-  #  end
+  
+  describe "new/create action" do
+    before :all  do
+      @user =         user_class.gen
+      @desktop_app =  MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
+      @request_key =  MerbAuthSliceFullfat::Token.create_request_key(@desktop_app, 1.hour.since)      
+    end
+    
+    it "should require a login" do
+      lambda {@controller = get(sign_url_with(@desktop_app, @controller.slice_url(:new_token), :oauth_token=>@request_key.token_key)) }.
+      should raise_error(Merb::Controller::Unauthenticated)
+    end
+    
+    it "should display a form to the user and locate the correct receipt from the database on GET" do
+      with_cookies MerbAuthSliceFullfat::Tokens do |jar|
+        jar[:user] = @user.id
+        @controller = get(sign_url_with(@desktop_app, @controller.slice_url(:new_token), :oauth_token=>@request_key.token_key))
+        #@controller.new
+        @controller.should be_successful
+        @controller.assigns(:authenticating_client).should == @desktop_app
+        @controller.assigns(:token).activated?.should be_false
+      end
+    end
+    it "should display nothing and return a 406 when the params contain an api key which is invalid" do
+      lambda do 
+        @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:new_token), :oauth_consumer_key=>"DIDDLYSQUAT"))
+      end.should raise_error(Merb::Controller::NotAcceptable)
+    end
+    it "should return a 406 when the given api key no request key is given" do
+      @controller = MerbAuthSliceFullfat::Tokens.new(
+        request_signed_by(@desktop_app, {}, {}, {:request_uri=>"/tokens/new"})
+      )
+      lambda {@controller.new}.should raise_error(Merb::Controller::NotAcceptable)
+    end
+    it "should display nothing and return a 406 not acceptable when the request contains an invalid api receipt" do
+      @controller = MerbAuthSliceFullfat::Tokens.new(
+        request_signed_by(@desktop_app, {:api_receipt=>@bad_receipt.receipt}, {}, {:request_uri=>"/tokens/new"})
+      )
+      lambda {@controller.new}.should raise_error(Merb::Controller::NotAcceptable)
+    end
   #  
   #  it "should activate a receipt on POST when given an api_receipt and assign the token to the authenticated user if the authenticating client is a desktop app" do
   #    app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
@@ -112,19 +120,8 @@ describe MerbAuthSliceFullfat::Tokens do
   #    auth.user.should == @user
   #    auth.activated?.should be_true
   #  end
-  #end
   #
-  #describe "new/create action (web-based process)" do
-  #  it "should display a form to the user on GET with no api_receipt given" do
-  #    @web_app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"web")
-  #    @controller = MerbAuthSliceFullfat::Tokens.new(
-  #      request_signed_by(@web_app, {}, {}, {:request_uri=>"/tokens/new"})
-  #    )
-  #    @controller.new
-  #    @controller.should be_successful
-  #    @controller.assigns(:authenticating_client).should == @web_app
-  #  end
-  #  it "should GET the callback_url with ?api_receipt=receipt on POST if the authenticating client is a web app" do
+ #  it "should GET the callback_url with ?api_receipt=receipt on POST if the authenticating client is a web app" do
   #    app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"web")
   #    auth = MerbAuthSliceFullfat::Token.create_request_key(app, 1.hour.since, @user)
   #    request = request_signed_by(app, {}, {:api_permissions=>"delete"}, {:request_method=>"POST", :request_uri=>"/tokens"})
@@ -138,9 +135,7 @@ describe MerbAuthSliceFullfat::Tokens do
   #    auth.activated?.should be_true
   #    auth.permissions.should == "delete"
   #  end
-  #end
   #
-  #describe "new/create action (common to all processes)" do
   #  it "should require a user to be logged in via session" do
   #    lambda do 
   #      @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:new_token)))
@@ -154,7 +149,7 @@ describe MerbAuthSliceFullfat::Tokens do
   #    end.should raise_error(Merb::Controller::Unauthenticated)
   #  end
   #  it "should display nothing and return a 406 not acceptable when the request contains an invalid permission level"
-  #end
+  end
   #
   #describe "edit/update action" do
   #  it "should only be accessible by the token's owning user"

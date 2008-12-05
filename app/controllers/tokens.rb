@@ -33,9 +33,6 @@ class MerbAuthSliceFullfat::Tokens < MerbAuthSliceFullfat::Application
       # Generate a request key
       @token = MerbAuthSliceFullfat::Token.create_request_key(@authenticating_client)
     end
-    # # Some kind of downright nasty fraudlent, mangled request.
-    # # Probably sent by a circus clown who drinks too much.
-    
     # # Okay, no error raised. Gogo render.
     display @token, :show, :layout=>nil
   end
