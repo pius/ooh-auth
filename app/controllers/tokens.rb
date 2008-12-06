@@ -21,7 +21,7 @@ class MerbAuthSliceFullfat::Tokens < MerbAuthSliceFullfat::Application
   # The index and new actions require a signed request.
   before :ensure_signed,                    :only=>[:index]
   # All other actions require that the user be authenticated directly, rather than through the api.
-  before :ensure_authenticated_personally,  :exclude=>[:index]  
+  before :forbid_authentication_with_oauth, :exclude=>[:index]
   
   # Main action used for starting the authorisation process (desktop clients) and finishing it (web clients)
   def index

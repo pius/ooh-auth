@@ -1,6 +1,8 @@
 module MerbAuthSliceFullfat
   module ControllerMixin
-        
+    
+    private
+    
     # Raises a NotAcceptable (HTTP 406) unless the request is satisfactorily signed by
     # an authenticating client.
     def ensure_signed
@@ -12,8 +14,8 @@ module MerbAuthSliceFullfat
     
     # Shortcut for ensure_authenticated :with=>[LongPasswordFormClassName].
     # ensures that the request is authenticated via personal form login, and excludes API login.
-    def ensure_authenticated_personally
-      ensure_authenticated "Basic::Form"
+    def forbid_authentication_with_oauth
+      raise Merb::Controller::Unauthenticated if request.oauth_request?
     end
     
     # Raises a Forbidden (HTTP 403) unless the request carries the desired authorisation or above.

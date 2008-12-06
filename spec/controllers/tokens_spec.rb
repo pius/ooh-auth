@@ -64,7 +64,7 @@ describe MerbAuthSliceFullfat::Tokens do
   end
 
   
-  describe "new/create action" do
+  describe "new action" do
     before :all  do
       @user =         user_class.gen
       @desktop_app =  MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
@@ -91,7 +91,10 @@ describe MerbAuthSliceFullfat::Tokens do
         @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:new_token), :oauth_consumer_key=>"DIDDLYSQUAT"))
       end.should raise_error(Merb::Controller::NotAcceptable)
     end
-  #  
+    it "should raise unauthenticated when a client attempts to render the page using oauth credentials"
+  end
+  
+  describe "create action" do
   #  it "should activate a receipt on POST when given an api_receipt and assign the token to the authenticated user if the authenticating client is a desktop app" do
   #    app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
   #    auth = MerbAuthSliceFullfat::Token.create_request_key(app, 1.hour.since, @user)
@@ -104,21 +107,6 @@ describe MerbAuthSliceFullfat::Tokens do
   #    auth.should == auth
   #    auth.user.should == @user
   #    auth.activated?.should be_true
-  #  end
-  #
- #  it "should GET the callback_url with ?api_receipt=receipt on POST if the authenticating client is a web app" do
-  #    app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"web")
-  #    auth = MerbAuthSliceFullfat::Token.create_request_key(app, 1.hour.since, @user)
-  #    request = request_signed_by(app, {}, {:api_permissions=>"delete"}, {:request_method=>"POST", :request_uri=>"/tokens"})
-  #    request.session.user = @user
-  #    @controller = MerbAuthSliceFullfat::Tokens.new(request)
-  #    @controller.create
-  #    @controller.session.user.should == @user
-  #    auth = @controller.assigns(:token)
-  #    auth.should == auth
-  #    auth.user.should == @user
-  #    auth.activated?.should be_true
-  #    auth.permissions.should == "delete"
   #  end
   #
   #  it "should require a user to be logged in via session" do

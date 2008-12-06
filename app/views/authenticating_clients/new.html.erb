@@ -35,15 +35,6 @@
 		</dl>
 	</fieldset>
 	
-	<fieldset id="web_only">
-		<legend>Web-based applications only</legend>
-		
-		<dl>
-			<dt><label for="merb_auth_slice_fullfat_authenticating_clients_callback_url">Callback URL</label></dt>
-			<dd><%= text_field :callback_url, :name=>"authenticating_client[callback_url]", :value=>@authenticating_client.callback_url %></dd>
-		</dl>
-	</fieldset>
-	
 	<fieldset class="buttons">
 		<p>
 			When you submit this form, we will generate both two pieces of information for you - an <strong>API Key</strong> and a <strong>Shared Secret</strong>. 
