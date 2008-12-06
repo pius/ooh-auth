@@ -146,6 +146,10 @@ module MerbAuthSliceFullfat
         oauth_merged_params[:oauth_nonce]
       end
       
+      def callback
+        oauth_merged_params[:oauth_callback]
+      end
+      
       # Returns the oauth_version from the Authorization header or the GET/POST params, or nil if not present, defaulting to "1.0" if not given.
       def oauth_version
         oauth_merged_params[:oauth_version] || "1.0"

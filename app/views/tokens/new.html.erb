@@ -1,35 +1,32 @@
 <h1><%=h @authenticating_client.name %> wants access to your account!</h1>
 
 <p class="abstract">
-	The application <%= link_to h(@authenticating_client.name), @authenticating_client.web_url %> wants <strong><%=h request.api_permissions %></strong> access to your account.
-</p>
-
-<h2>Details:</h2>
-<p class="permissions">
-	<%=h MerbAuthSliceFullfat[:client_permission_levels][request.api_permissions.to_sym][:description] %>
+	The application <%= link_to h(@authenticating_client.name), @authenticating_client.web_url %> wants access to your content.
 </p>
 
 <h2>Grant this application access to your account</h2>
 <%= form_for @authenticating_client, :action=>slice_url(:tokens), :class=>"authentication" do %>
 	<fieldset>
 		<p class="confirmation">
-			<%=h @authenticating_client.name %> will be granted <%=h request.api_permissions %> to your data. 
+			<%=h @authenticating_client.name %> will be granted access to your data. 
 			The application will <strong>not</strong> have the ability to grant access to other applications.
 			You will be able to revoke this access at a later date if you so choose.
 		</p>
-		<p class="cancel">
-			To grant access, select &quot;Grant access&quot; below. You may close this window or use your browser's back
-			button to cancel without giving access to this application.
-		</p>
 
-		<input type="hidden" name="oauth_consumer_key" value="<%=h @authenticating_client.api_key %>" />
-		<input type="hidden" name="permissions" value="<%=h request.api_permissions %>" />
-		<% unless @authenticating_client.is_webapp? %>
-			<input type="hidden" name="oauth_token" value="<%=h @token.receipt %>" />
-		<% end %>
+		<input type="hidden" name="oauth_token" value="<%=h @token.token_key %>" />
+	</fieldset>
+	
+	<fieldset>
+		<legend>Options</legend>
+		
+		<dl>
+			<dt><label for="token_expires">Allow access until</label></dt>
+			<dd></dd>		
+		</dl>
 	</fieldset>
 
 	<fieldset class="buttons">
-		<%= submit "Grant access" %>
+		<%= submit "Grant access", 	:name=>"grant", 	:value=>"allow" %>
+		<%= submit "Deny access", 	:name=>"grant", 	:value=>"deny"%>
 	</fieldset>
 <% end =%>

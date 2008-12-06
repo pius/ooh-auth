@@ -39,8 +39,11 @@ class MerbAuthSliceFullfat::Tokens < MerbAuthSliceFullfat::Application
 
   def new
     only_provides :html
-    raise NotFound unless @authenticating_client = request.authenticating_client
-    raise NotAcceptable unless @token = MerbAuthSliceFullfat::Token.get_receipt_for_client(@authenticating_client, request.token)
+    unless (@token = MerbAuthSliceFullfat::Token.first(:token_key=>request.token) and
+            @authenticating_client = @token.authenticating_client)
+      raise NotAcceptable 
+    end
+    @callback_url = request.callback
     display @token, :new
   end
 
@@ -48,7 +51,7 @@ class MerbAuthSliceFullfat::Tokens < MerbAuthSliceFullfat::Application
   def create
     only_provides :html
     raise NotFound unless @authenticating_client = request.authenticating_client
-    @token = MerbAuthSliceFullfat::Token.get_receipt_for_client(@authenticating_client, request.token)
+    @token = MerbAuthSliceFullfat::Token.get_request_key_for_client(@authenticating_client, request.token)
     @token.activate!(session.user, 1.year.since, request.api_permissions)
     # Fall over to the render
     if @authenticating_client.is_webapp?

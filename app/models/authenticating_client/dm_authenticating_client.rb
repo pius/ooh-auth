@@ -20,13 +20,9 @@ class MerbAuthSliceFullfat::AuthenticatingClient
   property :api_key,        String, :index=>true # the unique key for this application.
   property :secret,         String      # the secret which will NEVER be transmitted during the authentication procedure. Used only to sign requests.
   property :kind,           String      # e.g  "desktop", "web", "mobile"
-  # Used by web applications
-  property :callback_url,   String      # the URL for web-based callbacks to this application
 
   validates_present     :name, :web_url, :api_key, :secret, :kind
-  validates_present     :callback_url, :if=>:is_webapp?
   validates_is_unique   :name
-  validates_is_unique   :callback_url, :if=>:is_webapp?
   validates_is_unique   :api_key
   validates_with_method :kind, :valid_kind?
   

@@ -22,10 +22,7 @@ describe MerbAuthSliceFullfat::Tokens do
   after :all do
     Merb::Router.reset! if standalone?
   end
-  
-  it "should return OAuth-format request key strings if no format is specified"
-  it "should return OAuth-format access key strings if no format is specified"
-  
+
   describe "index action" do
     %w(js yaml xml html).each do |format|
       it "#{format} requests should generate an anonymous receipt when sent GET with a consumer and no other information." do
@@ -71,7 +68,7 @@ describe MerbAuthSliceFullfat::Tokens do
     before :all  do
       @user =         user_class.gen
       @desktop_app =  MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
-      @request_key =  MerbAuthSliceFullfat::Token.create_request_key(@desktop_app, 1.hour.since)      
+      @request_key =  MerbAuthSliceFullfat::Token.create_request_key(@desktop_app, 1.hour.since)
     end
     
     it "should require a login" do
@@ -80,31 +77,19 @@ describe MerbAuthSliceFullfat::Tokens do
     end
     
     it "should display a form to the user and locate the correct receipt from the database on GET" do
-      with_cookies MerbAuthSliceFullfat::Tokens do |jar|
-        jar[:user] = @user.id
-        @controller = get(sign_url_with(@desktop_app, @controller.slice_url(:new_token), :oauth_token=>@request_key.token_key))
-        #@controller.new
-        @controller.should be_successful
-        @controller.assigns(:authenticating_client).should == @desktop_app
-        @controller.assigns(:token).activated?.should be_false
-      end
+      request = fake_request(:query_string=>"oauth_token=#{@request_key.token_key}&oauth_callback=http://www.feesh.com/index.php")
+      request.session.user = @user
+      @controller = MerbAuthSliceFullfat::Tokens.new(request)
+      doc = @controller.new
+      @controller.should be_successful
+      @controller.assigns(:authenticating_client).should == @desktop_app
+      @controller.assigns(:token).activated?.should be_false
+      doc.should contain(@controller.assigns(:authenticating_client).name)
     end
-    it "should display nothing and return a 406 when the params contain an api key which is invalid" do
+    it "should display nothing and return a 406 when the params contain an request key which is invalid" do
       lambda do 
         @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:new_token), :oauth_consumer_key=>"DIDDLYSQUAT"))
       end.should raise_error(Merb::Controller::NotAcceptable)
-    end
-    it "should return a 406 when the given api key no request key is given" do
-      @controller = MerbAuthSliceFullfat::Tokens.new(
-        request_signed_by(@desktop_app, {}, {}, {:request_uri=>"/tokens/new"})
-      )
-      lambda {@controller.new}.should raise_error(Merb::Controller::NotAcceptable)
-    end
-    it "should display nothing and return a 406 not acceptable when the request contains an invalid api receipt" do
-      @controller = MerbAuthSliceFullfat::Tokens.new(
-        request_signed_by(@desktop_app, {:api_receipt=>@bad_receipt.receipt}, {}, {:request_uri=>"/tokens/new"})
-      )
-      lambda {@controller.new}.should raise_error(Merb::Controller::NotAcceptable)
     end
   #  
   #  it "should activate a receipt on POST when given an api_receipt and assign the token to the authenticated user if the authenticating client is a desktop app" do
