@@ -4,16 +4,16 @@ describe Merb::Authentication::Strategies::OAuth do
   
   before :all do
     # Create a client and a user, and authorise the client against the user by creating a token
-    @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.gen
+    @authenticating_client = OohAuth::AuthenticatingClient.gen
     @user = user_class.gen
-    @access = MerbAuthSliceFullfat::Token.create_request_key(@authenticating_client, 1.hour.since)
+    @access = OohAuth::Token.create_request_key(@authenticating_client, 1.hour.since)
     @access.activate!(@user).should be_true
-    @request = MerbAuthSliceFullfat::Token.create_request_key(@authenticating_client, 1.hour.since)
+    @request = OohAuth::Token.create_request_key(@authenticating_client, 1.hour.since)
     @request.activated?.should be_false
     
     Merb::Router.prepare do 
-      add_slice(:MerbAuthSliceFullfat)
-      match("/secrets").to(:controller=>"merb_auth_slice_fullfat/secrets", :action=>"index").name(:secrets)
+      add_slice(:OohAuth)
+      match("/secrets").to(:controller=>"ooh_auth/secrets", :action=>"index").name(:secrets)
     end if standalone?
   end
   

@@ -9,7 +9,7 @@ if defined?(Merb::Plugins)
   load_dependency "merb-helpers"
   load_dependency "merb-assets"
   
-  Merb::Plugins.add_rakefiles "merb-auth-slice-fullfat/merbtasks", "merb-auth-slice-fullfat/slicetasks", "merb-auth-slice-fullfat/spectasks"
+  Merb::Plugins.add_rakefiles "ooh-auth/merbtasks", "ooh-auth/slicetasks", "ooh-auth/spectasks"
 
   # Register the Slice for the current host application
   Merb::Slices::register(__FILE__)
@@ -19,10 +19,10 @@ if defined?(Merb::Plugins)
   # the main application layout or no layout at all if needed.
   # 
   # Configuration options:
-  # :layout - the layout to use; defaults to :merb-auth-slice-fullfat
+  # :layout - the layout to use; defaults to :ooh-auth
   # :mirror - which path component types to use on copy operations; defaults to all.  
-  Merb::Slices::config[:merb_auth_slice_fullfat][:layout] ||= :merb_auth_slice_fullfat
-  Merb::Slices::config[:merb_auth_slice_fullfat].merge!({
+  Merb::Slices::config[:ooh_auth][:layout] ||= :ooh_auth
+  Merb::Slices::config[:ooh_auth].merge!({
     :path_prefix=>"auth",
     # Authenticating clients can ask for a certain level of permissions chosen from a list. You can alter that list below:
     :client_permission_levels =>  {
@@ -43,13 +43,13 @@ if defined?(Merb::Plugins)
 
   
   # All Slice code is expected to be namespaced inside a module
-  module MerbAuthSliceFullfat
+  module OohAuth
     
     # Slice metadata
-    self.description = "MerbAuthSliceFullfat is Merb slice that extends merb-auth-more with RESTful authentication"
+    self.description = "OohAuth is Merb slice that extends merb-auth-more with RESTful authentication"
     self.version = "0.0.1"
     self.author = "Dan Glegg"
-    self.identifier = "merb-auth-slice-fullfat"
+    self.identifier = "ooh-auth"
     
     # Stub classes loaded hook - runs before LoadClasses BootLoader
     # right after a slice's classes have been loaded internally.
@@ -58,19 +58,19 @@ if defined?(Merb::Plugins)
     
     # Initialization hook - runs before AfterAppLoads BootLoader
     def self.init
-      require "merb-auth-slice-fullfat/authentication_mixin"
-      require "merb-auth-slice-fullfat/key_generators"
-      require "merb-auth-slice-fullfat/request_verification_mixin.rb"
-      require "merb-auth-slice-fullfat/controller_mixin.rb"
-      require "merb-auth-slice-fullfat/strategies/oauth.rb"
-      Merb::Request.send(:include, MerbAuthSliceFullfat::Request::VerificationMixin)
-      Merb::Controller.send(:include, MerbAuthSliceFullfat::ControllerMixin)
+      require "ooh-auth/authentication_mixin"
+      require "ooh-auth/key_generators"
+      require "ooh-auth/request_verification_mixin.rb"
+      require "ooh-auth/controller_mixin.rb"
+      require "ooh-auth/strategies/oauth.rb"
+      Merb::Request.send(:include, OohAuth::Request::VerificationMixin)
+      Merb::Controller.send(:include, OohAuth::ControllerMixin)
       
       # Register strategies
-      Merb::Authentication.register :oauth, "merb-auth-slice-fullfat/strategies/oauth.rb"
+      Merb::Authentication.register :oauth, "ooh-auth/strategies/oauth.rb"
       Merb::Authentication.activate! :oauth
       
-      unless MerbAuthSliceFullfat[:no_default_strategies]
+      unless OohAuth[:no_default_strategies]
         ::Merb::Authentication.activate!(:default_password_form)
       end
     end
@@ -79,13 +79,13 @@ if defined?(Merb::Plugins)
     def self.activate
     end
     
-    # Deactivation hook - triggered by Merb::Slices.deactivate(MerbAuthSliceFullfat)
+    # Deactivation hook - triggered by Merb::Slices.deactivate(OohAuth)
     def self.deactivate
     end
     
     # Add the following to your app's router to mount SliceRestful at the root:
     # Merb::Router.prepare do
-    #   slice( :MerbAuthSliceFullfat, :name_prefix => nil, :path_prefix => "auth", :default_routes => false )
+    #   slice( :OohAuth, :name_prefix => nil, :path_prefix => "auth", :default_routes => false )
     # end
     def self.setup_router(scope)
       scope.resources :authenticating_clients
@@ -95,9 +95,9 @@ if defined?(Merb::Plugins)
     
   end
   
-  MerbAuthSliceFullfat.setup_default_structure!
+  OohAuth.setup_default_structure!
   
-  # Add dependencies for other MerbAuthSliceFullfat classes below. Example:
+  # Add dependencies for other OohAuth classes below. Example:
   
   
 end

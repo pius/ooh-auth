@@ -10,7 +10,7 @@
   
 =end
 
-class MerbAuthSliceFullfat::Token
+class OohAuth::Token
   include DataMapper::Resource
   
   property  :id,                        Serial
@@ -32,7 +32,7 @@ class MerbAuthSliceFullfat::Token
   validates_present       :authenticating_client
   validates_with_method   :permissions, :permissions_valid?
   
-  belongs_to :authenticating_client, :class_name=>"MerbAuthSliceFullfat::AuthenticatingClient", :child_key=>[:authenticating_client_id]
+  belongs_to :authenticating_client, :class_name=>"OohAuth::AuthenticatingClient", :child_key=>[:authenticating_client_id]
   belongs_to :user, :class_name=>Merb::Authentication.user_class.to_s, :child_key=>[:user_id]
   
   before :valid?, :create_token_key_if_not_present
@@ -74,7 +74,7 @@ class MerbAuthSliceFullfat::Token
     if authenticating_client and with_user
       self.activated = true
       self.expires = (expire_on || 1.year.since)
-      self.permissions = (permissions || MerbAuthSliceFullfat[:default_permissions])
+      self.permissions = (permissions || OohAuth[:default_permissions])
       self.user_id = with_user.id
       generate_token_key!
       return save
@@ -95,14 +95,14 @@ class MerbAuthSliceFullfat::Token
   end
   
   def create_secret_if_not_present
-    self.secret ||= MerbAuthSliceFullfat::KeyGenerators::Alphanum.gen(30)
+    self.secret ||= OohAuth::KeyGenerators::Alphanum.gen(30)
   end
     
   # Generates a valid, unique access_key which the client can use to authenticate with in future,
   # and applies it to the object.
   def generate_token_key!
     while (token_key.blank? or self.class.first(:token_key=>token_key)) do
-      self.token_key = MerbAuthSliceFullfat::KeyGenerators::Alphanum.gen(30)
+      self.token_key = OohAuth::KeyGenerators::Alphanum.gen(30)
     end
   end
   
@@ -113,12 +113,12 @@ class MerbAuthSliceFullfat::Token
   
   # Returns the permissions for this particular token, or the :default_permissions if not set.
   def permissions
-    attribute_get(:permissions) or MerbAuthSliceFullfat[:default_permissions]
+    attribute_get(:permissions) or OohAuth[:default_permissions]
   end
   
   # Returns true if the set permissions are a valid value according to the keys of the slice's :client_permission_levels hash.
   def permissions_valid?
-    MerbAuthSliceFullfat[:client_permission_levels].keys.include?(permissions.to_sym)
+    OohAuth[:client_permission_levels].keys.include?(permissions.to_sym)
   end
   
   # Transformation - returns a hash representing this object, ready to be converted to XML, JSON or YAML.

@@ -1,4 +1,4 @@
-class MerbAuthSliceFullfat::Secrets < MerbAuthSliceFullfat::Application
+class OohAuth::Secrets < OohAuth::Application
   
   before :ensure_authenticated
   

@@ -3,12 +3,12 @@ require File.join( File.dirname(__FILE__), '..', "spec_helper" )
 require 'hmac-sha1'
 require 'hmac-md5'
 
-describe MerbAuthSliceFullfat::Request::VerificationMixin do
+describe OohAuth::Request::VerificationMixin do
   
   before :all do
     Merb::Router.prepare do 
-      add_slice(:MerbAuthSliceFullfat)
-      match("/secrets").to(:controller=>"merb_auth_slice_fullfat/secrets", :action=>"index").name(:secrets)
+      add_slice(:OohAuth)
+      match("/secrets").to(:controller=>"ooh_auth/secrets", :action=>"index").name(:secrets)
     end if standalone?
   end
   
@@ -17,13 +17,13 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
   end
   
   it "should be included in the Merb::Request and FakeRequest classes on slice initialisation" do
-    Merb::Request.include?(MerbAuthSliceFullfat::Request::VerificationMixin).should be_true
-    Merb::Test::RequestHelper::FakeRequest.include?(MerbAuthSliceFullfat::Request::VerificationMixin).should be_true
+    Merb::Request.include?(OohAuth::Request::VerificationMixin).should be_true
+    Merb::Test::RequestHelper::FakeRequest.include?(OohAuth::Request::VerificationMixin).should be_true
   end
     
   describe "Signature verification" do
     before :each do 
-      @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.gen
+      @authenticating_client = OohAuth::AuthenticatingClient.gen
     end
     
     it "should verify that a correctly-signed GET request is signed using GET parameters" do
@@ -59,7 +59,7 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
   
   describe "OAuth headers" do
     before :each do 
-      @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.gen
+      @authenticating_client = OohAuth::AuthenticatingClient.gen
     end
     
     it "should successfully parse OAuth HTTP headers" do
@@ -90,10 +90,10 @@ describe MerbAuthSliceFullfat::Request::VerificationMixin do
   
   describe "signature encryption" do
     before :each do
-      @authenticating_client = MerbAuthSliceFullfat::AuthenticatingClient.gen
+      @authenticating_client = OohAuth::AuthenticatingClient.gen
       @req = fake_request(:http_host=>"test.fullfat.com", :request_uri=>"/secrets", "Authorization"=>"OAuth realm=\"FOO\", oauth_consumer_key=\"#{@authenticating_client.api_key}\", foo=\"bar\", bar=\"baz\", overridden=\"no\"", :query_string=>"get=yes&overridden=yes")
       @req.authenticating_client.should == @authenticating_client
-      @token = MerbAuthSliceFullfat::Token.create_request_key(@authenticating_client)
+      @token = OohAuth::Token.create_request_key(@authenticating_client)
       @req.signed?.should be_false
     end
   

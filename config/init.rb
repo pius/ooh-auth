@@ -1,5 +1,5 @@
 #
-# ==== Standalone MerbAuthSliceFullfat configuration
+# ==== Standalone OohAuth configuration
 # 
 # This configuration/environment file is only loaded by bin/slice, which can be 
 # used during development of the slice. It has no effect on this slice being
@@ -45,10 +45,10 @@ use_orm :datamapper
 
 Merb::BootLoader.after_app_loads do
   # This will get executed after your app's classes have been loaded.
-  require MerbAuthSliceFullfat.root / "mocks" / "user"
-  require MerbAuthSliceFullfat.root / "mocks" / "secret_controller"
-  require MerbAuthSliceFullfat.root / "mocks" / "public_controller"
-  Merb::Authentication.user_class = MerbAuthSliceFullfat::Mocks::User
+  require OohAuth.root / "mocks" / "user"
+  require OohAuth.root / "mocks" / "secret_controller"
+  require OohAuth.root / "mocks" / "public_controller"
+  Merb::Authentication.user_class = OohAuth::Mocks::User
 end
 
 Merb::Router.prepare do

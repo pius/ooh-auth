@@ -1,2 +1,2 @@
-class MerbAuthSliceFullfat::Main < MerbAuthSliceFullfat::Application
+class OohAuth::Main < OohAuth::Application
 end

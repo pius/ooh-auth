@@ -1,5 +1,5 @@
 =begin
-MerbAuthSliceFullfat::Request::VerificationMixin is a mixin module for Merb's internal Request class.
+OohAuth::Request::VerificationMixin is a mixin module for Merb's internal Request class.
 
 It provides
 =end
@@ -7,7 +7,7 @@ It provides
 require 'hmac-sha1'
 require 'hmac-md5'
 
-module MerbAuthSliceFullfat
+module OohAuth
   module Request
     module VerificationMixin
       
@@ -20,12 +20,12 @@ module MerbAuthSliceFullfat
           # no consumer key was given or if the given consumer key was invalid.
           def authenticating_client
             #return false unless signed?
-            @authenticating_client ||= MerbAuthSliceFullfat::AuthenticatingClient.first(:api_key=>consumer_key)
+            @authenticating_client ||= OohAuth::AuthenticatingClient.first(:api_key=>consumer_key)
           end
       
           # Returns the stored token referenced by the oauth_token header or parameter, or nil if none was found.
           def authentication_token
-            @authentication_token ||= MerbAuthSliceFullfat::Token.first(:token_key=>token)
+            @authentication_token ||= OohAuth::Token.first(:token_key=>token)
           end
       
       # Attempts to verify the request's signature using the strategy covered in signing.markdown.

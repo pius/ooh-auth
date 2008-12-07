@@ -3,9 +3,9 @@ require 'merb-core'
 require 'merb-slices'
 require 'spec'
 
-# Add merb-auth-slice-fullfat.rb to the search path
+# Add ooh-auth.rb to the search path
 Merb::Plugins.config[:merb_slices][:auto_register] = true
-Merb::Plugins.config[:merb_slices][:search_path]   = File.join(File.dirname(__FILE__), '..', 'lib', 'merb-auth-slice-fullfat.rb')
+Merb::Plugins.config[:merb_slices][:search_path]   = File.join(File.dirname(__FILE__), '..', 'lib', 'ooh-auth.rb')
 require Merb::Plugins.config[:merb_slices][:search_path]
 
 # Using Merb.root below makes sure that the correct root is set for
@@ -29,8 +29,8 @@ module Merb
       
       # Whether the specs are being run from a host application or standalone
       def standalone?
-        #raise StandardError, "Merb.root #{Merb.root.inspect} ::MerbAuthSliceFullfat.root #{::MerbAuthSliceFullfat.root.inspect}"
-        File.join(Merb.root, "") == File.join(::MerbAuthSliceFullfat.root, "")
+        #raise StandardError, "Merb.root #{Merb.root.inspect} ::OohAuth.root #{::OohAuth.root.inspect}"
+        File.join(Merb.root, "") == File.join(::OohAuth.root, "")
       end
       
 	    def user_class

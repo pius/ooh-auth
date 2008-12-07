@@ -1,4 +1,4 @@
-# Authentication Strategy for MerbAuthSliceFullfat's AuthenticatingClient model.
+# Authentication Strategy for OohAuth's AuthenticatingClient model.
 
 class Merb::Authentication
   module Strategies
@@ -6,7 +6,7 @@ class Merb::Authentication
         
         def run!
           if request.signed? and request.token and request.consumer_key
-            return MerbAuthSliceFullfat::Token.authenticate!(request.consumer_key, request.token)
+            return OohAuth::Token.authenticate!(request.consumer_key, request.token)
           end
           return nil
         end

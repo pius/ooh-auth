@@ -12,10 +12,10 @@ desc 'Default: run spec examples'
 task :default => 'spec'
 
 
-GEM_NAME = "merb-auth-slice-fullfat"
+GEM_NAME = "ooh-auth"
 AUTHOR = "Dan Glegg"
 EMAIL = "dan@angryamoeba.co.uk"
-HOMEPAGE = "http://github.com/danski/merb-auth-slice-fullfat"
+HOMEPAGE = "http://github.com/danski/ooh-auth"
 SUMMARY = "Merb Slice that provides RESTful authentication functionality for your application."
 GEM_VERSION = "0.9.10"
 

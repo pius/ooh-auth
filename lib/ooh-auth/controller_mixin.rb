@@ -1,4 +1,4 @@
-module MerbAuthSliceFullfat
+module OohAuth
   module ControllerMixin
     
     private
@@ -19,7 +19,7 @@ module MerbAuthSliceFullfat
     end
     
     # Raises a Forbidden (HTTP 403) unless the request carries the desired authorisation or above.
-    # Special notes: permission levels are taken from MerbAuthSliceFullfat[:client_permission_levels] in order. A call to 
+    # Special notes: permission levels are taken from OohAuth[:client_permission_levels] in order. A call to 
     # ensure_authorisation(:write) will by default return true, for example, if the current request is authorised with :write 
     # or :delete, as :delete is more powerful than :write. 
     # A special level named :root is available. A call to ensure_authorisation with :root as an argument will ensure that the

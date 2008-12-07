@@ -1,14 +1,14 @@
-# MerbAuthSliceFullfat::KeyGenerators
+# OohAuth::KeyGenerators
 # ==========================================
 # A set of generators for common password types.
 # Usage:
-# MerbAuthSliceFullfat::KeyGenerators::<type>.new(length_if_applicable)
+# OohAuth::KeyGenerators::<type>.new(length_if_applicable)
 # where <type> is any of:
 # Password: a memorable password such as 254yellowShoes or 869spaceageBiplanes
 # Passphrase: a memorable passphrase made up of [length] words.
 # Alphanum: a gibberish string [length] characters long.
 
-module MerbAuthSliceFullfat
+module OohAuth
   module KeyGenerators
     
     ALPHANUM =    (('a'..'z').to_a + ('A'..'Z').to_a + (0..9).to_a).freeze
@@ -54,4 +54,4 @@ module MerbAuthSliceFullfat
     
     
   end # module KeyGenerators
-end # module MerbAuthSliceFullfat
+end # module OohAuth

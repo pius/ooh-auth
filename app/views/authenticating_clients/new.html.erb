@@ -6,7 +6,7 @@
 	<strong>shared secret</strong> which will allow you to verify your requests to the API. <strong>Note both of these down.</strong>
 </p>
 
-<%= form_for @authenticating_client, :action=>resource(:merb_auth_slice_fullfat, :authenticating_clients), :class=>"authenticating_client" do %>
+<%= form_for @authenticating_client, :action=>resource(:ooh_auth, :authenticating_clients), :class=>"authenticating_client" do %>
 	
 	<%= error_messages_for @authenticating_client %>
 	
@@ -14,10 +14,10 @@
 		<legend>Some information about your application</legend>
 		
 		<dl>
-			<dt><label for="merb_auth_slice_fullfat_authenticating_clients_name">Application name</label></dt>
+			<dt><label for="ooh_auth_authenticating_clients_name">Application name</label></dt>
 			<dd><%= text_field :name, :name=>"authenticating_client[name]", :value=>h(@authenticating_client.name) %></dd>
 			
-			<dt><label for="merb_auth_slice_fullfat_authenticating_clients_name">Web URL</label></dt>
+			<dt><label for="ooh_auth_authenticating_clients_name">Web URL</label></dt>
 			<dd><%= text_field :web_url, :name=>"authenticating_client[web_url]", :value=>h(@authenticating_client.web_url) %></dd>
 		</dl>
 		
@@ -27,11 +27,11 @@
 		<legend>Application type</legend>
 		
 		<dl class="checkboxes">
-			<dt><label for="merb_auth_slice_fullfat_authenticating_clients_kind_web">This is a web-based application</label></dt>
-			<dd><%= radio_button :kind, :value=>"web", :name=>"authenticating_client[kind]", :id=>"merb_auth_slice_fullfat_authenticating_clients_kind_web", :checked=>@authenticating_client.is_webapp? %></dd>
+			<dt><label for="ooh_auth_authenticating_clients_kind_web">This is a web-based application</label></dt>
+			<dd><%= radio_button :kind, :value=>"web", :name=>"authenticating_client[kind]", :id=>"ooh_auth_authenticating_clients_kind_web", :checked=>@authenticating_client.is_webapp? %></dd>
 			
-			<dt><label for="merb_auth_slice_fullfat_authenticating_clients_kind_desktop">This is a desktop or mobile application</label></dt>
-			<dd><%= radio_button :kind, :value=>"desktop", :name=>"authenticating_client[kind]", :id=>"merb_auth_slice_fullfat_authenticating_clients_kind_desktop", :checked=>!@authenticating_client.is_webapp? %></dd>
+			<dt><label for="ooh_auth_authenticating_clients_kind_desktop">This is a desktop or mobile application</label></dt>
+			<dd><%= radio_button :kind, :value=>"desktop", :name=>"authenticating_client[kind]", :id=>"ooh_auth_authenticating_clients_kind_desktop", :checked=>!@authenticating_client.is_webapp? %></dd>
 		</dl>
 	</fieldset>
 	

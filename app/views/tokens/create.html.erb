@@ -11,7 +11,7 @@
 	
 	<ul>
 		<li>Until <%= @token.expires.strftime("%d/%b/%Y") %></li>
-		<li>With permission to <%= MerbAuthSliceFullfat[:client_permission_levels][@token.permissions.to_sym][:able_to] %>.</li>
+		<li>With permission to <%= OohAuth[:client_permission_levels][@token.permissions.to_sym][:able_to] %>.</li>
 	</ul>
 	
 	<p>

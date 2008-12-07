@@ -1,6 +1,6 @@
 require 'merb-auth-more/mixins/salted_user'
 
-module MerbAuthSliceFullfat
+module OohAuth
    module Mocks
        class User
           include DataMapper::Resource

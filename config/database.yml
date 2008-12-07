@@ -3,7 +3,7 @@
 development: &defaults
   # These are the settings for repository :default
   adapter:  sqlite3
-  database: merb_auth_slice_fullfat_development.db
+  database: ooh_auth_development.db
   username: root
   password: 
   host: localhost
@@ -19,7 +19,7 @@ development: &defaults
  
 test:
   <<:       *defaults
-  database: merb_auth_slice_fullfat_test.db
+  database: ooh_auth_test.db
  
   # repositories:
   #   repo1:
@@ -27,7 +27,7 @@ test:
  
 production:
   <<:       *defaults
-  database: merb_auth_slice_fullfat.db
+  database: ooh_auth.db
  
   # repositories:
   #   repo1:

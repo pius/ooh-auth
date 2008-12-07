@@ -1,10 +1,10 @@
 =begin
-MerbAuthSliceFullfat::AuthenticatingClient
+OohAuth::AuthenticatingClient
 ========================================================================================
 An authenticating client is an external application which wants to use your application's public API while authenticated as one of your users.
 =end
 
-class MerbAuthSliceFullfat::AuthenticatingClient
+class OohAuth::AuthenticatingClient
   include DataMapper::Resource
   
   # Key it
@@ -46,14 +46,14 @@ class MerbAuthSliceFullfat::AuthenticatingClient
   def generate_keys_if_not_present
     api_key_length = 15
     while self.api_key.blank? or self.class.first(:id.not=>id, :api_key=>self.api_key) do
-      self.api_key = MerbAuthSliceFullfat::KeyGenerators::Alphanum.gen(api_key_length)
+      self.api_key = OohAuth::KeyGenerators::Alphanum.gen(api_key_length)
       api_key_length += 1
     end
-    self.secret = MerbAuthSliceFullfat::KeyGenerators::Alphanum.gen(40) if secret.blank?
+    self.secret = OohAuth::KeyGenerators::Alphanum.gen(40) if secret.blank?
   end
   
   def valid_kind?
-    if MerbAuthSliceFullfat[:client_kinds].include?(self.kind)
+    if OohAuth[:client_kinds].include?(self.kind)
       return true
     else
       return false, "illegal kind"
@@ -68,4 +68,4 @@ class MerbAuthSliceFullfat::AuthenticatingClient
     user.id == self.user_id
   end
   
-end # MerbAuthSliceFullfat::AuthenticatingClient
+end # OohAuth::AuthenticatingClient

@@ -1,10 +1,10 @@
 require File.dirname(__FILE__) + '/spec_helper'
 
-describe "MerbAuthSliceFullfat" do
+describe "OohAuth" do
 
   describe "::KeyGenerators" do
     
-    before(:each) { @module = MerbAuthSliceFullfat::KeyGenerators }
+    before(:each) { @module = OohAuth::KeyGenerators }
     
     it "should generate a different memorable password every time" do
       past_items = []

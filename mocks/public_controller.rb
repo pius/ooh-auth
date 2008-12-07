@@ -1,4 +1,4 @@
-class MerbAuthSliceFullfat::Public < MerbAuthSliceFullfat::Application
+class OohAuth::Public < OohAuth::Application
   
   def index
     provides :xml, :json, :yml

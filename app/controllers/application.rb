@@ -1,4 +1,4 @@
-class MerbAuthSliceFullfat::Application < Merb::Controller
+class OohAuth::Application < Merb::Controller
   
   controller_for_slice
   

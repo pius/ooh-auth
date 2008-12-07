@@ -1,4 +1,4 @@
-MerbAuthSliceFullfat::Mocks::User.fixture{{
+OohAuth::Mocks::User.fixture{{
   :name         => (name = /\w+/.gen),
   :login        => name,
   :email        => "#{name}@test.com",
@@ -6,7 +6,7 @@ MerbAuthSliceFullfat::Mocks::User.fixture{{
   :password_confirmation => password
 }}
 
-MerbAuthSliceFullfat::AuthenticatingClient.fixture{{
+OohAuth::AuthenticatingClient.fixture{{
   :user_id      =>  /\d{1,3}/.gen,
   :name         =>  /\w+/.gen,
   :web_url      =>  "http://www.#{ /\w+/.gen }.com/client/",
@@ -15,6 +15,6 @@ MerbAuthSliceFullfat::AuthenticatingClient.fixture{{
   :kind         =>  /desktop|web/.gen
 }}
 
-MerbAuthSliceFullfat::Token.fixture{{
+OohAuth::Token.fixture{{
   
 }}

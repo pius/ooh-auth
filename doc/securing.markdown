@@ -1,4 +1,4 @@
-Properly securing an application using MerbAuthSliceFullfat
+Properly securing an application using OohAuth
 ===========================================================
 
 * Controller macros

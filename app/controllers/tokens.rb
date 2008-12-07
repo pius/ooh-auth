@@ -1,5 +1,5 @@
 =begin
-MerbAuthSliceFullfat::Tokens
+OohAuth::Tokens
 
 This controller is intended to allow applications to authenticate on behalf of a user. 
 Applications follow a set process as shown in authenticating.markdown, in which a number of background 
@@ -13,7 +13,7 @@ representations as they not only are intended for human interaction, but specifi
 
 require 'net/http'
 
-class MerbAuthSliceFullfat::Tokens < MerbAuthSliceFullfat::Application
+class OohAuth::Tokens < OohAuth::Application
 
   # Define other formats
   provides :js, :xml, :yaml
@@ -31,7 +31,7 @@ class MerbAuthSliceFullfat::Tokens < MerbAuthSliceFullfat::Application
       raise NotAcceptable unless @token.authenticating_client == @authenticating_client
     else
       # Generate a request key
-      @token = MerbAuthSliceFullfat::Token.create_request_key(@authenticating_client)
+      @token = OohAuth::Token.create_request_key(@authenticating_client)
     end
     # # Okay, no error raised. Gogo render.
     display @token, :show, :layout=>nil
@@ -39,7 +39,7 @@ class MerbAuthSliceFullfat::Tokens < MerbAuthSliceFullfat::Application
 
   def new
     only_provides :html
-    unless (@token = MerbAuthSliceFullfat::Token.first(:token_key=>request.token) and
+    unless (@token = OohAuth::Token.first(:token_key=>request.token) and
             @authenticating_client = @token.authenticating_client)
       raise NotAcceptable 
     end
@@ -50,7 +50,7 @@ class MerbAuthSliceFullfat::Tokens < MerbAuthSliceFullfat::Application
   def create(token)
     only_provides :html
     commit = (params[:commit]=="allow") # Did they click the allow or the deny button? ENQUIRING MINDS NEED TO KNOW!
-    raise NotFound unless @token = MerbAuthSliceFullfat::Token.get_token(request.token) # The oauth_token is now in the post body.
+    raise NotFound unless @token = OohAuth::Token.get_token(request.token) # The oauth_token is now in the post body.
     raise NotFound unless @authenticating_client = @token.authenticating_client # Stop right there, criminal scum.
         
     @activated = @token.activate!(session.user, token[:expires], token[:permissions]) if commit
@@ -66,13 +66,13 @@ class MerbAuthSliceFullfat::Tokens < MerbAuthSliceFullfat::Application
   #
   #def edit(id)
   #  only_provides :html
-  #  @token = MerbAuthSliceFullfat::Token.get(id)
+  #  @token = OohAuth::Token.get(id)
   #  raise NotFound unless @token
   #  display @token
   #end
   #
   #def update(id, token)
-  #  @token = MerbAuthSliceFullfat::Token.get(id)
+  #  @token = OohAuth::Token.get(id)
   #  raise NotFound unless @token
   #  if @token.update_attributes(authentication)
   #     redirect slice_url(:tokens, @token)
@@ -82,7 +82,7 @@ class MerbAuthSliceFullfat::Tokens < MerbAuthSliceFullfat::Application
   #end
   #
   #def destroy(id)
-  #  @token = MerbAuthSliceFullfat::Token.get(id)
+  #  @token = OohAuth::Token.get(id)
   #  raise NotFound unless @token
   #  if @token.destroy
   #    redirect slice_url(:tokens)
@@ -91,4 +91,4 @@ class MerbAuthSliceFullfat::Tokens < MerbAuthSliceFullfat::Application
   #  end
   #end
 
-end # MerbAuthSliceFullfat::Tokens
+end # OohAuth::Tokens

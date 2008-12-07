@@ -37,7 +37,7 @@
 			<dt><label for="token_permissions">Allow this application to</label></dt>
 			<dd>
 				<select name="token[permissions]" id="token_permissions">
-					<% MerbAuthSliceFullfat[:client_permission_levels].each do |name, opts| %>
+					<% OohAuth[:client_permission_levels].each do |name, opts| %>
 						<option value="<%=h name %>"><%=h opts[:able_to] %></option>
 					<% end %>
 				</select>
