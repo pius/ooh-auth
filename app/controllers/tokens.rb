@@ -54,7 +54,7 @@ class OohAuth::Tokens < OohAuth::Application
     raise NotFound unless @authenticating_client = @token.authenticating_client # Stop right there, criminal scum.
         
     @activated = @token.activate!(session.user, token[:expires], token[:permissions]) if commit
-    redirect_to(request.callback) if commit and request.callback # the callback is in the post body        
+    redirect("#{request.callback}#{(request.callback["?"])? "&" : "?"}oauth_token=#{@token.token_key}") if commit and request.callback # the callback is in the post body        
     display @token, :create
   end
   

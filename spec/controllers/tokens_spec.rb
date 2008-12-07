@@ -101,7 +101,7 @@ describe OohAuth::Tokens do
   end
   
   describe "create action" do
-    before :all  do
+    before :each  do
       @user =         user_class.gen
       @desktop_app =  OohAuth::AuthenticatingClient.gen(:kind=>"desktop")
       @request_key =  OohAuth::Token.create_request_key(@desktop_app, 1.hour.since)
@@ -133,7 +133,22 @@ describe OohAuth::Tokens do
       auth.activated?.should be_true
       response.should contain("You successfully authorized")
     end
-    it "should redirect to the callback URL on successful activation if a callback url is given, appending oauth_token to the callback URL's parameters"
+    it "should redirect to the callback URL on successful activation if a callback url is given, appending oauth_token to the callback URL's parameters" do
+      request = fake_request({}, {:post_body=>"oauth_token=#{@request_key.token_key}&commit=allow&oauth_callback=#{Merb::Parse.escape("http://www.test.com/noflags")}"})
+      request.session.user = @user
+      @controller = OohAuth::Tokens.new(request)
+      response = @controller.create({})
+      @controller.assigns(:token).activated?.should be_true
+      @controller.should redirect_to("http://www.test.com/noflags?oauth_token=#{@controller.assigns(:token).token_key}")
+    end
+    it "should gracefully handle existing GET parameters on the callback url" do
+      request = fake_request({}, {:post_body=>"oauth_token=#{@request_key.token_key}&commit=allow&oauth_callback=#{Merb::Parse.escape("http://www.test.com/flags?foo=bar")}"})
+      request.session.user = @user
+      @controller = OohAuth::Tokens.new(request)
+      response = @controller.create({})
+      @controller.assigns(:token).activated?.should be_true
+      @controller.should redirect_to("http://www.test.com/flags?foo=bar&oauth_token=#{@controller.assigns(:token).token_key}")
+    end
   
     it "should require a user to be logged in via session" do
       lambda do 
