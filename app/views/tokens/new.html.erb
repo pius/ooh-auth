@@ -14,6 +14,9 @@
 		</p>
 
 		<input type="hidden" name="oauth_token" value="<%=h @token.token_key %>" />
+		<% if request.callback %>
+			<input type="hidden" name="oauth_callback" value="<%=h request.callback %>" />
+		<% end %>
 	</fieldset>
 	
 	<fieldset>
@@ -21,12 +24,29 @@
 		
 		<dl>
 			<dt><label for="token_expires">Allow access until</label></dt>
-			<dd></dd>		
+			<dd>
+				<select name="token[expires]" id="token_expires">
+					<option value="2999-12-31">Further notice</option> <!-- or when Philip J. Fry wakes up -->
+					<option value="<%= (Date.today + 1.year).strftime("%Y-%m-%d") %>">1 year from now</option>
+					<option value="<%= (Date.today + 1.month).strftime("%Y-%m-%d") %>">1 month from now</option>
+					<option value="<%= (Date.today + 1.week).strftime("%Y-%m-%d") %>">1 week from now</option>
+					<option value="<%= (Date.today + 1.day).strftime("%Y-%m-%d") %>">this time tomorrow</option>
+				</select>
+			</dd>
+			
+			<dt><label for="token_permissions">Allow this application to</label></dt>
+			<dd>
+				<select name="token[permissions]" id="token_permissions">
+					<% MerbAuthSliceFullfat[:client_permission_levels].each do |name, opts| %>
+						<option value="<%=h name %>"><%=h opts[:able_to] %></option>
+					<% end %>
+				</select>
+			</dd>
 		</dl>
 	</fieldset>
 
 	<fieldset class="buttons">
-		<%= submit "Grant access", 	:name=>"grant", 	:value=>"allow" %>
-		<%= submit "Deny access", 	:name=>"grant", 	:value=>"deny"%>
+		<%= submit "Grant access", 	:name=>"commit", 	:value=>"allow" %>
+		<%= submit "Deny access", 	:name=>"commit", 	:value=>"deny"%>
 	</fieldset>
 <% end =%>

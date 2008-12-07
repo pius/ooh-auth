@@ -45,6 +45,11 @@ describe MerbAuthSliceFullfat::Token do
     a.token_key.should == t
   end
   
+  it "should be findable with ::get_token" do
+    a = MerbAuthSliceFullfat::Token.create_request_key(@authenticating_clients.first, @date)
+    MerbAuthSliceFullfat::Token.get_token(a.token_key).should == a
+  end
+  
   it "should get a new key when activated" do
     a = MerbAuthSliceFullfat::Token.create_request_key(@authenticating_clients.first, @date)
     token = a.token_key

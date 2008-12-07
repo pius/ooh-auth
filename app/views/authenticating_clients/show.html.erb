@@ -15,22 +15,22 @@
 <div id="api_secrets">
 	<h2>Your API key details for <em><%=h ac.name %></em></h2>
 	<p>
-		Your <strong>API key</strong> will for the most part be public, although it is useless without the <strong>shared secret</strong> that goes with it. 
-		You should under no circumstances make your shared secret known by another party, as it can be used to sign the authorization requests that your application
+		Your <strong>Consumer Key</strong> will for the most part be public, although it is useless without the <strong>Consumer Secret</strong> that goes with it. 
+		You should under no circumstances make your Consumer Secret known by another party, as it can be used to sign the authorization requests that your application
 		will send.
 	</p>
 	
 	<dl>
-		<dt>API Key</dt>
+		<dt>Your OAuth Consumer Key</dt>
 		<dd>
 			<a href="#api_key" onclick="this.style.display = 'none'; document.getElementById('api_key').style.display = 'block'; return false;">Show my API Key</a> 
 			<span id="api_key" class="secret shared" style="display: none;"><%=h ac.api_key %></span>
 		</dd>
 		
-		<dt>Shared Secret</dt>
+		<dt>Your OAuth Consumer Secret</dt>
 		<dd>
 			<a href="#shared_secret" id="shared_secret_toggle" onclick="this.style.display = 'none'; document.getElementById('shared_secret').style.display = 'block'; return false;">
-				Nobody but myself can see. I have closed my doors, shuttered my windows and, just for today, shunned my loved ones. It is safe to show my Shared Secret.
+				Nobody but myself can see. I have closed my doors, shuttered my windows and, just for today, shunned my loved ones. It is safe to show my Consumer Secret.
 			</a> 
 			<span id="shared_secret" class="secret shared" style="display: none;"><%=h ac.secret %></span>
 		</dd>

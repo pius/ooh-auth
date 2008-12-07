@@ -91,37 +91,54 @@ describe MerbAuthSliceFullfat::Tokens do
         @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:new_token), :oauth_consumer_key=>"DIDDLYSQUAT"))
       end.should raise_error(Merb::Controller::NotAcceptable)
     end
-    it "should raise unauthenticated when a client attempts to render the page using oauth credentials"
+    it "should raise unauthenticated when a client attempts to render the page using oauth credentials" do
+      @token.activated?.should be_true
+      @token.authenticating_client.should == @authenticating_client
+      lambda do 
+        @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:new_token), :oauth_token=>@token.token_key))
+      end.should raise_error(Merb::Controller::Unauthenticated)
+    end
   end
   
   describe "create action" do
-  #  it "should activate a receipt on POST when given an api_receipt and assign the token to the authenticated user if the authenticating client is a desktop app" do
-  #    app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
-  #    auth = MerbAuthSliceFullfat::Token.create_request_key(app, 1.hour.since, @user)
-  #    request = request_signed_by(app, {:api_receipt=>auth.receipt}, {}, {:request_method=>"POST", :request_uri=>"/tokens"})
-  #    request.session.user = @user
-  #    @controller = MerbAuthSliceFullfat::Tokens.new(request)
-  #    @controller.create
-  #    @controller.session.user.should == @user
-  #    auth = @controller.assigns(:token)
-  #    auth.should == auth
-  #    auth.user.should == @user
-  #    auth.activated?.should be_true
-  #  end
-  #
-  #  it "should require a user to be logged in via session" do
-  #    lambda do 
-  #      @controller = get(sign_url_with(@authenticating_client, @controller.slice_url(:new_token)))
-  #    end.should raise_error(Merb::Controller::Unauthenticated)
-  #  end
-  #  it "should only be createable through session authentication" do
-  #    lambda do 
-  #      app = MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
-  #      auth = MerbAuthSliceFullfat::Token.create_request_key(app, 1.hour.since, @user)
-  #      @controller = post(sign_url_with(app, @controller.slice_url(:tokens)), :api_receipt=>auth.receipt)
-  #    end.should raise_error(Merb::Controller::Unauthenticated)
-  #  end
-  #  it "should display nothing and return a 406 not acceptable when the request contains an invalid permission level"
+    before :all  do
+      @user =         user_class.gen
+      @desktop_app =  MerbAuthSliceFullfat::AuthenticatingClient.gen(:kind=>"desktop")
+      @request_key =  MerbAuthSliceFullfat::Token.create_request_key(@desktop_app, 1.hour.since)
+      @access_key =   MerbAuthSliceFullfat::Token.create_request_key(@desktop_app, 1.hour.since)
+      @access_key.activate!(@user)
+      @date =         Date.today + 5.years
+    end
+    
+    it "should not activate a valid request token when any button other than 'allow' was clicked to submit the auth form" do
+      request = fake_request({}, {:post_body=>"oauth_token=#{@request_key.token_key}&commit=deny&"})
+      request.session.user = @user
+      @controller = MerbAuthSliceFullfat::Tokens.new(request)
+      response = @controller.create({})
+      auth = @controller.assigns(:token)
+      auth.user.should be_nil
+      auth.activated?.should be_false
+      response.should contain("You denied")
+    end
+    it "should activate a request token on POST when the 'allow' button was clicked to submit the auth form" do
+      request = fake_request({}, {:post_body=>"oauth_token=#{@request_key.token_key}&commit=allow&"})
+      request.session.user = @user
+      @controller = MerbAuthSliceFullfat::Tokens.new(request)
+      response = @controller.create({:expires=>@date.strftime("%Y-%m-%d"), :permissions=>"delete"})
+      auth = @controller.assigns(:token)
+      auth.user.should == @user
+      auth.authenticating_client.should == @desktop_app
+      auth.expires.should >= Date.today + 4.years + 364.days
+      auth.expires.should <= Date.today + 5.years + 1.days
+      auth.activated?.should be_true
+      response.should contain("You successfully authorized")
+    end
+  
+    it "should require a user to be logged in via session" do
+      lambda do 
+        @controller = post(sign_url_with(@authenticating_client, @controller.slice_url(:new_token), :oauth_token=>@access_key.token_key))
+      end.should raise_error(Merb::Controller::Unauthenticated)
+    end
   end
   #
   #describe "edit/update action" do

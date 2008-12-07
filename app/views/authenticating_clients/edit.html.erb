@@ -19,19 +19,8 @@
 		
 	</fieldset>
 	
-	<% if @authenticating_client.is_webapp? %>
-		<fieldset id="web_only">
-			<legend>Web-based applications settings</legend>
-		
-			<dl>
-				<dt><label for="merb_auth_slice_fullfat_authenticating_clients_callback_url">Callback URL</label></dt>
-				<dd><%= text_field :callback_url, :name=>"authenticating_client[callback_url]", :value=>@authenticating_client.callback_url %></dd>
-			</dl>
-		</fieldset>
-	<% end %>
-	
 	<fieldset class="buttons">
-		<input type="hidden" name="method" value="put" />
+		<input type="hidden" name="_method" value="put" />
 		<%= submit "Submit changes" %>
 	</fieldset>
 	

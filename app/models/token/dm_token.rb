@@ -19,9 +19,9 @@ class MerbAuthSliceFullfat::Token
   
   # Expiry date will always be respected. You cannot authenticate using an expired token, and nor can you
   # convert an expired request key into an access key.
-  property  :expires, DateTime
-  property  :created_at, DateTime
-  property  :permissions, String
+  property  :expires,       DateTime
+  property  :created_at,    DateTime
+  property  :permissions,   String
   
   property  :token_key,     String,   :writer=>:private, :index=>true
   property  :activated,     Boolean,  :writer=>:private, :index=>true, :default=>false
@@ -61,16 +61,20 @@ class MerbAuthSliceFullfat::Token
   
   # Fetch a request_key given the request_key code
   def self.get_request_key_for_client(client, request_key)
-    first :token_key=>request_key, :authenticating_client_id=>client.id, :expires.gt=>DateTime.now
+    first :token_key=>request_key, :authenticating_client_id=>client.id, :expires.gt=>DateTime.now, :activated=>false
+  end
+  
+  def self.get_token(token)
+    first :token_key=>token
   end
   
   # Make this Authentication object active by generating an access key against it.
   # You may optionally specify a new expiry date/time for the access key.
-  def activate!(with_user, expire_on=1.year.since, permissions=MerbAuthSliceFullfat[:default_permissions])
+  def activate!(with_user, expire_on=nil, permissions=nil)
     if authenticating_client and with_user
       self.activated = true
-      self.expires = expire_on
-      self.permissions = permissions
+      self.expires = (expire_on || 1.year.since)
+      self.permissions = (permissions || MerbAuthSliceFullfat[:default_permissions])
       self.user_id = with_user.id
       generate_token_key!
       return save

@@ -26,9 +26,9 @@ if defined?(Merb::Plugins)
     :path_prefix=>"auth",
     # Authenticating clients can ask for a certain level of permissions chosen from a list. You can alter that list below:
     :client_permission_levels =>  {
-      :read=>   {:description=>"This application will be able to read your content, but not to alter it or create new information in your content."},
-      :write=>  {:description=>"This application will be able to both read and make changes to your content, but not to delete it."},
-      :delete=> {:description=>"This application will have full access to your content, including the ability to delete it."}
+      :read=>   {:able_to=>"read your content, but not to alter it"},
+      :write=>  {:able_to=>"both read and make changes to your content, but not to delete it"},
+      :delete=> {:able_to=>"read, change, and delete your content"}
     },
     # If no permission level is specifically requested during the auth process, the client will be granted:
     :default_permissions      =>"write".freeze,

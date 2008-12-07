@@ -43,22 +43,19 @@ class MerbAuthSliceFullfat::Tokens < MerbAuthSliceFullfat::Application
             @authenticating_client = @token.authenticating_client)
       raise NotAcceptable 
     end
-    @callback_url = request.callback
     display @token, :new
   end
 
   # Activates an authentication receipt, converting it into a token the authenticating client can use in future requests.
-  def create
+  def create(token)
     only_provides :html
-    raise NotFound unless @authenticating_client = request.authenticating_client
-    @token = MerbAuthSliceFullfat::Token.get_request_key_for_client(@authenticating_client, request.token)
-    @token.activate!(session.user, 1.year.since, request.api_permissions)
-    # Fall over to the render
-    if @authenticating_client.is_webapp?
-      redirect_to callback_uri
-    else
-      display @token, :create
-    end
+    commit = (params[:commit]=="allow") # Did they click the allow or the deny button? ENQUIRING MINDS NEED TO KNOW!
+    raise NotFound unless @token = MerbAuthSliceFullfat::Token.get_token(request.token) # The oauth_token is now in the post body.
+    raise NotFound unless @authenticating_client = @token.authenticating_client # Stop right there, criminal scum.
+        
+    @activated = @token.activate!(session.user, token[:expires], token[:permissions]) if commit
+    redirect_to(request.callback) if commit and request.callback # the callback is in the post body        
+    display @token, :create
   end
   
   #def show(id)
