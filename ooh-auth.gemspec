@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = %q{merb}
   s.rubygems_version = %q{1.3.1}
 
-  s.add_dependency(%q(ruby-hmac), ["=> 0.3.2"])
+  s.add_dependency(%q<ruby-hmac>, [">= 0.3.2"])
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
