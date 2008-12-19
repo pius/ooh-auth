@@ -1,0 +1,18 @@
+%h1 Edit your Application
+
+=form_for @authenticating_client, :action=>slice_url(:authenticating_client, @authenticating_client), :method=>"put", :class=>"authenticating_client" do
+
+  =error_messages_for @authenticating_client
+
+  %fieldset
+    %legend Application information
+      %dl
+        %dt
+          %label{:for => "ooh_auth_authenticating_clients_name"} Application name
+        %dd= text_field :name, :name=>"authenticating_client[name]", :value=>h(@authenticating_client.name)
+        %dt
+          %label{:for => "ooh_auth_authenticating_clients_name"} Web URL
+        %dd= text_field :web_url, :name=>"authenticating_client[web_url]", :value=>h(@authenticating_client.web_url)
+	%fieldset.buttons
+		%input{:type => "hidden", :name => "_method", :value => "put"}
+		= submit "Submit changes"

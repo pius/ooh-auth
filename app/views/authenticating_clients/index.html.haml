@@ -1,0 +1,16 @@
+%h1 Developer API
+
+-if session.user
+  %h2 Your Applications
+
+  %ul.authenticating_clients
+    %li.new= link_to "Register a new Application", slice_url(:new_authenticating_client), :class=>"new"
+    -@authenticating_clients.each do |ac|
+      %li
+        =link_to h(ac.name), slice_url(:authenticating_client, ac), :class=>"show"
+        =link_to "Edit", slice_url(:edit_authenticating_client, ac), :class=>"edit"
+        =link_to "Unregister", slice_url(:delete_authenticating_client, ac), :class=>"delete"
+-else
+  %p In order to use the Developer API, you'll need to register for an API key. Please log in to begin the process.
+
+= partial "help"
