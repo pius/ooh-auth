@@ -17,7 +17,7 @@ AUTHOR = "Dan Glegg"
 EMAIL = "dan@angryamoeba.co.uk"
 HOMEPAGE = "http://github.com/danski/ooh-auth"
 SUMMARY = "Merb Slice that provides RESTful authentication functionality for your application."
-GEM_VERSION = "0.9.10"
+GEM_VERSION = "0.1.2"
 
 spec = Gem::Specification.new do |s|
   s.rubyforge_project = 'merb'

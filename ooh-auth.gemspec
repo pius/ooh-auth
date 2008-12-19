@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ooh-auth}
-  s.version = "0.1.20"
+  s.version = "0.1.2"
 
   s.authors = ["Dan Glegg"]
   s.date = %q{2008-10-22}
