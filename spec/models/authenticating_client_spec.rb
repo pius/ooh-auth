@@ -40,11 +40,5 @@ describe OohAuth::AuthenticatingClient do
     arr = OohAuth::AuthenticatingClient.find_for_user(nil)
     arr.length.should == 0
   end
-  
-  it "should return a list of authenticating clients when find_for_user is called with a valid user" do
-    @authenticating_clients = 10.of {OohAuth::AuthenticatingClient.gen(:user_id=>@user.id)}
-    arr = OohAuth::AuthenticatingClient.find_for_user(@user)
-    arr.length.should == 10
-  end
 
 end

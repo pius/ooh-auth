@@ -34,7 +34,7 @@ class OohAuth::Tokens < OohAuth::Application
       @token = OohAuth::Token.create_request_key(@authenticating_client)
     end
     # # Okay, no error raised. Gogo render.
-    display @token, :show, :layout=>nil
+    display @token, :show, :layout=>false
   end
 
   def new

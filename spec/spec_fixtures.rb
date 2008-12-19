@@ -7,7 +7,6 @@ OohAuth::Mocks::User.fixture{{
 }}
 
 OohAuth::AuthenticatingClient.fixture{{
-  :user_id      =>  /\d{1,3}/.gen,
   :name         =>  /\w+/.gen,
   :web_url      =>  "http://www.#{ /\w+/.gen }.com/client/",
   :api_key      =>  /\w+/.gen,

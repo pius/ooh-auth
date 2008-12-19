@@ -27,10 +27,10 @@ describe OohAuth::AuthenticatingClients do
       @user = user_class.gen
 
       @bad_authenticating_client_attrs = OohAuth::AuthenticatingClient.gen.attributes
-      [:name].each  {|a| @bad_authenticating_client_attrs.delete(a) }
+      [:name, :user_id].each  {|a| @bad_authenticating_client_attrs.delete(a) }
       
       @good_authenticating_client_attrs = OohAuth::AuthenticatingClient.gen(:kind=>"desktop").attributes
-      [:id, :secret, :api_key].each  {|a| @good_authenticating_client_attrs.delete(a) }
+      [:id, :secret, :api_key, :user_id].each  {|a| @good_authenticating_client_attrs.delete(a) }
       @good_authenticating_client_attrs[:name] = "unique fo realz"
       
       @controller = OohAuth::AuthenticatingClients.new(Merb::Test::RequestHelper::FakeRequest.new)
@@ -53,17 +53,13 @@ describe OohAuth::AuthenticatingClients do
       @controller.headers['Location'].should == @controller.slice_url(:authenticating_client, @controller.assigns(:authenticating_client))
       (ac_count + 1).should == OohAuth::AuthenticatingClient.count
     end
-    it "should assign the authenticated user's ID regardless of user_id in the form data" do
-      @controller.create(@good_authenticating_client_attrs.merge(:user_id=>@user.id+1000))
-      @controller.assigns(:authenticating_client).user_id.should == @user.id
-    end
   end
   
   describe "show action" do
     before :each do
       @user = user_class.gen
-      @authenticating_client = OohAuth::AuthenticatingClient.gen(:user_id=>@user.id)
-      @other_authenticating_client = OohAuth::AuthenticatingClient.gen(:user_id=>@user.id+1000)
+      @authenticating_client = OohAuth::AuthenticatingClient.gen(:user=>@user)
+      @other_authenticating_client = OohAuth::AuthenticatingClient.gen
       @controller = OohAuth::AuthenticatingClients.new(Merb::Test::RequestHelper::FakeRequest.new)
       @controller.request.session.user = @user
     end
@@ -80,8 +76,8 @@ describe OohAuth::AuthenticatingClients do
   describe "edit/update action" do
     before :each do
       @user = user_class.gen
-      @authenticating_client = OohAuth::AuthenticatingClient.gen(:user_id=>@user.id)
-      @other_authenticating_client = OohAuth::AuthenticatingClient.gen(:user_id=>@user.id+1000)
+      @authenticating_client = OohAuth::AuthenticatingClient.gen(:user=>@user)
+      @other_authenticating_client = OohAuth::AuthenticatingClient.gen
       @controller = OohAuth::AuthenticatingClients.new(Merb::Test::RequestHelper::FakeRequest.new)
       @controller.request.session.user = @user
     end

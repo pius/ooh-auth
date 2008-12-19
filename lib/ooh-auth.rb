@@ -2,12 +2,12 @@ if defined?(Merb::Plugins)
 
   $:.unshift File.dirname(__FILE__)
 
-  load_dependency "merb-action-args"
-  load_dependency 'merb-auth-core'
-  load_dependency 'merb-auth-more'
-  load_dependency 'merb-slices'
-  load_dependency "merb-helpers"
-  load_dependency "merb-assets"
+  dependency "merb-action-args"
+  dependency 'merb-auth-core'
+  dependency 'merb-auth-more'
+  dependency 'merb-slices'
+  dependency "merb-helpers"
+  dependency "merb-assets"
   
   Merb::Plugins.add_rakefiles "ooh-auth/merbtasks", "ooh-auth/slicetasks", "ooh-auth/spectasks"
 
@@ -47,7 +47,7 @@ if defined?(Merb::Plugins)
     
     # Slice metadata
     self.description = "OohAuth is Merb slice that extends merb-auth-more with RESTful authentication"
-    self.version = "0.0.1"
+    self.version = "0.1.2"
     self.author = "Dan Glegg"
     self.identifier = "ooh-auth"
     
