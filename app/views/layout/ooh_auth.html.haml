@@ -1,0 +1,17 @@
+!!!
+%html{ :xmlns => 'http://www.w3.org/1999/xhtml', :'xml:lang' => "en-us", :lang => 'en-us' }
+  %head
+    %meta{ :'http-equiv' => "content-type", :content => "text/html; charset=utf-8" }
+    %title OohAuth Slice
+    
+  / you can override this layout at slices/ooh-auth/app/views/layout/ooh-auth.html.erb
+  %body.ooh-auth
+    #root
+      %h1 OohAuth Slice
+
+      -unless message.blank?
+        %div{:id=>"_message"}
+          =message
+
+      #main
+        =catch_content :for_layout
