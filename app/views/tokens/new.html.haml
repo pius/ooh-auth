@@ -1,0 +1,47 @@
+%h1= "#{@authenticating_client.name} wants access to your account!"
+
+%p.abstract
+  The application
+  = link_to h(@authenticating_client.name), @authenticating_client.web_url 
+  wants access to your content.
+
+%h2 Grant this application access to your account
+=form_for @authenticating_client, :action=>slice_url(:tokens), :class=>"authentication" do 
+  %fieldset
+    %p.confirmation
+      =h @authenticating_client.name
+      will be granted access to your data. 
+      The application will 
+      %strong not
+      have the ability to grant access to other applications.
+      You will be able to revoke this access at a later date if you so choose.
+
+
+    %input{:type=>"hidden", :name => "oauth_token", :value =>"#{@token.token_key}"}
+    -if request.callback
+      %input{:type => "hidden", :name => "oauth_callback", :value=>"#{@request.callback}"}
+
+  %fieldset
+    %legend Options
+    %dl
+      %dt
+        %label{:for=>"token_expires"} Allow access until
+      %dd
+        %select.token_expires{:name=>"token[expires]"}
+          %option{:value => "2999-12-31"} Further notice
+          / or when Philip J. Fry wakes up
+          %option{:value => (Date.today + 1.year).strftime("%Y-%m-%d")} 1 year from now
+          %option{:value => (Date.today + 1.month).strftime("%Y-%m-%d")} 1 month from now
+          %option{:value => (Date.today + 1.week).strftime("%Y-%m-%d")} 1 week from now
+          %option{:value => (Date.today + 1.day).strftime("%Y-%m-%d")} 1 day from now
+      
+      %dt
+        %label{:for=>"token_permissions"} Allow this application to
+      %dd
+        %select.token_permissions{:name=>"token[permissions]"}
+          -OohAuth[:client_permission_levels].each do |name, opts|
+            %option{:value => "#{name}"}= opts[:able_to]
+
+  %fieldset.buttons
+    =submit "Grant access", :name=>"commit", :value=>"allow"
+    =submit "Deny access", :name=>"commit", :value=>"deny"
