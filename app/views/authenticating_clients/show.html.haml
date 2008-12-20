@@ -1,0 +1,38 @@
+-ac = @authenticating_client
+
+%h1=h ac.name
+
+#facts
+  %h2 About your application:
+
+  %ul
+    %li 
+      This application was registered on
+      = ac.created_at.strftime("%d/%b/%Y")
+
+
+#api_secrets
+  %h2 
+    Your API key details for 
+    %em= ac.name
+    %p
+      Your 
+      %strong Consumer Key 
+      will for the most part be public, although it is useless without the
+      %strong Consumer Secret
+      that goes with it. 
+      You should under no circumstances make your Consumer Secret known by another party, as it can be used to sign the authorization requests that your application will send.
+
+    %dl
+      %dt Your OAuth Consumer Key
+      %dd
+        %a{:href=>"#api_key", :onclick => "this.style.display = 'none'; document.getElementById('api_key').style.display = 'block'; return false;"} Show my API Key
+        %span#api_key.secret.shared{:style => "display: none;"}= ac.api_key
+
+      %dt Your OAuth Consumer Secret
+      %dd
+        %a.shared_secret_toggle{:href => "#shared_secret", :onclick="this.style.display = 'none'; document.getElementById('shared_secret').style.display = 'block'; return false;"}
+          Nobody but myself can see. I have closed my doors, shuttered my windows and, just for today, shunned my loved ones. It is safe to show my Consumer Secret.
+        %span#shared_secret.secret.shared{:style => "display: none;"}= ac.secret
+
+=partial "help"

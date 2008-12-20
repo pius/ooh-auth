@@ -1,0 +1,45 @@
+%h1 Register for a new API Key
+
+%p
+  %strong Important!
+  Upon successfully adding your application, you will be shown two pieces of information. 
+  You'll be given your
+  %strong API Key
+  , which will allow you to interact with the API, and you'll be given a
+  %strong shared secret
+  which will allow you to verify your requests to the API. 
+  %strong Note both of these down.
+  
+
+= form_for @authenticating_client, :action=>resource(:ooh_auth, :authenticating_clients), :class=>"authenticating_client" do
+  = error_messages_for @authenticating_client
+  %fieldset
+    %legend Some information about your application
+    %dl
+      %dt
+        %label{:for=>"ooh_auth_authenticating_clients_name"} Application name
+      %dd= text_field :name, :name => "authenticating_client[name]", :value=>h(@authenticating_client.name)
+
+      %dt
+        %label{:for=>"ooh_auth_authenticating_clients_name"} Web URL
+      %dd= text_field :web_url, :name=>"authenticating_client[web_url]", :value=>h(@authenticating_client.web_url) 
+      
+  %fieldset
+    %legend Application type
+
+    %dl.checkboxes
+      %dt
+        %label{:for => "ooh_auth_authenticating_clients_kind_web"} This is a web-based application
+      %dd= radio_button :kind, :value=>"web", :name=>"authenticating_client[kind]", :id=>"ooh_auth_authenticating_clients_kind_web", :checked=>@authenticating_client.is_webapp?
+      
+      %dt
+        %label{:for=>"ooh_auth_authenticating_clients_kind_desktop"} This is a desktop or mobile application
+      %dd= radio_button :kind, :value=>"desktop", :name=>"authenticating_client[kind]", :id=>"ooh_auth_authenticating_clients_kind_desktop", :checked=>!@authenticating_client.is_webapp?
+
+  %fieldset.buttons
+    %p
+      When you submit this form, we will generate both two pieces of information for you - an <strong>API Key</strong> and a 
+      %strong Shared Secret
+      They will be shown on the next page. Be sure to record them.
+
+    = submit "Get my API Key"
