@@ -1,0 +1,33 @@
+-ac = @authenticating_client
+
+
+-if @activated
+  %h1.win 
+    You successfully authorized
+    =ac.name
+
+    %div{:id=>"win facts"}
+      %h2 To access your account:
+      
+      %ul
+        %li 
+          Until 
+          =@token.expires.strftime("%d/%b/%Y")
+        %li 
+          With permission to 
+          = OohAuth[:client_permission_levels][@token.permissions.to_sym][:able_to]
+          .
+      %p
+        %strong You may now close this window or navigate away from this page.
+
+-else
+
+  %h1.fail
+    You denied
+    =ac.name
+    access to your content
+
+  %div{:id=>"fail facts"}
+    %h2 This application will not be able to access your account.
+    %p
+      %strong You may now close this window or navigate away from this page.
